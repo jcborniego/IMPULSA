@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control de Ciclo | Impulsa</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body class="diagnostic-body">
+    <nav class="glass-nav minimal">
+        <a href="index.html" class="logo text-decoration-none">← Volver al Ecosistema</a>
+    </nav>
+
+    <div class="feature-layout">
+        <div class="feature-box">
+            <div class="feature-header">
+                <h2>📅 Control de Ciclo</h2>
+                <p>Planificación de a dos</p>
+            </div>
+
+            <div class="calendar-widget">
+                <p style="font-weight: 800; text-align: left; margin-bottom: 10px;">Tu Ventana Fértil Actual</p>
+                <div class="calendar-days">
+                    <div class="day"><span>L</span>
+                        <div class="date" style="background:#eee;color:#888;">14</div>
+                    </div>
+                    <div class="day fertile"><span>M</span>
+                        <div class="date">15</div>
+                    </div>
+                    <div class="day fertile"><span>M</span>
+                        <div class="date">16</div>
+                    </div>
+                    <div class="day fertile"><span>J</span>
+                        <div class="date">17</div>
+                    </div>
+                    <div class="day"><span>V</span>
+                        <div class="date" style="background:#eee;color:#888;">18</div>
+                    </div>
+                </div>
+                <p style="margin-top: 15px; color: var(--primary); font-weight: 800;">Probabilidad de concepción muy
+                    alta hoy</p>
+            </div>
+
+            <div class="toggle-container"
+                onclick="this.querySelector('.toggle-switch').style.background = this.querySelector('.toggle-switch').style.background === 'gray' ? 'var(--primary)' : 'gray' ">
+                <span>Notificar automáticamente a mi pareja</span>
+                <div class="toggle-switch"></div>
+            </div>
+
+            <p style="font-size: 0.95rem; font-weight: 600; color: #888; margin-top: 20px; line-height: 1.4;">
+                Activando esta función, tu pareja recibirá un SMS sutil notificando que los días de probabilidad han
+                llegado, para que la carga mental y la presión no recaiga solo sobre ti.
+            </p>
+        </div>
+    </div>
+    <div class="hero-bg-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+    </div>
+</body>
+
+</html>
