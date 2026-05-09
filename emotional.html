@@ -7,36 +7,86 @@
     <title>Emocional | Impulsa</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .feature-layout-wide {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 100vh;
+            align-items: stretch;
+        }
+
+        .feature-img-panel {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-img-panel img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+        }
+
+        .feature-img-panel::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, transparent 60%, var(--bg-color));
+        }
+
+        .feature-content-panel {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 7rem 4rem 4rem 3rem;
+            background: var(--bg-color);
+            position: relative;
+            z-index: 10;
+        }
+
+        @media (max-width: 768px) {
+            .feature-layout-wide { grid-template-columns: 1fr; }
+            .feature-img-panel { height: 280px; }
+            .feature-content-panel { padding: 3rem 1.5rem; }
+        }
+    </style>
 </head>
 
-<body class="diagnostic-body">
+<body class="diagnostic-body" style="display:block;">
     <nav class="glass-nav minimal">
         <a href="index.html" class="logo text-decoration-none">← Volver al Ecosistema</a>
     </nav>
-    <div class="feature-layout">
-        <div class="feature-box">
-            <div class="feature-header">
-                <h2>💜 Apoyo Emocional</h2>
-                <p>Acompañamiento sin juzgar</p>
-            </div>
 
-            <p style="font-weight: 800; font-size: 1.1rem; text-align: left; margin-bottom: 1rem;">Próxima Sesión de Claridad:</p>
-            <div class="dashboard-card"
-                style="background: var(--white); box-shadow: 0 10px 30px rgba(91,45,142,0.08); padding: 2rem 1.5rem; border: 2px solid var(--primary-light);">
-                <div class="icon">👩‍⚕️</div>
-                <div>
-                    <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--primary);">Miedo a perder mi autonomía</h3>
-                    <p style="font-size: 1rem; color: #888; font-weight: 700; margin-top: 5px;">Hoy, 18:30 hrs - Videollamada</p>
+    <div class="feature-layout-wide">
+        <div class="feature-img-panel">
+            <img src="img-psychologist.png" alt="Especialista en salud mental">
+        </div>
+
+        <div class="feature-content-panel">
+            <div class="feature-box" style="box-shadow:none; border:none; padding: 0; background: transparent; max-width: 100%;">
+                <div class="feature-header">
+                    <h2>💜 Apoyo Emocional</h2>
+                    <p>Acompañamiento sin juzgar</p>
                 </div>
-            </div>
 
-            <button class="btn-primary" style="width:100%; margin-top: 1rem;">Ingresar a la sala</button>
-            <button class="option-btn" style="width:100%; text-align: center; margin-top: 1rem;">Cuaderno de apuntes propio</button>
+                <p style="font-weight: 800; font-size: 1.1rem; text-align: left; margin-bottom: 1rem;">Próxima Sesión de Claridad:</p>
+                <div class="dashboard-card"
+                    style="background: var(--white); box-shadow: 0 10px 30px rgba(91,45,142,0.08); padding: 2rem 1.5rem; border: 2px solid var(--primary-light);">
+                    <div class="icon">👩‍⚕️</div>
+                    <div>
+                        <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--primary);">Miedo a perder mi autonomía</h3>
+                        <p style="font-size: 1rem; color: #888; font-weight: 700; margin-top: 5px;">Hoy, 18:30 hrs - Videollamada</p>
+                    </div>
+                </div>
+
+                <button class="btn-primary" style="width:100%; margin-top: 1rem;">Ingresar a la sala</button>
+                <button class="option-btn" style="width:100%; text-align: center; margin-top: 1rem;">Cuaderno de apuntes propio</button>
+            </div>
         </div>
     </div>
+
     <div class="hero-bg-shapes">
         <div class="shape shape-2"></div>
     </div>
 </body>
-
 </html>

@@ -7,43 +7,91 @@
     <title>Pareja | Impulsa</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .couple-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 100vh;
+            align-items: stretch;
+        }
+
+        .couple-img-panel {
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .couple-img-panel img {
+            width: 100%;
+            flex: 1;
+            object-fit: cover;
+        }
+
+        .couple-img-panel::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, transparent 60%, var(--bg-color));
+            z-index: 1;
+        }
+
+        .couple-content-panel {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 7rem 4rem 4rem 3rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        @media (max-width: 768px) {
+            .couple-layout { grid-template-columns: 1fr; }
+            .couple-img-panel { height: 280px; }
+            .couple-content-panel { padding: 3rem 1.5rem; }
+        }
+    </style>
 </head>
 
-<body class="diagnostic-body">
+<body class="diagnostic-body" style="display:block;">
     <nav class="glass-nav minimal">
         <a href="index.html" class="logo text-decoration-none">← Volver al Ecosistema</a>
     </nav>
-    <div class="feature-layout">
-        <div class="feature-box">
-            <div class="feature-header">
-                <h2>🤝 Dinámica de Pareja</h2>
-                <p>Las charlas que deben darse</p>
-            </div>
 
-            <p style="font-weight: 800; font-size: 1.2rem; text-align: left; margin-bottom: 1rem; color: var(--primary);">
-                Acuerdo Semanal Abierto:</p>
-            <div class="dashboard-card"
-                style="flex-direction: column; align-items: flex-start; background: var(--bg-soft); color: var(--text-color); border: 2px solid var(--primary-ultralight);">
-                <h3 style="font-size: 1.4rem; font-weight: 800; margin-bottom: 1.5rem; padding-right: 1rem; line-height: 1.2;">
-                    ¿Quién cedería horario laboral el primer trimestre?</h3>
+    <div class="couple-layout">
+        <div class="couple-img-panel">
+            <img src="img-couple-pregnant.png" alt="Pareja embarazada" style="height:55%;">
+            <img src="img-counseling.png" alt="Sesión de asesoramiento" style="height:45%;">
+        </div>
 
-                <div style="background: rgba(255,255,255,0.8); font-weight: 700; padding: 1.2rem; border-radius: 15px; width: 100%; margin-bottom: 0.8rem; box-shadow: 0 4px 10px rgba(91,45,142,0.05); border: 1px solid var(--primary-ultralight);">
-                    <span style="display: block; font-size: 0.8rem; color: #888; margin-bottom: 5px;">TU RESPUESTA</span>
-                    Mitad y mitad, o pedir ayuda familiar
+        <div class="couple-content-panel">
+            <div class="feature-box" style="box-shadow:none; border:none; padding:0; background:transparent; max-width:100%;">
+                <div class="feature-header">
+                    <h2>🤝 Dinámica de Pareja</h2>
+                    <p>Las charlas que deben darse</p>
                 </div>
 
-                <div style="background: var(--white); font-weight: 700; padding: 1.2rem; border-radius: 15px; width: 100%; box-shadow: 0 4px 10px rgba(91,45,142,0.05); border: 1px solid var(--primary-ultralight);">
-                    <span style="display: block; font-size: 0.8rem; color: #888; margin-bottom: 5px;">RESPUESTA DE JUAN</span>
-                    Él tomaría jornada part-time los primeros 3 meses
-                </div>
-            </div>
+                <p style="font-weight: 800; font-size: 1.2rem; text-align: left; margin-bottom: 1rem; color: var(--primary);">
+                    Acuerdo Semanal Abierto:</p>
+                <div class="dashboard-card"
+                    style="flex-direction: column; align-items: flex-start; background: var(--bg-soft); color: var(--text-color); border: 2px solid var(--primary-ultralight);">
+                    <h3 style="font-size: 1.4rem; font-weight: 800; margin-bottom: 1.5rem; padding-right: 1rem; line-height: 1.2;">
+                        ¿Quién cedería horario laboral el primer trimestre?</h3>
 
-            <button class="btn-primary" style="width:100%; margin-top: 1rem;">Sellar en el acuerdo de visión compartida</button>
+                    <div style="background: rgba(255,255,255,0.8); font-weight: 700; padding: 1.2rem; border-radius: 15px; width: 100%; margin-bottom: 0.8rem; box-shadow: 0 4px 10px rgba(91,45,142,0.05); border: 1px solid var(--primary-ultralight);">
+                        <span style="display: block; font-size: 0.8rem; color: #888; margin-bottom: 5px;">TU RESPUESTA</span>
+                        Mitad y mitad, o pedir ayuda familiar
+                    </div>
+
+                    <div style="background: var(--white); font-weight: 700; padding: 1.2rem; border-radius: 15px; width: 100%; box-shadow: 0 4px 10px rgba(91,45,142,0.05); border: 1px solid var(--primary-ultralight);">
+                        <span style="display: block; font-size: 0.8rem; color: #888; margin-bottom: 5px;">RESPUESTA DE JUAN</span>
+                        Él tomaría jornada part-time los primeros 3 meses
+                    </div>
+                </div>
+
+                <button class="btn-primary" style="width:100%; margin-top: 1rem;">Sellar en el acuerdo de visión compartida</button>
+            </div>
         </div>
     </div>
-    <div class="hero-bg-shapes">
-        <div class="shape shape-1"></div>
-    </div>
 </body>
-
 </html>

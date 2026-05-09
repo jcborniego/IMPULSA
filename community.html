@@ -7,48 +7,93 @@
     <title>Comunidad | Impulsa</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .community-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 100vh;
+            align-items: stretch;
+        }
+
+        .community-content-panel {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 7rem 3rem 4rem 4rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .community-img-panel {
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .community-img-panel img {
+            width: 100%;
+            flex: 1;
+            object-fit: cover;
+        }
+
+        .community-img-panel::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to left, transparent 50%, var(--bg-color));
+            z-index: 1;
+        }
+
+        @media (max-width: 768px) {
+            .community-layout { grid-template-columns: 1fr; }
+            .community-img-panel { height: 280px; }
+            .community-content-panel { padding: 3rem 1.5rem; }
+        }
+    </style>
 </head>
 
-<body class="diagnostic-body">
+<body class="diagnostic-body" style="display:block;">
     <nav class="glass-nav minimal">
         <a href="index.html" class="logo text-decoration-none">← Volver al Ecosistema</a>
     </nav>
-    <div class="feature-layout">
-        <div class="feature-box">
-            <div class="feature-header">
-                <h2>💬 Comunidad de Pares</h2>
-                <p>Nadie aquí te juzgará por tus dudas</p>
-            </div>
 
-            <div style="text-align: left; margin-bottom: 2rem;">
-                <p style="font-weight: 800; font-size: 1.2rem; margin-bottom: 1.5rem; color: var(--primary);">Próximos
-                    Círculos (Tu grupo demográfico)</p>
+    <div class="community-layout">
+        <div class="community-content-panel">
+            <div class="feature-box" style="box-shadow:none; border:none; padding:0; background:transparent; max-width:100%;">
+                <div class="feature-header">
+                    <h2>💬 Comunidad de Pares</h2>
+                    <p>Nadie aquí te juzgará por tus dudas</p>
+                </div>
 
-                <div class="dashboard-card" style="cursor: pointer;">
-                    <div class="icon">🏕️</div>
-                    <div>
-                        <h3 style="font-size: 1.2rem; font-weight: 800;">"¿Y si me termino arrepintiendo?"</h3>
-                        <p style="font-size: 1rem; font-weight: 600; color: #888;">Jueves 20, 19:00 hrs. <span
-                                style="color: var(--primary);">8/10 cupos ocupados.</span></p>
+                <div style="text-align: left; margin-bottom: 2rem;">
+                    <p style="font-weight: 800; font-size: 1.2rem; margin-bottom: 1.5rem; color: var(--primary);">Próximos Círculos (Tu grupo demográfico)</p>
+
+                    <div class="dashboard-card" style="cursor: pointer;">
+                        <div class="icon">🏕️</div>
+                        <div>
+                            <h3 style="font-size: 1.2rem; font-weight: 800;">"¿Y si me termino arrepintiendo?"</h3>
+                            <p style="font-size: 1rem; font-weight: 600; color: #888;">Jueves 20, 19:00 hrs. <span style="color: var(--primary);">8/10 cupos ocupados.</span></p>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-card" style="cursor: pointer;">
+                        <div class="icon">💼</div>
+                        <div>
+                            <h3 style="font-size: 1.2rem; font-weight: 800;">Impacto profesional y culpa madre/ejecutiva</h3>
+                            <p style="font-size: 1rem; font-weight: 600; color: #888;">Viernes 28, 18:00 hrs. <span style="color: var(--primary);">4/10 cupos ocupados.</span></p>
+                        </div>
                     </div>
                 </div>
 
-                <div class="dashboard-card" style="cursor: pointer;">
-                    <div class="icon">💼</div>
-                    <div>
-                        <h3 style="font-size: 1.2rem; font-weight: 800;">Impacto profesional y culpa madre/ejecutiva</h3>
-                        <p style="font-size: 1rem; font-weight: 600; color: #888;">Viernes 28, 18:00 hrs. <span
-                                style="color: var(--primary);">4/10 cupos ocupados.</span></p>
-                    </div>
-                </div>
+                <button class="btn-primary" style="width:100%;">Ingresar al Foro Privado Abierto 24/7</button>
             </div>
+        </div>
 
-            <button class="btn-primary" style="width:100%;">Ingresar al Foro Privado Abierto 24/7</button>
+        <div class="community-img-panel">
+            <img src="img-support-group.png" alt="Grupo de apoyo" style="height:55%;">
+            <img src="img-community-kids.png" alt="Comunidad con familias" style="height:45%;">
         </div>
     </div>
-    <div class="hero-bg-shapes">
-        <div class="shape shape-1"></div>
-    </div>
 </body>
-
 </html>

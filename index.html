@@ -7,6 +7,94 @@
     <title>Impulsa | Acompañamos decisiones que transforman vidas</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Hero with image split */
+        .hero {
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            padding: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-left {
+            padding: 10rem 4rem 6rem 6rem;
+            z-index: 10;
+        }
+
+        .hero-left h1 {
+            font-size: 3.8rem;
+            line-height: 1.15;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            color: var(--text-color);
+        }
+
+        .hero-left p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            font-weight: 600;
+            max-width: 480px;
+        }
+
+        .hero-right {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .hero-right img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+        }
+
+        .hero-right::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, var(--bg-color) 0%, transparent 30%);
+        }
+
+        /* Testimonials with image */
+        .testimonial-with-img {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            max-width: 1250px;
+            margin: 0 auto;
+            padding: 6rem 2rem;
+        }
+
+        .testimonial-img-col img {
+            width: 100%;
+            border-radius: 30px;
+            object-fit: cover;
+            max-height: 480px;
+            box-shadow: 0 20px 50px rgba(91,45,142,0.12);
+        }
+
+        .testimonial-text-col h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 2.5rem;
+            color: var(--text-color);
+        }
+
+        @media (max-width: 900px) {
+            .hero { grid-template-columns: 1fr; }
+            .hero-right { height: 350px; }
+            .hero-left { padding: 8rem 2rem 3rem 2rem; }
+            .hero-left h1 { font-size: 2.8rem; }
+            .testimonial-with-img { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
 
 <body>
@@ -21,17 +109,17 @@
         </div>
     </nav>
 
-    <!-- Hero -->
+    <!-- Hero con imagen -->
     <header class="hero">
-        <div class="hero-content">
+        <div class="hero-left">
             <h1>Acompañamos decisiones que transforman <span class="highlight">vidas</span>.</h1>
             <p>Reducimos la incertidumbre detrás de formar una familia. Conectamos tu biología, finanzas y bienestar emocional en un solo ecosistema pensado para vos.</p>
-            <div class="hero-cta">
-                <a href="diagnostic.html" class="btn-primary lg">Quiero conocer mis barreras →</a>
-            </div>
+            <a href="diagnostic.html" class="btn-primary lg">Quiero conocer mis barreras →</a>
         </div>
-        <div class="hero-bg-shapes">
-            <div class="shape shape-1"></div>
+        <div class="hero-right">
+            <img src="img-pregnant.png" alt="Mujer embarazada sonriendo">
+        </div>
+        <div class="hero-bg-shapes" style="position:absolute;">
             <div class="shape shape-2"></div>
         </div>
     </header>
@@ -102,40 +190,36 @@
         </div>
     </section>
 
-    <!-- Testimonios -->
-    <section id="testimonios" class="testimonials-section">
-        <h2>Lo que dicen quienes ya dieron el paso</h2>
-        <div class="testimonials-grid">
-            <div class="testimonial-card">
-                <div class="testimonial-quote">"</div>
-                <p>Tenía 34 años y mil preguntas sin respuesta. Impulsa me ayudó a ordenar mis miedos y entender que mi reserva ovárica estaba bien. Por fin pude hablar el tema con mi pareja sin que se convirtiera en una pelea.</p>
-                <div class="testimonial-author">
-                    <div class="testimonial-avatar">M</div>
-                    <div>
-                        <strong>Marcela R.</strong>
-                        <span>Gerente de Marketing, 35 años</span>
-                    </div>
-                </div>
+    <!-- Testimonios con imagen -->
+    <section id="testimonios">
+        <div class="testimonial-with-img">
+            <div class="testimonial-img-col">
+                <img src="img-family.png" alt="Familia feliz">
             </div>
-            <div class="testimonial-card">
-                <div class="testimonial-quote">"</div>
-                <p>Siempre postergaba la decisión por miedo a lo económico. El simulador financiero me mostró que era más viable de lo que pensaba. Eso solo ya valió todo el programa.</p>
-                <div class="testimonial-author">
-                    <div class="testimonial-avatar">S</div>
-                    <div>
-                        <strong>Sofía L.</strong>
-                        <span>Abogada independiente, 32 años</span>
+            <div class="testimonial-text-col">
+                <h2>Lo que dicen quienes ya <span class="highlight">dieron el paso</span></h2>
+                <div class="testimonials-grid" style="grid-template-columns: 1fr;">
+                    <div class="testimonial-card">
+                        <div class="testimonial-quote">"</div>
+                        <p>Tenía 34 años y mil preguntas sin respuesta. Impulsa me ayudó a ordenar mis miedos y entender que mi reserva ovárica estaba bien. Por fin pude hablar el tema con mi pareja sin que se convirtiera en una pelea.</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">M</div>
+                            <div>
+                                <strong>Marcela R.</strong>
+                                <span>Gerente de Marketing, 35 años</span>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="testimonial-card">
-                <div class="testimonial-quote">"</div>
-                <p>Lo que más me sorprendió fue la comunidad. Saber que otras mujeres profesionales tenían exactamente los mismos miedos que yo me hizo sentir menos sola en todo esto.</p>
-                <div class="testimonial-author">
-                    <div class="testimonial-avatar">V</div>
-                    <div>
-                        <strong>Valentina M.</strong>
-                        <span>Directora de Producto, 33 años</span>
+                    <div class="testimonial-card">
+                        <div class="testimonial-quote">"</div>
+                        <p>El simulador financiero me mostró que era más viable de lo que pensaba. Eso solo ya valió todo el programa.</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">S</div>
+                            <div>
+                                <strong>Sofía L.</strong>
+                                <span>Abogada independiente, 32 años</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -145,7 +229,7 @@
     <!-- Equipo preview -->
     <section class="team-preview-section">
         <div class="team-preview-content">
-            <h2>Un equipo con <span class="highlight">propósito</span></h2>
+            <h2>Un equipo con <span class="highlight" style="-webkit-text-fill-color: transparent; background: linear-gradient(135deg,#FFD700,#FFA500); -webkit-background-clip:text;">propósito</span></h2>
             <p>Combinamos experiencia en finanzas, salud, operaciones y tecnología para construir el ecosistema que hubiera cambiado nuestras propias decisiones.</p>
             <a href="team.html" class="btn-outline">Conocer al equipo →</a>
         </div>
@@ -170,5 +254,4 @@
         <p style="margin-top: 1rem; font-size: 0.95rem;">&copy; 2026 Impulsa - Proyecto MBA. Todos los derechos reservados.</p>
     </footer>
 </body>
-
 </html>
