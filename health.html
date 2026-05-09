@@ -14,7 +14,6 @@
             min-height: 100vh;
             align-items: stretch;
         }
-
         .health-content-panel {
             display: flex;
             flex-direction: column;
@@ -23,25 +22,16 @@
             position: relative;
             z-index: 10;
         }
-
         .health-img-panel {
             position: relative;
             overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            gap: 0;
         }
-
         .health-img-panel img {
             width: 100%;
-            flex: 1;
+            height: 100%;
             object-fit: cover;
-        }
-
-        .health-img-panel img:first-child {
             object-position: center top;
         }
-
         .health-img-panel::before {
             content: '';
             position: absolute;
@@ -49,10 +39,9 @@
             background: linear-gradient(to left, transparent 60%, var(--bg-color));
             z-index: 1;
         }
-
         @media (max-width: 768px) {
             .health-layout { grid-template-columns: 1fr; }
-            .health-img-panel { height: 280px; flex-direction: row; }
+            .health-img-panel { height: 280px; }
             .health-content-panel { padding: 3rem 1.5rem; }
         }
     </style>
@@ -91,8 +80,7 @@
         </div>
 
         <div class="health-img-panel">
-            <img src="img-health-professional.png" alt="Profesional de salud" style="height:50%;">
-            <img src="img-consultation.png" alt="Consulta médica" style="height:50%;">
+            <img src="img-health-professional.png" alt="Profesional de salud">
         </div>
     </div>
 </body>
