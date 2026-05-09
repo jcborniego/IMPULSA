@@ -7,6 +7,213 @@
     <title>Planes | Impulsa</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .pricing-page {
+            min-height: 100vh;
+            padding: 120px 2rem 6rem 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 10;
+        }
+
+        .pricing-page-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .pricing-page-header h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--text-color);
+            margin-bottom: 0.8rem;
+        }
+
+        .pricing-page-header p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            align-items: start;
+        }
+
+        .p-card {
+            background: var(--white);
+            border: 1.5px solid #E8E0F5;
+            border-radius: 24px;
+            padding: 2.5rem 2rem;
+            position: relative;
+            transition: box-shadow 0.3s;
+        }
+
+        .p-card:hover {
+            box-shadow: 0 16px 40px rgba(91, 45, 142, 0.12);
+        }
+
+        .p-card.featured {
+            border-color: var(--primary);
+            border-width: 2px;
+        }
+
+        .p-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            padding: 0.35rem 0.9rem;
+            border-radius: 50px;
+            margin-bottom: 1.5rem;
+            background: var(--primary-ultralight);
+            color: var(--primary);
+        }
+
+        .p-card.featured .p-badge {
+            background: var(--primary);
+            color: white;
+        }
+
+        .p-name {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--text-color);
+            margin-bottom: 0.4rem;
+        }
+
+        .p-tagline {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            font-weight: 600;
+            margin-bottom: 1.8rem;
+            min-height: 2.5rem;
+        }
+
+        .p-price {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--text-color);
+            margin-bottom: 0.3rem;
+            line-height: 1;
+        }
+
+        .p-price-sub {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+
+        .p-btn {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            border-radius: 12px;
+            font-family: 'Nunito', sans-serif;
+            font-size: 1rem;
+            font-weight: 800;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            margin-bottom: 2rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: none;
+        }
+
+        .p-btn-outline {
+            background: white;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .p-btn-outline:hover {
+            background: var(--primary-ultralight);
+            transform: translateY(-2px);
+        }
+
+        .p-btn-filled {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 6px 18px rgba(91, 45, 142, 0.3);
+        }
+
+        .p-btn-filled:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(91, 45, 142, 0.4);
+        }
+
+        .p-divider {
+            border: none;
+            border-top: 1px solid #F0EAF8;
+            margin-bottom: 1.5rem;
+        }
+
+        .p-features-title {
+            font-size: 0.8rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .p-features {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .p-features li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.7rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-color);
+            line-height: 1.4;
+        }
+
+        .p-features li::before {
+            content: "✓";
+            color: var(--primary);
+            font-weight: 800;
+            font-size: 1rem;
+            flex-shrink: 0;
+            margin-top: 0.05rem;
+        }
+
+        .p-card.featured .p-features li::before {
+            color: var(--primary);
+        }
+
+        .pricing-note-bottom {
+            text-align: center;
+            margin-top: 3rem;
+            font-size: 1rem;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .pricing-note-bottom a {
+            color: var(--primary);
+            font-weight: 800;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .pricing-cards {
+                grid-template-columns: 1fr;
+            }
+            .pricing-page-header h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -14,62 +221,75 @@
         <a href="index.html" class="logo text-decoration-none">← Volver</a>
     </nav>
 
-    <section class="pricing-section">
-        <div class="pricing-header">
+    <div class="pricing-page">
+        <div class="pricing-page-header">
             <h1>Planes <span class="highlight">Impulsa</span></h1>
             <p>Elegí el acompañamiento que mejor se adapta a tu momento.</p>
         </div>
 
-        <div class="pricing-grid">
+        <div class="pricing-cards">
 
-            <div class="pricing-card">
-                <div class="pricing-badge">Exploración</div>
-                <div class="pricing-price">Gratis</div>
-                <p class="pricing-desc">Para conocer Impulsa y entender tus barreras.</p>
-                <ul class="pricing-features">
-                    <li>✦ Diagnóstico interactivo completo</li>
-                    <li>✦ Plan personalizado inicial</li>
-                    <li>✦ Acceso a recursos informativos</li>
+            <!-- Gratis -->
+            <div class="p-card">
+                <div class="p-badge">Exploración</div>
+                <div class="p-name">Gratis</div>
+                <div class="p-tagline">Para conocer Impulsa y entender tus barreras.</div>
+                <div class="p-price">$0</div>
+                <div class="p-price-sub">sin costo, sin tarjeta</div>
+                <a href="diagnostic.html" class="p-btn p-btn-outline">Empezar gratis →</a>
+                <hr class="p-divider">
+                <div class="p-features-title">Incluye</div>
+                <ul class="p-features">
+                    <li>Diagnóstico interactivo completo</li>
+                    <li>Plan personalizado inicial</li>
+                    <li>Acceso a recursos informativos</li>
                 </ul>
-                <a href="diagnostic.html" class="btn-primary" style="width:100%; text-align:center; display:block; margin-top: 2rem;">Empezar gratis</a>
             </div>
 
-            <div class="pricing-card pricing-featured">
-                <div class="pricing-badge featured-badge">Más elegido</div>
-                <div class="pricing-plan-name">Impulsa Esencial</div>
-                <div class="pricing-price">$89.000 <span>/ mes</span></div>
-                <p class="pricing-desc">Acompañamiento integral para avanzar con claridad.</p>
-                <ul class="pricing-features">
-                    <li>✦ Todo lo del plan gratuito</li>
-                    <li>✦ 2 sesiones mensuales con especialista</li>
-                    <li>✦ Simulador financiero personalizado</li>
-                    <li>✦ Control de ciclo con notificaciones</li>
-                    <li>✦ Acceso a comunidad de pares</li>
-                    <li>✦ Soporte por WhatsApp</li>
+            <!-- Esencial -->
+            <div class="p-card featured">
+                <div class="p-badge">Más elegido</div>
+                <div class="p-name">Esencial</div>
+                <div class="p-tagline">Acompañamiento integral para avanzar con claridad.</div>
+                <div class="p-price">$89.000</div>
+                <div class="p-price-sub">por mes · cancelá cuando quieras</div>
+                <a href="diagnostic.html" class="p-btn p-btn-filled">Comenzar ahora →</a>
+                <hr class="p-divider">
+                <div class="p-features-title">Todo lo del plan Gratis, más:</div>
+                <ul class="p-features">
+                    <li>2 sesiones mensuales con especialista</li>
+                    <li>Simulador financiero personalizado</li>
+                    <li>Control de ciclo con notificaciones</li>
+                    <li>Acceso a comunidad de pares</li>
+                    <li>Soporte por WhatsApp</li>
                 </ul>
-                <a href="diagnostic.html" class="btn-primary" style="width:100%; text-align:center; display:block; margin-top: 2rem;">Comenzar ahora</a>
             </div>
 
-            <div class="pricing-card">
-                <div class="pricing-badge">Premium</div>
-                <div class="pricing-plan-name">Impulsa Total</div>
-                <div class="pricing-price">$149.000 <span>/ mes</span></div>
-                <p class="pricing-desc">Para quienes quieren el acompañamiento más completo.</p>
-                <ul class="pricing-features">
-                    <li>✦ Todo lo del plan Esencial</li>
-                    <li>✦ Sesiones ilimitadas con especialistas</li>
-                    <li>✦ Box Impulsa a domicilio (AMH)</li>
-                    <li>✦ Módulo de dinámica de pareja</li>
-                    <li>✦ Acuerdo de visión compartida guiado</li>
-                    <li>✦ Seguimiento mensual personalizado</li>
+            <!-- Total -->
+            <div class="p-card">
+                <div class="p-badge">Premium</div>
+                <div class="p-name">Total</div>
+                <div class="p-tagline">El acompañamiento más completo de Impulsa.</div>
+                <div class="p-price">$149.000</div>
+                <div class="p-price-sub">por mes · cancelá cuando quieras</div>
+                <a href="diagnostic.html" class="p-btn p-btn-outline">Comenzar ahora →</a>
+                <hr class="p-divider">
+                <div class="p-features-title">Todo lo del plan Esencial, más:</div>
+                <ul class="p-features">
+                    <li>Sesiones ilimitadas con especialistas</li>
+                    <li>Box Impulsa a domicilio (AMH)</li>
+                    <li>Módulo de dinámica de pareja</li>
+                    <li>Acuerdo de visión compartida guiado</li>
+                    <li>Seguimiento mensual personalizado</li>
                 </ul>
-                <a href="diagnostic.html" class="btn-primary" style="width:100%; text-align:center; display:block; margin-top: 2rem;">Comenzar ahora</a>
             </div>
 
         </div>
 
-        <p class="pricing-note">💬 ¿Tenés dudas sobre qué plan elegir? <a href="diagnostic.html" style="color: var(--primary); font-weight: 800;">Hacé el diagnóstico gratuito</a> y te recomendamos el mejor camino.</p>
-    </section>
+        <p class="pricing-note-bottom">
+            💬 ¿No sabés qué plan elegir? <a href="diagnostic.html">Hacé el diagnóstico gratuito</a> y te recomendamos el mejor camino.
+        </p>
+    </div>
 
     <div class="hero-bg-shapes">
         <div class="shape shape-1"></div>
