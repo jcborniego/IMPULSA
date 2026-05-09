@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preguntas Frecuentes | Impulsa</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="glass-nav minimal">
+        <a href="index.html" class="logo text-decoration-none">← Volver</a>
+    </nav>
+
+    <section class="faq-section">
+        <div class="faq-header">
+            <h1>Preguntas <span class="highlight">frecuentes</span></h1>
+            <p>Todo lo que necesitás saber antes de empezar.</p>
+        </div>
+
+        <div class="faq-list">
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    ¿Impulsa es solo para mujeres que ya decidieron tener hijos?
+                    <span class="faq-arrow">↓</span>
+                </button>
+                <div class="faq-answer">
+                    No. Impulsa está pensado para mujeres que están en el proceso de decidir — con dudas, miedos, preguntas sin respuesta. No necesitás tener la decisión tomada para empezar. De hecho, ese es justo el punto de partida.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    ¿Necesito tener pareja para usar Impulsa?
+                    <span class="faq-arrow">↓</span>
+                </button>
+                <div class="faq-answer">
+                    Para nada. Muchas de nuestras usuarias están explorando la maternidad como proyecto personal. Los módulos de pareja son opcionales — el ecosistema se adapta a tu situación actual.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    ¿Es confidencial lo que comparto?
+                    <span class="faq-arrow">↓</span>
+                </button>
+                <div class="faq-answer">
+                    Sí, completamente. Todo lo que compartís en Impulsa es privado y confidencial. Tus datos personales, resultados de diagnóstico y sesiones con especialistas están protegidos y nunca se comparten sin tu consentimiento.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    ¿Qué pasa si empiezo y siento que no es para mí?
+                    <span class="faq-arrow">↓</span>
+                </button>
+                <div class="faq-answer">
+                    Podés cancelar en cualquier momento, sin explicaciones ni penalidades. Creemos en el acompañamiento voluntario — si Impulsa no te suma, no te retenemos.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    ¿Los especialistas son profesionales certificados?
+                    <span class="faq-arrow">↓</span>
+                </button>
+                <div class="faq-answer">
+                    Sí. Nuestra red incluye psicólogos especializados en fertilidad y maternidad, ginecólogos, asesores financieros y coaches de desarrollo personal — todos con formación verificada y experiencia en el área.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    ¿Cuánto tiempo lleva ver resultados?
+                    <span class="faq-arrow">↓</span>
+                </button>
+                <div class="faq-answer">
+                    Desde la primera sesión empezás a ganar claridad. El diagnóstico inicial ya te da un mapa concreto de tus barreras y próximos pasos. La mayoría de nuestras usuarias reportan sentirse más seguras para tomar decisiones dentro del primer mes.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    ¿Puedo empezar con el plan gratuito y después actualizar?
+                    <span class="faq-arrow">↓</span>
+                </button>
+                <div class="faq-answer">
+                    Sí, el diagnóstico gratuito es el primer paso natural. Desde ahí podés ver qué plan se adapta mejor a tus necesidades y actualizarlo cuando quieras, sin perder tu historial ni tu progreso.
+                </div>
+            </div>
+
+        </div>
+
+        <div class="faq-cta">
+            <p>¿Tenés otra pregunta?</p>
+            <a href="diagnostic.html" class="btn-primary">Hacé el diagnóstico gratuito →</a>
+        </div>
+    </section>
+
+    <div class="hero-bg-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+    </div>
+
+    <script>
+        function toggleFaq(btn) {
+            const item = btn.parentElement;
+            const answer = item.querySelector('.faq-answer');
+            const arrow = btn.querySelector('.faq-arrow');
+            const isOpen = item.classList.contains('open');
+
+            // Close all
+            document.querySelectorAll('.faq-item').forEach(i => {
+                i.classList.remove('open');
+                i.querySelector('.faq-answer').style.maxHeight = null;
+                i.querySelector('.faq-arrow').textContent = '↓';
+            });
+
+            if (!isOpen) {
+                item.classList.add('open');
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+                arrow.textContent = '↑';
+            }
+        }
+    </script>
+</body>
+</html>
