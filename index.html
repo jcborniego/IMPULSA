@@ -1400,30 +1400,28 @@
     }
     .eco-drawer.is-open { display: block; }
     .eco-drawer-backdrop {
-      position: absolute; inset: 0;
+      position: fixed; inset: 0;
       background: rgba(26,17,48,.45);
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
       animation: fadeIn .25s var(--ease-out);
+      z-index: 151;
     }
     .eco-drawer-panel {
-      position: absolute; top: 0; right: 0; bottom: 0;
+      position: fixed; top: 0; right: 0; bottom: 0;
       width: 100%; max-width: 540px;
       background: var(--white);
       box-shadow: -12px 0 40px -8px rgba(26,17,48,.25);
       overflow-y: auto;
       display: flex; flex-direction: column;
-      animation: drawerSlideIn .42s var(--ease-spring) both;
+      animation: drawerSlideIn .42s var(--ease-spring);
       --accent: var(--purple-500);
       --accent-bg: var(--purple-100);
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      transform: translateZ(0);
-      will-change: auto;
+      z-index: 152;
     }
     @keyframes drawerSlideIn {
-      from { transform: translate3d(40px, 0, 0); opacity: .6; }
-      to   { transform: translateZ(0); opacity: 1; }
+      from { transform: translateX(40px); opacity: .6; }
+      to   { transform: none; opacity: 1; }
     }
     .eco-drawer-close {
       position: absolute; top: 16px; right: 16px;
