@@ -3,115 +3,115 @@
   "_doc": "Diccionario respuesta → frase humana para personalizar el PDF Notas Impulsa. Cada frase se inyecta dentro de motivo_template (en profiles.json). Convención: minúscula inicial, sin punto final — se ensambla con otras frases en una oración. Usar es-AR (vos, tenés). Sin emojis.",
   "answers": {
     "p1": {
-      "duda":   "marcaste que todavía estás dándole vueltas a la pregunta",
-      "freno":  "marcaste que tenés el sí pero algo te frena",
+      "duda": "marcaste que todavía estás dándole vueltas a la pregunta",
+      "freno": "marcaste que tenés el sí pero algo te frena",
       "avance": "marcaste que ya querés y estás en modo prepararte"
     },
     "p2a": {
       "identidad": "señalaste que la duda tiene que ver con saber si vos realmente querés",
-      "pareja":    "señalaste que tu vínculo de pareja todavía no se siente listo",
-      "cuerpo":    "señalaste que tu cuerpo y tus tiempos biológicos son la pregunta de fondo",
-      "plata":     "señalaste que pensar en la plata te cierra la cabeza",
-      "momento":   "señalaste que es un tema de momento de vida — carrera, ciudad, todo se mueve",
-      "miedo":     "señalaste que tenés miedo a arrepentirte en cualquier dirección"
+      "pareja": "señalaste que tu vínculo de pareja todavía no se siente listo",
+      "cuerpo": "señalaste que tu cuerpo y tus tiempos biológicos son la pregunta de fondo",
+      "plata": "señalaste que pensar en la plata te cierra la cabeza",
+      "momento": "señalaste que es un tema de momento de vida — carrera, ciudad, todo se mueve",
+      "miedo": "señalaste que tenés miedo a arrepentirte en cualquier dirección"
     },
     "p3a": {
       "semanas": "recién estás abriendo la pregunta, hace unas semanas",
-      "meses":   "venís dándole vueltas hace varios meses",
-      "anios":   "ya hace más de un año que te das vueltas con esto"
+      "meses": "venís dándole vueltas hace varios meses",
+      "anios": "ya hace más de un año que te das vueltas con esto"
     },
     "p4a": {
-      "yo_clara":    "dijiste que lo que más necesitás es entender qué querés vos, separado del afuera",
+      "yo_clara": "dijiste que lo que más necesitás es entender qué querés vos, separado del afuera",
       "info_cuerpo": "dijiste que querés información real sobre tu cuerpo, sin alarmismo",
-      "costos":      "dijiste que querés saber qué cuesta esto en plata y en energía",
-      "charla":      "dijiste que necesitás una conversación honesta con alguien que no te juzgue"
+      "costos": "dijiste que querés saber qué cuesta esto en plata y en energía",
+      "charla": "dijiste que necesitás una conversación honesta con alguien que no te juzgue"
     },
     "p5a": {
-      "nadie":       "hoy no lo estás hablando con nadie",
-      "pareja":      "lo estás hablando con tu pareja",
-      "amigas":      "lo estás charlando con amigas",
+      "nadie": "hoy no lo estás hablando con nadie",
+      "pareja": "lo estás hablando con tu pareja",
+      "amigas": "lo estás charlando con amigas",
       "profesional": "ya lo hablaste con algún/a profesional pero quedó suelto",
-      "terapia":     "lo estás trabajando en terapia"
+      "terapia": "lo estás trabajando en terapia"
     },
     "p2b": {
       "fertilidad": "tu freno principal hoy es la salud o fertilidad",
-      "plata":      "el freno hoy es la economía",
-      "pareja":     "tu pareja no está en la misma página",
-      "miedo":      "lo que te frena son tus propios miedos",
-      "info":       "lo que te frena es la falta de información clara"
+      "plata": "el freno hoy es la economía",
+      "pareja": "tu pareja no está en la misma página",
+      "miedo": "lo que te frena son tus propios miedos",
+      "info": "lo que te frena es la falta de información clara"
     },
     "p3b": {
-      "nada":        "todavía no hiciste nada, te trabás antes de empezar",
-      "googlear":    "intentaste buscar info por tu cuenta y te saturaste",
+      "nada": "todavía no hiciste nada, te trabás antes de empezar",
+      "googlear": "buscaste info por tu cuenta y te saturaste",
       "profesional": "ya hablaste con algún/a profesional pero quedó suelto",
-      "pareja":      "lo hablaron en pareja pero no llegaron a un plan"
+      "pareja": "lo hablaron en pareja pero no llegaron a un plan"
     },
     "p4b": {
       "estudios": "lo que más te movería esta semana son estudios concretos para saber dónde estás de salud",
-      "numeros":  "lo que más te movería son números reales sobre cuánto, cuándo y cómo",
-      "pareja":   "lo que más te movería es una conversación de pareja con estructura, no monólogo",
-      "psico":    "lo que más te movería es un espacio con una psicóloga perinatal",
-      "plan":     "lo que más te movería es un plan ordenado, escrito, paso a paso"
+      "numeros": "lo que más te movería son números reales sobre cuánto, cuándo y cómo",
+      "pareja": "lo que más te movería es una conversación de pareja con estructura, no monólogo",
+      "psico": "lo que más te movería es un espacio con una psicóloga perinatal",
+      "plan": "lo que más te movería es un plan ordenado, escrito, paso a paso"
     },
     "p5b": {
-      "ninguno":     "no tenés claro el próximo paso, ni ahí",
-      "borroso":     "lo ves borroso — tenés intuición pero no certeza",
+      "ninguno": "no tenés claro el próximo paso, ni ahí",
+      "borroso": "lo ves borroso — tenés intuición pero no certeza",
       "qué_no_cómo": "sabés qué querés pero no cómo arrancar",
-      "claro":       "sabés exactamente qué hacer, solo te falta arrancar"
+      "claro": "sabés exactamente qué hacer, solo te falta arrancar"
     },
     "p2c": {
       "cuerpo": "lo primero que querés preparar es tu cuerpo (chequeos, fertilidad, hábitos)",
-      "plata":  "lo primero que querés ordenar es la plata (ahorro, presupuesto, licencias)",
+      "plata": "lo primero que querés ordenar es la plata (ahorro, presupuesto, licencias)",
       "pareja": "lo primero que querés ordenar es la pareja (roles, acuerdos, expectativas)",
-      "red":    "lo primero que querés mapear es tu red de apoyo",
-      "info":   "lo primero que querés es entender bien todo el mapa"
+      "red": "lo primero que querés mapear es tu red de apoyo",
+      "info": "lo primero que querés es entender bien todo el mapa"
     },
     "p3c": {
-      "ya":     "estás en modo lo antes posible",
-      "6m":     "tu horizonte es los próximos seis meses",
-      "anio":   "este año es el horizonte, sin fecha exacta todavía",
+      "ya": "estás en modo lo antes posible",
+      "6m": "tu horizonte es los próximos seis meses",
+      "anio": "este año es el horizonte, sin fecha exacta todavía",
       "2anios": "tu horizonte es más adelante, dentro de uno a dos años"
     },
     "p4c": {
-      "estudios":  "si tuvieras 30 días con un equipo, arrancarías por estudios preventivos de fertilidad",
+      "estudios": "si tuvieras 30 días con un equipo, arrancarías por estudios preventivos de fertilidad",
       "simulador": "si tuvieras 30 días con un equipo, arrancarías por el simulador financiero y un plan de ahorro",
-      "coaching":  "si tuvieras 30 días con un equipo, arrancarías por coaching de pareja para alinear",
-      "ciclo":     "si tuvieras 30 días con un equipo, arrancarías por mapear tu ciclo y ventana fértil",
+      "coaching": "si tuvieras 30 días con un equipo, arrancarías por coaching de pareja para alinear",
+      "ciclo": "si tuvieras 30 días con un equipo, arrancarías por mapear tu ciclo y ventana fértil",
       "comunidad": "si tuvieras 30 días con un equipo, arrancarías por la comunidad de mujeres en la misma"
     },
     "p5c": {
-      "orden":    "tu salud general está en orden y al día",
-      "falta":    "te falta chequeo general — hace tiempo que no vas",
-      "activos":  "hay temas activos en tu salud (tratamiento, condición, seguimiento)",
+      "orden": "tu salud general está en orden y al día",
+      "falta": "te falta chequeo general — hace tiempo que no vas",
+      "activos": "hay temas activos en tu salud (tratamiento, condición, seguimiento)",
       "no_decir": "preferiste no hablar de tu salud actual"
     },
     "p6": {
-      "25_28":   "estás en la franja de 25 a 28 años",
-      "29_31":   "estás en la franja de 29 a 31 años",
-      "32_34":   "estás en la franja de 32 a 34 años",
-      "35_37":   "estás en la franja de 35 a 37 años, donde los chequeos preventivos cambian de prioridad",
-      "38_mas":  "estás en los 38 o más, donde el tiempo biológico se vuelve un dato concreto"
+      "25_28": "estás en la franja de 25 a 28 años",
+      "29_31": "estás en la franja de 29 a 31 años",
+      "32_34": "estás en la franja de 32 a 34 años",
+      "35_37": "estás en la franja de 35 a 37 años, donde los chequeos preventivos cambian de prioridad",
+      "38_mas": "estás en los 38 o más, donde el tiempo biológico se vuelve un dato concreto"
     },
     "p7": {
       "si_alineada": "estás en pareja y están alineados",
-      "si_proceso":  "estás en pareja y todavía lo están conversando",
-      "no":          "estás decidiendo en solitario, sin pareja hoy",
-      "no_decir":    "preferiste no hablar de tu situación de pareja"
+      "si_proceso": "estás en pareja y todavía lo están conversando",
+      "no": "estás decidiendo en solitario, sin pareja hoy",
+      "no_decir": "preferiste no hablar de tu situación de pareja"
     },
     "p8": {
-      "escrito":   "aprendés mejor con contenido escrito",
-      "webinars":  "aprendés mejor con webinars y videos a tu ritmo",
+      "escrito": "aprendés mejor con contenido escrito",
+      "webinars": "aprendés mejor con webinars y videos a tu ritmo",
       "uno_a_uno": "preferís acompañamiento uno a uno",
-      "mix":       "te funciona una mezcla, según el momento"
+      "mix": "te funciona una mezcla, según el momento"
     },
     "p9": {
-      "caba":      "vivís en CABA",
-      "gba":       "vivís en Gran Buenos Aires",
-      "cordoba":   "vivís en Córdoba",
-      "rosario":   "vivís en Rosario",
-      "mendoza":   "vivís en Mendoza",
-      "otra_arg":  "vivís en otra ciudad de Argentina",
-      "exterior":  "vivís en el exterior"
+      "caba": "vivís en CABA",
+      "gba": "vivís en Gran Buenos Aires",
+      "cordoba": "vivís en Córdoba",
+      "rosario": "vivís en Rosario",
+      "mendoza": "vivís en Mendoza",
+      "otra_arg": "vivís en otra ciudad de Argentina",
+      "exterior": "vivís en el exterior"
     }
   }
 }

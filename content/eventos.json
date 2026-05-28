@@ -3,59 +3,691 @@
   "_doc": "Eventos próximos del ecosistema. Cada evento se filtra por tool_id (pilar) en el drawer correspondiente. Fechas en formato ISO (YYYY-MM-DD HH:mm). Eventos con fecha pasada se filtran en runtime. Modalidad: online | presencial | hibrido.",
   "eventos": [
     {
-      "id": "ev-emo-jun-2026",
+      "id": "ev-psi-may27",
       "tool_id": "psicologia_perinatal",
       "titulo": "¿Quiero ser madre o me lo pidieron?",
-      "descripcion": "Webinar en vivo · separar mandato de deseo · con cupo limitado",
+      "descripcion": "Separar mandato de deseo · con psicóloga perinatal",
+      "fecha_iso": "2026-05-27 19:00",
+      "fecha_label": "Mié 27/5 · 19hs",
+      "modalidad": "online",
+      "estado": "disponible",
+      "cta": "Reservar",
+      "duracion": "60 min",
+      "cupos": 40,
+      "cupos_disponibles": 12,
+      "disertantes": [
+        {
+          "nombre": "Alejandra Vidal",
+          "especialidad": "Psicóloga perinatal · MP 42.310",
+          "foto": "https://i.pravatar.cc/80?img=47"
+        }
+      ],
+      "materiales": [
+        {
+          "label": "Guía de lectura previa",
+          "tipo": "pdf",
+          "url": "#"
+        },
+        {
+          "label": "Recursos de la sesión",
+          "tipo": "pdf",
+          "url": "#"
+        }
+      ]
+    },
+    {
+      "id": "ev-psi-may29",
+      "tool_id": "psicologia_perinatal",
+      "titulo": "Consultorio abierto",
+      "descripcion": "Espacio de preguntas en vivo · sin agenda previa",
+      "fecha_iso": "2026-05-29 18:30",
+      "fecha_label": "Vie 29/5 · 18:30hs",
+      "modalidad": "online",
+      "estado": "disponible",
+      "cta": "Anotarme",
+      "duracion": "45 min",
+      "cupos": 20,
+      "cupos_disponibles": 7,
+      "disertantes": [
+        {
+          "nombre": "Alejandra Vidal",
+          "especialidad": "Psicóloga perinatal · MP 42.310",
+          "foto": "https://i.pravatar.cc/80?img=47"
+        }
+      ],
+      "materiales": []
+    },
+    {
+      "id": "ev-psi-jun03",
+      "tool_id": "psicologia_perinatal",
+      "titulo": "Ansiedad y maternidad",
+      "descripcion": "Cómo no decidir desde el miedo",
+      "fecha_iso": "2026-06-03 19:00",
+      "fecha_label": "Mié 3/6 · 19hs",
+      "modalidad": "online",
+      "estado": "disponible",
+      "cta": "Reservar",
+      "duracion": "60 min",
+      "cupos": 40,
+      "cupos_disponibles": 31,
+      "disertantes": [
+        {
+          "nombre": "Alejandra Vidal",
+          "especialidad": "Psicóloga perinatal · MP 42.310",
+          "foto": "https://i.pravatar.cc/80?img=47"
+        }
+      ],
+      "materiales": [
+        {
+          "label": "Ejercicios de ACT para decisiones difíciles",
+          "tipo": "pdf",
+          "url": "#"
+        }
+      ]
+    },
+    {
+      "id": "ev-psi-jun05",
+      "tool_id": "psicologia_perinatal",
+      "titulo": "Encuentro presencial CABA",
+      "descripcion": "Ronda chica · Villa Crespo · 8 personas máx.",
+      "fecha_iso": "2026-06-05 18:00",
+      "fecha_label": "Vie 5/6 · 18hs",
+      "modalidad": "presencial",
+      "estado": "disponible",
+      "cta": "Anotarme",
+      "duracion": "90 min",
+      "cupos": 8,
+      "cupos_disponibles": 3,
+      "disertantes": [
+        {
+          "nombre": "Alejandra Vidal",
+          "especialidad": "Psicóloga perinatal · MP 42.310",
+          "foto": "https://i.pravatar.cc/80?img=47"
+        }
+      ],
+      "materiales": []
+    },
+    {
+      "id": "ev-psi-jun15",
+      "tool_id": "psicologia_perinatal",
+      "titulo": "¿Quiero ser madre o me lo pidieron?",
+      "descripcion": "Webinar mensual · segunda edición",
       "fecha_iso": "2026-06-15 19:00",
-      "fecha_label": "Lunes 15 de junio · 19hs",
+      "fecha_label": "Lun 15/6 · 19hs",
       "modalidad": "online",
       "estado": "proximamente",
       "cta": "Anotarme cuando abra"
     },
     {
-      "id": "ev-par-jun-2026",
-      "tool_id": "dinamica_pareja",
-      "titulo": "Cuando uno quiere y el otro no",
-      "descripcion": "Webinar para parejas · sin chantaje ni renuncia",
-      "fecha_iso": "2026-06-22 20:00",
-      "fecha_label": "Lunes 22 de junio · 20hs",
+      "id": "ev-fin-may28",
+      "tool_id": "orientacion_financiera",
+      "titulo": "Números reales 2026",
+      "descripcion": "Costos de crianza desglosados por etapa",
+      "fecha_iso": "2026-05-28 20:00",
+      "fecha_label": "Jue 28/5 · 20hs",
       "modalidad": "online",
-      "estado": "proximamente",
-      "cta": "Anotarme cuando abra"
+      "estado": "disponible",
+      "cta": "Reservar",
+      "duracion": "60 min",
+      "cupos": 50,
+      "cupos_disponibles": 18,
+      "disertantes": [
+        {
+          "nombre": "Alejandra Muñoz",
+          "especialidad": "Finanzas personales · Matrícula 8.211",
+          "foto": "https://i.pravatar.cc/80?img=20"
+        }
+      ],
+      "materiales": [
+        {
+          "label": "Planilla de estimación de costos",
+          "tipo": "xlsx",
+          "url": "#"
+        },
+        {
+          "label": "Guía rangos por NSE",
+          "tipo": "pdf",
+          "url": "#"
+        }
+      ]
     },
     {
-      "id": "ev-com-jul-2026",
+      "id": "ev-fin-may30",
+      "tool_id": "orientacion_financiera",
+      "titulo": "Demo del simulador en vivo",
+      "descripcion": "Recorrido guiado por el simulador de costos",
+      "fecha_iso": "2026-05-30 18:00",
+      "fecha_label": "Sáb 30/5 · 18hs",
+      "modalidad": "online",
+      "estado": "disponible",
+      "cta": "Reservar",
+      "duracion": "45 min",
+      "cupos": 30,
+      "cupos_disponibles": 22,
+      "disertantes": [
+        {
+          "nombre": "Alejandra Muñoz",
+          "especialidad": "Finanzas personales · Matrícula 8.211",
+          "foto": "https://i.pravatar.cc/80?img=20"
+        }
+      ],
+      "materiales": [
+        {
+          "label": "Acceso al simulador Impulsa",
+          "tipo": "link",
+          "url": "/simulador-impulsa.html"
+        }
+      ]
+    },
+    {
+      "id": "ev-fin-jun02",
+      "tool_id": "orientacion_financiera",
+      "titulo": "Fondo de emergencia familiar",
+      "descripcion": "Cuánto, cómo y cuándo armarlo antes del bebé",
+      "fecha_iso": "2026-06-02 20:00",
+      "fecha_label": "Mar 2/6 · 20hs",
+      "modalidad": "online",
+      "estado": "disponible",
+      "cta": "Reservar",
+      "duracion": "60 min",
+      "cupos": 40,
+      "cupos_disponibles": 34,
+      "disertantes": [
+        {
+          "nombre": "Alejandra Muñoz",
+          "especialidad": "Finanzas personales · Matrícula 8.211",
+          "foto": "https://i.pravatar.cc/80?img=20"
+        }
+      ],
+      "materiales": [
+        {
+          "label": "Calculadora de fondo de emergencia",
+          "tipo": "xlsx",
+          "url": "#"
+        }
+      ]
+    },
+    {
+      "id": "ev-fin-jun04",
+      "tool_id": "orientacion_financiera",
+      "titulo": "Licencias en Argentina",
+      "descripcion": "Derechos reales y cómo negociarlos",
+      "fecha_iso": "2026-06-04 19:30",
+      "fecha_label": "Jue 4/6 · 19:30hs",
+      "modalidad": "online",
+      "estado": "disponible",
+      "cta": "Reservar",
+      "duracion": "60 min",
+      "cupos": 40,
+      "cupos_disponibles": 29,
+      "disertantes": [
+        {
+          "nombre": "Alejandra Muñoz",
+          "especialidad": "Finanzas personales · Matrícula 8.211",
+          "foto": "https://i.pravatar.cc/80?img=20"
+        }
+      ],
+      "materiales": [
+        {
+          "label": "Resumen de licencias por maternidad y paternidad",
+          "tipo": "pdf",
+          "url": "#"
+        }
+      ]
+    },
+    {
+      "id": "ev-com-may29",
       "tool_id": "comunidad_pares",
-      "titulo": "Primera jornada anual: estar en preparación",
-      "descripcion": "Encuentro presencial · CABA · speakers + talleres + networking",
+      "titulo": "Círculo: 'Pensándolo'",
+      "descripcion": "Zoom · mujeres pre-decisión · 8 lugares",
+      "fecha_iso": "2026-05-29 19:30",
+      "fecha_label": "Vie 29/5 · 19:30hs",
+      "modalidad": "online",
+      "estado": "disponible",
+      "cta": "Anotarme",
+      "duracion": "75 min",
+      "cupos": 8,
+      "cupos_disponibles": 2,
+      "disertantes": [
+        {
+          "nombre": "Alejandra Vidal",
+          "especialidad": "Facilitadora · Círculos Impulsa",
+          "foto": "https://i.pravatar.cc/80?img=47"
+        }
+      ],
+      "materiales": []
+    },
+    {
+      "id": "ev-com-may31",
+      "tool_id": "comunidad_pares",
+      "titulo": "Encuentro presencial · Palermo",
+      "descripcion": "Ronda chica en persona · CABA",
+      "fecha_iso": "2026-05-31 11:00",
+      "fecha_label": "Dom 31/5 · 11hs",
+      "modalidad": "presencial",
+      "estado": "disponible",
+      "cta": "Anotarme",
+      "duracion": "90 min",
+      "cupos": 10,
+      "cupos_disponibles": 4,
+      "disertantes": [
+        {
+          "nombre": "Equipo Impulsa",
+          "especialidad": "Facilitación presencial",
+          "foto": "https://i.pravatar.cc/80?img=32"
+        }
+      ],
+      "materiales": []
+    },
+    {
+      "id": "ev-com-jun04",
+      "tool_id": "comunidad_pares",
+      "titulo": "Círculo: 'Ya sé que quiero'",
+      "descripcion": "Zoom · mujeres en etapa de preparación",
+      "fecha_iso": "2026-06-04 19:00",
+      "fecha_label": "Jue 4/6 · 19hs",
+      "modalidad": "online",
+      "estado": "disponible",
+      "cta": "Anotarme",
+      "duracion": "75 min",
+      "cupos": 8,
+      "cupos_disponibles": 6,
+      "disertantes": [
+        {
+          "nombre": "Alejandra Torres",
+          "especialidad": "Facilitadora · Círculos Impulsa",
+          "foto": "https://i.pravatar.cc/80?img=32"
+        }
+      ],
+      "materiales": []
+    },
+    {
+      "id": "ev-com-jun06",
+      "tool_id": "comunidad_pares",
+      "titulo": "Encuentro presencial · San Telmo",
+      "descripcion": "Café + conversación guiada · CABA",
+      "fecha_iso": "2026-06-06 11:00",
+      "fecha_label": "Sáb 6/6 · 11hs",
+      "modalidad": "presencial",
+      "estado": "disponible",
+      "cta": "Anotarme",
+      "duracion": "90 min",
+      "cupos": 10,
+      "cupos_disponibles": 7,
+      "disertantes": [
+        {
+          "nombre": "Equipo Impulsa",
+          "especialidad": "Facilitación presencial",
+          "foto": "https://i.pravatar.cc/80?img=32"
+        }
+      ],
+      "materiales": []
+    },
+    {
+      "id": "ev-com-jul12",
+      "tool_id": "comunidad_pares",
+      "titulo": "1° Jornada anual Impulsa",
+      "descripcion": "Speakers + talleres + networking · CABA",
       "fecha_iso": "2026-07-12 10:00",
-      "fecha_label": "Sábado 12 de julio · 10 a 18hs",
+      "fecha_label": "Sáb 12/7 · 10 a 18hs",
       "modalidad": "presencial",
       "estado": "proximamente",
       "cta": "Sumarme a la lista"
     },
     {
-      "id": "ev-fer-jul-2026",
-      "tool_id": "salud_fertilidad",
-      "titulo": "Reserva ovárica: qué te dice y qué no",
-      "descripcion": "Webinar técnico · interpretar estudios sin pánico",
-      "fecha_iso": "2026-07-08 19:00",
-      "fecha_label": "Miércoles 8 de julio · 19hs",
+      "id": "ev-par-may26",
+      "tool_id": "dinamica_pareja",
+      "titulo": "Demo sesión en pareja",
+      "descripcion": "Cómo funciona la facilitación · 20 min",
+      "fecha_iso": "2026-05-26 20:00",
+      "fecha_label": "Mar 26/5 · 20hs",
+      "modalidad": "online",
+      "estado": "disponible",
+      "cta": "Reservar",
+      "duracion": "20 min",
+      "cupos": 50,
+      "cupos_disponibles": 33,
+      "disertantes": [
+        {
+          "nombre": "Alejandra Torres",
+          "especialidad": "Coach perinatal y de pareja",
+          "foto": "https://i.pravatar.cc/80?img=32"
+        }
+      ],
+      "materiales": [
+        {
+          "label": "Preguntas para conversar en pareja",
+          "tipo": "pdf",
+          "url": "#"
+        }
+      ]
+    },
+    {
+      "id": "ev-par-may30",
+      "tool_id": "dinamica_pareja",
+      "titulo": "Cuando uno quiere y el otro no",
+      "descripcion": "Webinar para parejas · sin chantaje ni renuncia",
+      "fecha_iso": "2026-05-30 19:00",
+      "fecha_label": "Sáb 30/5 · 19hs",
+      "modalidad": "online",
+      "estado": "disponible",
+      "cta": "Reservar",
+      "duracion": "60 min",
+      "cupos": 40,
+      "cupos_disponibles": 15,
+      "disertantes": [
+        {
+          "nombre": "Alejandra Torres",
+          "especialidad": "Coach perinatal y de pareja",
+          "foto": "https://i.pravatar.cc/80?img=32"
+        },
+        {
+          "nombre": "Alejandra Vidal",
+          "especialidad": "Psicóloga perinatal",
+          "foto": "https://i.pravatar.cc/80?img=47"
+        }
+      ],
+      "materiales": [
+        {
+          "label": "Guía de conversación estructurada para parejas",
+          "tipo": "pdf",
+          "url": "#"
+        }
+      ]
+    },
+    {
+      "id": "ev-par-jun02",
+      "tool_id": "dinamica_pareja",
+      "titulo": "Carga mental anticipada",
+      "descripcion": "Cómo acordar el reparto antes del bebé",
+      "fecha_iso": "2026-06-02 19:30",
+      "fecha_label": "Mar 2/6 · 19:30hs",
+      "modalidad": "online",
+      "estado": "disponible",
+      "cta": "Reservar",
+      "duracion": "60 min",
+      "cupos": 40,
+      "cupos_disponibles": 28,
+      "disertantes": [
+        {
+          "nombre": "Alejandra Torres",
+          "especialidad": "Coach perinatal y de pareja",
+          "foto": "https://i.pravatar.cc/80?img=32"
+        }
+      ],
+      "materiales": [
+        {
+          "label": "Plantilla de reparto de carga mental",
+          "tipo": "pdf",
+          "url": "#"
+        }
+      ]
+    },
+    {
+      "id": "ev-par-jun06",
+      "tool_id": "dinamica_pareja",
+      "titulo": "Grupo Parejas en preparación",
+      "descripcion": "Primera sesión · 6 parejas · formato guiado",
+      "fecha_iso": "2026-06-06 10:00",
+      "fecha_label": "Sáb 6/6 · 10hs",
+      "modalidad": "online",
+      "estado": "disponible",
+      "cta": "Reservar",
+      "duracion": "90 min",
+      "cupos": 12,
+      "cupos_disponibles": 4,
+      "disertantes": [
+        {
+          "nombre": "Alejandra Torres",
+          "especialidad": "Coach perinatal y de pareja",
+          "foto": "https://i.pravatar.cc/80?img=32"
+        },
+        {
+          "nombre": "Alejandra Vidal",
+          "especialidad": "Psicóloga perinatal",
+          "foto": "https://i.pravatar.cc/80?img=47"
+        }
+      ],
+      "materiales": []
+    },
+    {
+      "id": "ev-par-jun22",
+      "tool_id": "dinamica_pareja",
+      "titulo": "Cuando uno quiere y el otro no",
+      "descripcion": "Webinar · segunda edición",
+      "fecha_iso": "2026-06-22 20:00",
+      "fecha_label": "Lun 22/6 · 20hs",
       "modalidad": "online",
       "estado": "proximamente",
       "cta": "Anotarme cuando abra"
     },
     {
-      "id": "ev-com-jul2-2026",
-      "tool_id": "comunidad_pares",
-      "titulo": "Círculo: 'Pensándolo'",
-      "descripcion": "Ronda chica vía Zoom · mujeres pre-decisión",
-      "fecha_iso": "2026-07-20 19:30",
-      "fecha_label": "Lunes 20 de julio · 19:30hs",
+      "id": "ev-sal-may27",
+      "tool_id": "salud_fertilidad",
+      "titulo": "Estudios de fertilidad: qué pedir",
+      "descripcion": "Para ellas y para ellos · con ginecóloga",
+      "fecha_iso": "2026-05-27 20:00",
+      "fecha_label": "Mié 27/5 · 20hs",
+      "modalidad": "online",
+      "estado": "disponible",
+      "cta": "Reservar",
+      "duracion": "60 min",
+      "cupos": 45,
+      "cupos_disponibles": 20,
+      "disertantes": [
+        {
+          "nombre": "Alejandra Rodríguez",
+          "especialidad": "Ginecóloga especializada en fertilidad · MP 28.407",
+          "foto": "https://i.pravatar.cc/80?img=41"
+        }
+      ],
+      "materiales": [
+        {
+          "label": "Guía de estudios de fertilidad para ellas",
+          "tipo": "pdf",
+          "url": "#"
+        },
+        {
+          "label": "Guía de estudios de fertilidad para ellos",
+          "tipo": "pdf",
+          "url": "#"
+        }
+      ]
+    },
+    {
+      "id": "ev-sal-may28",
+      "tool_id": "salud_fertilidad",
+      "titulo": "Leé tus hormonas sin pánico",
+      "descripcion": "Cómo interpretar tus resultados de laboratorio",
+      "fecha_iso": "2026-05-28 18:30",
+      "fecha_label": "Jue 28/5 · 18:30hs",
+      "modalidad": "online",
+      "estado": "disponible",
+      "cta": "Reservar",
+      "duracion": "50 min",
+      "cupos": 45,
+      "cupos_disponibles": 27,
+      "disertantes": [
+        {
+          "nombre": "Alejandra Rodríguez",
+          "especialidad": "Ginecóloga especializada en fertilidad · MP 28.407",
+          "foto": "https://i.pravatar.cc/80?img=41"
+        }
+      ],
+      "materiales": [
+        {
+          "label": "Tabla de valores de referencia hormonales",
+          "tipo": "pdf",
+          "url": "#"
+        }
+      ]
+    },
+    {
+      "id": "ev-sal-jun03",
+      "tool_id": "salud_fertilidad",
+      "titulo": "Fertilidad después de los 35",
+      "descripcion": "Qué cambia y qué no — evidencia real",
+      "fecha_iso": "2026-06-03 20:00",
+      "fecha_label": "Mié 3/6 · 20hs",
+      "modalidad": "online",
+      "estado": "disponible",
+      "cta": "Reservar",
+      "duracion": "60 min",
+      "cupos": 45,
+      "cupos_disponibles": 38,
+      "disertantes": [
+        {
+          "nombre": "Alejandra Rodríguez",
+          "especialidad": "Ginecóloga especializada en fertilidad · MP 28.407",
+          "foto": "https://i.pravatar.cc/80?img=41"
+        }
+      ],
+      "materiales": [
+        {
+          "label": "Evidencia científica sobre fertilidad y edad",
+          "tipo": "pdf",
+          "url": "#"
+        }
+      ]
+    },
+    {
+      "id": "ev-sal-jun05",
+      "tool_id": "salud_fertilidad",
+      "titulo": "Reserva ovárica: qué te dice y qué no",
+      "descripcion": "Webinar técnico · sin alarmismo",
+      "fecha_iso": "2026-06-05 19:00",
+      "fecha_label": "Vie 5/6 · 19hs",
+      "modalidad": "online",
+      "estado": "disponible",
+      "cta": "Reservar",
+      "duracion": "60 min",
+      "cupos": 45,
+      "cupos_disponibles": 30,
+      "disertantes": [
+        {
+          "nombre": "Alejandra Rodríguez",
+          "especialidad": "Ginecóloga especializada en fertilidad · MP 28.407",
+          "foto": "https://i.pravatar.cc/80?img=41"
+        }
+      ],
+      "materiales": []
+    },
+    {
+      "id": "ev-sal-jul08",
+      "tool_id": "salud_fertilidad",
+      "titulo": "Reserva ovárica: qué te dice y qué no",
+      "descripcion": "Segunda edición · con casos reales",
+      "fecha_iso": "2026-07-08 19:00",
+      "fecha_label": "Mié 8/7 · 19hs",
       "modalidad": "online",
       "estado": "proximamente",
-      "cta": "Sumarme al círculo"
+      "cta": "Anotarme cuando abra"
+    },
+    {
+      "id": "ev-cic-may26",
+      "tool_id": "control_ciclo",
+      "titulo": "Tutorial app de ciclo",
+      "descripcion": "Cómo usar el tracker de Impulsa paso a paso",
+      "fecha_iso": "2026-05-26 19:00",
+      "fecha_label": "Mar 26/5 · 19hs",
+      "modalidad": "online",
+      "estado": "disponible",
+      "cta": "Reservar",
+      "duracion": "30 min",
+      "cupos": 60,
+      "cupos_disponibles": 44,
+      "disertantes": [
+        {
+          "nombre": "Equipo Impulsa",
+          "especialidad": "Soporte de producto",
+          "foto": "https://i.pravatar.cc/80?img=20"
+        }
+      ],
+      "materiales": [
+        {
+          "label": "Acceso a la app de ciclo",
+          "tipo": "link",
+          "url": "/ciclo-impulsa.html"
+        }
+      ]
+    },
+    {
+      "id": "ev-cic-may28",
+      "tool_id": "control_ciclo",
+      "titulo": "Entendé tu ventana fértil",
+      "descripcion": "Temperatura, moco cervical y signos físicos",
+      "fecha_iso": "2026-05-28 19:30",
+      "fecha_label": "Jue 28/5 · 19:30hs",
+      "modalidad": "online",
+      "estado": "disponible",
+      "cta": "Reservar",
+      "duracion": "50 min",
+      "cupos": 45,
+      "cupos_disponibles": 31,
+      "disertantes": [
+        {
+          "nombre": "Alejandra Rodríguez",
+          "especialidad": "Ginecóloga especializada en fertilidad · MP 28.407",
+          "foto": "https://i.pravatar.cc/80?img=41"
+        }
+      ],
+      "materiales": [
+        {
+          "label": "Guía de seguimiento del ciclo",
+          "tipo": "pdf",
+          "url": "#"
+        }
+      ]
+    },
+    {
+      "id": "ev-cic-jun01",
+      "tool_id": "control_ciclo",
+      "titulo": "Las 4 fases del ciclo",
+      "descripcion": "Qué hace tu cuerpo en cada etapa del mes",
+      "fecha_iso": "2026-06-01 19:00",
+      "fecha_label": "Lun 1/6 · 19hs",
+      "modalidad": "online",
+      "estado": "disponible",
+      "cta": "Reservar",
+      "duracion": "50 min",
+      "cupos": 45,
+      "cupos_disponibles": 38,
+      "disertantes": [
+        {
+          "nombre": "Alejandra Rodríguez",
+          "especialidad": "Ginecóloga especializada en fertilidad · MP 28.407",
+          "foto": "https://i.pravatar.cc/80?img=41"
+        }
+      ],
+      "materiales": [
+        {
+          "label": "Póster de las 4 fases del ciclo",
+          "tipo": "pdf",
+          "url": "#"
+        }
+      ]
+    },
+    {
+      "id": "ev-cic-jun03",
+      "tool_id": "control_ciclo",
+      "titulo": "Ciclo irregular: causas y soluciones",
+      "descripcion": "Cuándo preocuparse y cuándo no",
+      "fecha_iso": "2026-06-03 18:30",
+      "fecha_label": "Mié 3/6 · 18:30hs",
+      "modalidad": "online",
+      "estado": "disponible",
+      "cta": "Reservar",
+      "duracion": "55 min",
+      "cupos": 45,
+      "cupos_disponibles": 40,
+      "disertantes": [
+        {
+          "nombre": "Alejandra Rodríguez",
+          "especialidad": "Ginecóloga especializada en fertilidad · MP 28.407",
+          "foto": "https://i.pravatar.cc/80?img=41"
+        }
+      ],
+      "materiales": []
     }
   ]
 }

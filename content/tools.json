@@ -9,38 +9,388 @@
       "categoria": "emocional",
       "eco_card_id": "c-emo",
       "subrecursos": [
-        { "id": "sesion_1a1",        "label": "Sesión 1:1 con psicóloga perinatal",   "descripcion": "Cincuenta minutos con especialista en decisión de maternidad. Foco en este tema, no terapia general.", "tipo": "reserva",  "estado": "disponible",   "cta": "Reservar turno" },
-        { "id": "webinar_decision",  "label": "Webinar: 'Decidir sin urgencia'",       "descripcion": "Charla en vivo mensual sobre cómo desarmar la pregunta en partes trabajables.",                              "tipo": "webinar",  "estado": "proximamente" },
-        { "id": "libro_maternidades","label": "Libro: 'Maternidades pensadas'",         "descripcion": "Lectura curada por nuestro equipo. Treinta páginas para separar mandato de deseo.",                              "tipo": "libro",    "estado": "proximamente" },
-        { "id": "encuentro_mensual", "label": "Encuentros presenciales mensuales",      "descripcion": "Rondas chicas en CABA y GBA para hablar el tema sin pantallas.",                                                "tipo": "encuentro","estado": "proximamente" }
-      ]
+        {
+          "id": "sesion_1a1",
+          "label": "Sesión 1:1 con psicóloga perinatal",
+          "descripcion": "Cincuenta minutos con especialista en decisión de maternidad. Foco en este tema, no terapia general.",
+          "tipo": "reserva",
+          "estado": "disponible",
+          "cta": "Reservar turno",
+          "profesional": {
+            "nombre": "Alejandra Vidal",
+            "especialidad": "Psicóloga perinatal",
+            "foto": "https://i.pravatar.cc/80?img=47"
+          }
+        },
+        {
+          "id": "webinar_decision",
+          "label": "Webinar: 'Decidir sin urgencia'",
+          "descripcion": "Charla en vivo mensual sobre cómo desarmar la pregunta en partes trabajables.",
+          "tipo": "webinar",
+          "estado": "proximamente"
+        },
+        {
+          "id": "biblioteca_psi",
+          "label": "Biblioteca de recursos emocionales",
+          "descripcion": "10 libros y 5 videos sobre decisión de maternidad, salud mental perinatal e identidad.",
+          "tipo": "biblioteca",
+          "estado": "disponible",
+          "cta": "Ir a la biblioteca"
+        },
+        {
+          "id": "encuentro_mensual",
+          "label": "Encuentros presenciales mensuales",
+          "descripcion": "Rondas chicas en CABA y GBA para hablar el tema sin pantallas.",
+          "tipo": "encuentro",
+          "estado": "proximamente"
+        }
+      ],
+      "biblioteca": {
+        "libros": [
+          {
+            "titulo": "La maternidad y el encuentro con la propia sombra",
+            "autora": "Laura Gutman",
+            "descripcion": "El clásico sobre la transformación emocional en la maternidad."
+          },
+          {
+            "titulo": "Ser mamá sin perderte de vista",
+            "autora": "Alejandra Vallejo-Nágera",
+            "descripcion": "Cómo mantener la identidad propia en la maternidad."
+          },
+          {
+            "titulo": "El mito de la maternidad perfecta",
+            "autora": "Jill Lepore",
+            "descripcion": "Una mirada crítica a los mandatos culturales sobre la maternidad."
+          },
+          {
+            "titulo": "Decidir tener hijos",
+            "autora": "Elisabeth Badinter",
+            "descripcion": "El debate contemporáneo sobre la maternidad y la libertad femenina."
+          },
+          {
+            "titulo": "La mujer que no quería ser madre",
+            "autora": "Lara Moreno",
+            "descripcion": "Una narrativa honesta sobre la ambivalencia ante la maternidad."
+          },
+          {
+            "titulo": "Tu ansiedad no es tuya",
+            "autora": "Russ Harris",
+            "descripcion": "Herramientas de ACT para manejar la ansiedad en decisiones vitales."
+          },
+          {
+            "titulo": "El duelo reproductivo",
+            "autora": "Olga Fernández",
+            "descripcion": "Acompañamiento emocional en procesos de fertilidad complejos."
+          },
+          {
+            "titulo": "Psicología perinatal",
+            "autora": "Diana Moronta",
+            "descripcion": "Manual clínico adaptado para lectoras no especializadas."
+          },
+          {
+            "titulo": "Cuando el amor no alcanza",
+            "autora": "Norberto Levy",
+            "descripcion": "Herramientas emocionales para la toma de decisiones en pareja."
+          },
+          {
+            "titulo": "Maternidades pensadas",
+            "autora": "Silvia Bleichmar",
+            "descripcion": "Perspectivas psicoanalíticas sobre el deseo de maternidad."
+          }
+        ],
+        "videos": [
+          {
+            "titulo": "La decisión de ser madre: separar el mandato del deseo",
+            "duracion": "38 min",
+            "descripcion": "Webinar Impulsa con psicóloga perinatal."
+          },
+          {
+            "titulo": "Ansiedad y maternidad: cómo no decidir desde el miedo",
+            "duracion": "45 min",
+            "descripcion": "Charla práctica con herramientas concretas."
+          },
+          {
+            "titulo": "Identidad y maternidad: ¿quién soy después del bebé?",
+            "duracion": "32 min",
+            "descripcion": "Reflexión guiada sobre transformación de identidad."
+          },
+          {
+            "titulo": "El duelo de no ser madre todavía",
+            "duracion": "28 min",
+            "descripcion": "Espacio para procesar la postergación."
+          },
+          {
+            "titulo": "Cómo hablar con tu pareja sobre maternidad",
+            "duracion": "41 min",
+            "descripcion": "Técnicas de comunicación no violenta para la conversación más difícil."
+          }
+        ]
+      }
     },
     "orientacion_financiera": {
       "nombre": "Orientación Financiera",
       "descripcion": "Simulador transparente de costos de crianza año a año en tu ciudad, con tu sueldo, y asesoría 1:1 para armar el plan.",
-      "drawer_intro": "Los números reales antes que las decisiones. Simulador propio, asesoría uno a uno y material escrito para que la plata deje de ser razón abstracta de postergación.",
+      "drawer_intro": "Los números reales antes de las decisiones grandes. Un simulador propio, asesoría uno a uno y una biblioteca financiera pensada para este momento. La plata deja de ser razón abstracta de postergación cuando la podés ver en un número concreto.",
       "anchor": "#ecosistema",
       "categoria": "financiera",
       "eco_card_id": "c-fin",
       "subrecursos": [
-        { "id": "simulador",       "label": "Simulador de costos de crianza",                "descripcion": "Costo mes a mes de 42 meses (embarazo + 3 años). Con tu ciudad y tu cobertura.", "tipo": "app",      "estado": "disponible", "cta": "Abrir simulador", "url": "/simulador-impulsa.html" },
-        { "id": "sesion_1a1_fin",  "label": "Sesión 1:1 con orientador/a financiero",        "descripcion": "Cuarenta minutos para traducir el simulador en un plan personalizado.",          "tipo": "reserva",  "estado": "disponible", "cta": "Reservar turno" },
-        { "id": "libro_buenas",    "label": "Guía: 'Buenas prácticas financieras pre-bebé'", "descripcion": "PDF descargable con los pasos previos al embarazo: cobertura, fondo, licencias.","tipo": "libro",    "estado": "proximamente" },
-        { "id": "libro_padres",    "label": "Libro: 'Finanzas para padres'",                  "descripcion": "Manual completo para el primer año post-nacimiento.",                              "tipo": "libro",    "estado": "proximamente" }
-      ]
+        {
+          "id": "intro_financiera",
+          "label": "¿Cuánto cuesta realmente tener un hijo en Argentina?",
+          "descripcion": "Desglose por etapa (embarazo, primer año, infancia) con rangos por nivel económico. Lectura obligada antes de abrir el simulador.",
+          "tipo": "biblioteca",
+          "estado": "disponible",
+          "cta": "Leer ahora"
+        },
+        {
+          "id": "simulador",
+          "label": "Simulador de costos de crianza — 42 meses",
+          "descripcion": "Calculá mes a mes el costo real de embarazo + 3 años de crianza. Con tu ciudad, tu cobertura y más de 80 ítems de gasto.",
+          "tipo": "app",
+          "estado": "disponible",
+          "cta": "Abrir simulador",
+          "url": "/simulador-impulsa.html"
+        },
+        {
+          "id": "sesion_1a1_fin",
+          "label": "Sesión 1:1 con orientadora financiera",
+          "descripcion": "40 minutos para traducir el simulador en un plan personalizado. Especializada en finanzas para familias en formación.",
+          "tipo": "reserva",
+          "estado": "disponible",
+          "cta": "Reservar turno",
+          "profesional": {
+            "nombre": "Alejandra Muñoz",
+            "especialidad": "Finanzas personales y planificación familiar",
+            "foto": "https://i.pravatar.cc/80?img=20"
+          }
+        },
+        {
+          "id": "biblioteca_finanzas",
+          "label": "Biblioteca financiera para padres",
+          "descripcion": "10 libros y 5 videos sobre planificación económica familiar, ahorro pre-bebé y licencias.",
+          "tipo": "biblioteca",
+          "estado": "disponible",
+          "cta": "Ir a la biblioteca"
+        }
+      ],
+      "biblioteca": {
+        "libros": [
+          {
+            "titulo": "Finanzas para padres",
+            "autora": "Marcelo Elbaum",
+            "descripcion": "El manual completo de planificación financiera para el primer año."
+          },
+          {
+            "titulo": "Plata para dos",
+            "autora": "Mariana Colotta",
+            "descripcion": "Cómo armar las finanzas de pareja antes de ser familia."
+          },
+          {
+            "titulo": "El bebé más caro del mundo",
+            "autora": "M. Fernández Larrañaga",
+            "descripcion": "Estimación detallada de costos de crianza en Argentina."
+          },
+          {
+            "titulo": "Invertir con propósito",
+            "autora": "Claudio Zuchovicki",
+            "descripcion": "Estrategias de ahorro e inversión para metas familiares."
+          },
+          {
+            "titulo": "El método del sobre",
+            "autora": "Hernán Piñeiro",
+            "descripcion": "Presupuesto familiar simplificado para el siglo XXI."
+          },
+          {
+            "titulo": "Licencias y derechos laborales para madres y padres",
+            "autora": "Equipo Impulsa",
+            "descripcion": "Todo sobre licencias por maternidad y paternidad en Argentina."
+          },
+          {
+            "titulo": "Fondo de emergencia familiar",
+            "autora": "Laura Orellana",
+            "descripcion": "Cómo construir un colchón financiero antes del bebé."
+          },
+          {
+            "titulo": "Obra social vs. prepaga: guía para decidir",
+            "autora": "N. Vásquez",
+            "descripcion": "Comparativa de coberturas para embarazo, parto y pediatría."
+          },
+          {
+            "titulo": "Planificación financiera para autónomos con hijos",
+            "autora": "D. Marengo",
+            "descripcion": "El mapa financiero para quienes no tienen relación de dependencia."
+          },
+          {
+            "titulo": "Economía del hogar con bebé",
+            "autora": "S. Páez",
+            "descripcion": "Adaptación del presupuesto hogareño al primer año de vida."
+          }
+        ],
+        "videos": [
+          {
+            "titulo": "¿Cuánto cuesta tener un hijo en Argentina? Números reales 2026",
+            "duracion": "52 min",
+            "descripcion": "Desglose completo con datos actualizados por nivel económico."
+          },
+          {
+            "titulo": "Cómo usar el simulador de Impulsa paso a paso",
+            "duracion": "18 min",
+            "descripcion": "Tutorial del simulador de costos de crianza."
+          },
+          {
+            "titulo": "Fondo de emergencia familiar: cuánto y cómo",
+            "duracion": "29 min",
+            "descripcion": "Estrategia práctica para construir el colchón antes del bebé."
+          },
+          {
+            "titulo": "Licencias en Argentina: lo que nadie te cuenta",
+            "duracion": "35 min",
+            "descripcion": "Derechos reales, tiempos y cómo negociar con el empleador."
+          },
+          {
+            "titulo": "Finanzas de pareja: hablar de plata sin pelear",
+            "duracion": "44 min",
+            "descripcion": "Cómo alinear expectativas financieras antes de la búsqueda."
+          }
+        ]
+      }
     },
     "salud_fertilidad": {
       "nombre": "Salud y Fertilidad",
-      "descripcion": "Estudios preventivos con base científica real e interpretación clínica. Saber dónde estás parada antes de necesitarlo.",
-      "drawer_intro": "Información clínica para decidir con menos ruido. Reserva de estudios, consultas con especialistas en fertilidad y material para interpretar lo que dicen los números sin alarmismo.",
+      "descripcion": "Estudios preventivos con base científica real, interpretación clínica y guías ultra-detalladas por género. Sabé dónde estás parada — y dónde está tu pareja — antes de necesitarlo.",
+      "drawer_intro": "Información clínica para decidir con menos ruido. Consultas con especialistas, reserva de estudios y guías detalladas separadas para ella y para él — con explicación de qué mide cada estudio y por qué importa.",
       "anchor": "#ecosistema",
       "categoria": "salud",
       "eco_card_id": "c-fer",
       "subrecursos": [
-        { "id": "reserva_analisis", "label": "Reservá turno para estudios de fertilidad",     "descripcion": "Reserva ovárica, perfil hormonal, eco transvaginal — los estudios que importan para tu decisión.", "tipo": "reserva", "estado": "disponible", "cta": "Reservar turno" },
-        { "id": "consulta_1a1",     "label": "Consulta 1:1 con ginecóloga/médica",            "descripcion": "Cuarenta minutos con profesional especializada en fertilidad, no consulta general.",               "tipo": "reserva", "estado": "disponible", "cta": "Reservar consulta" },
-        { "id": "guia_estudios",    "label": "Guía: 'Qué estudios pedir y por qué'",          "descripcion": "PDF descargable para leer antes de la primera consulta.",                                          "tipo": "libro",   "estado": "proximamente" }
-      ]
+        {
+          "id": "consulta_1a1",
+          "label": "Consulta 1:1 con ginecóloga/médica",
+          "descripcion": "Cuarenta minutos con profesional especializada en fertilidad, no consulta general.",
+          "tipo": "reserva",
+          "estado": "disponible",
+          "cta": "Reservar consulta",
+          "profesional": {
+            "nombre": "Alejandra Rodríguez",
+            "especialidad": "Ginecóloga especializada en fertilidad",
+            "foto": "https://i.pravatar.cc/80?img=41"
+          }
+        },
+        {
+          "id": "reserva_analisis",
+          "label": "Reservá turno para estudios de fertilidad",
+          "descripcion": "Reserva ovárica, perfil hormonal, eco transvaginal — los estudios que importan para tu decisión.",
+          "tipo": "reserva",
+          "estado": "disponible",
+          "cta": "Reservar turno"
+        },
+        {
+          "id": "guia_fertilidad_ellas",
+          "label": "Guía de estudios de fertilidad para ellas",
+          "descripcion": "AMH, FSH, LH, estradiol, prolactina, TSH, recuento de folículos antrales, eco transvaginal, cariotipo y panel TORCH. Qué mide cada uno, por qué importa y cómo interpretar los resultados sin alarmarse.",
+          "tipo": "biblioteca",
+          "estado": "disponible",
+          "cta": "Ver guía completa"
+        },
+        {
+          "id": "guia_fertilidad_ellos",
+          "label": "Guía de estudios de fertilidad para ellos",
+          "descripcion": "Espermograma completo (concentración, motilidad progresiva y total, morfología, volumen, pH), FSH, testosterona, fragmentación de ADN espermático, cultivo seminal y cariotipo. Por qué cada estudio importa y cuándo pedirlo.",
+          "tipo": "biblioteca",
+          "estado": "disponible",
+          "cta": "Ver guía completa"
+        },
+        {
+          "id": "biblioteca_salud",
+          "label": "Biblioteca de salud reproductiva",
+          "descripcion": "10 libros y 5 videos sobre fertilidad, salud hormonal, embarazo y primera infancia.",
+          "tipo": "biblioteca",
+          "estado": "disponible",
+          "cta": "Ir a la biblioteca"
+        }
+      ],
+      "biblioteca": {
+        "libros": [
+          {
+            "titulo": "Tu fertilidad en tus manos",
+            "autora": "Toni Weschler",
+            "descripcion": "El método sintotérmico y la ciencia detrás de la fertilidad natural."
+          },
+          {
+            "titulo": "Reserva ovárica: todo lo que nadie te explicó",
+            "autora": "G. Morelli",
+            "descripcion": "Guía práctica para entender los estudios hormonales sin alarmarse."
+          },
+          {
+            "titulo": "El camino hacia la maternidad",
+            "autora": "S. Braveman",
+            "descripcion": "Acompañamiento médico y emocional en el proceso reproductivo."
+          },
+          {
+            "titulo": "Fertilidad masculina: lo que ellos no saben",
+            "autora": "R. Agarwal",
+            "descripcion": "Factores que afectan la fertilidad masculina y cómo mejorarlos."
+          },
+          {
+            "titulo": "SOP: síndrome de ovario poliquístico y fertilidad",
+            "autora": "A. Dunaif",
+            "descripcion": "Guía completa para mujeres con SOP que quieren ser madres."
+          },
+          {
+            "titulo": "Alimentación y fertilidad",
+            "autora": "J. E. Chavarro",
+            "descripcion": "La dieta de la fertilidad basada en evidencia de Harvard."
+          },
+          {
+            "titulo": "Todo sobre la FIV",
+            "autora": "L. Noriega",
+            "descripcion": "Qué esperar de la fecundación in vitro desde la consulta inicial."
+          },
+          {
+            "titulo": "El ABC de los análisis hormonales",
+            "autora": "M. Barra",
+            "descripcion": "Cómo leer e interpretar resultados de laboratorio sin médico al lado."
+          },
+          {
+            "titulo": "Edad y fertilidad: mitos y verdades",
+            "autora": "C. Racowsky",
+            "descripcion": "Lo que la ciencia dice sobre el reloj biológico después de los 35."
+          },
+          {
+            "titulo": "Menopausia precoz y maternidad",
+            "autora": "I. Pascual",
+            "descripcion": "Opciones reales para mujeres con insuficiencia ovárica prematura."
+          }
+        ],
+        "videos": [
+          {
+            "titulo": "Estudios de fertilidad para ellas: qué pedir y por qué",
+            "duracion": "47 min",
+            "descripcion": "AMH, FSH, AFC, eco transvaginal y panel completo explicados."
+          },
+          {
+            "titulo": "Estudios de fertilidad para ellos: espermograma y más",
+            "duracion": "38 min",
+            "descripcion": "Todo lo que necesitás saber sobre el factor masculino."
+          },
+          {
+            "titulo": "Cómo leer tus resultados hormonales sin entrar en pánico",
+            "duracion": "31 min",
+            "descripcion": "Interpretación práctica de laboratorio con ginecóloga."
+          },
+          {
+            "titulo": "Reserva ovárica baja: opciones reales",
+            "duracion": "42 min",
+            "descripcion": "Qué significa, qué no significa y cuáles son los caminos posibles."
+          },
+          {
+            "titulo": "Fertilidad después de los 35: qué cambia y qué no",
+            "duracion": "35 min",
+            "descripcion": "Evidencia científica sin alarmismo sobre edad y reproducción."
+          }
+        ]
+      }
     },
     "control_ciclo": {
       "nombre": "Control de Ciclo",
@@ -50,9 +400,105 @@
       "categoria": "salud",
       "eco_card_id": "c-cic",
       "subrecursos": [
-        { "id": "app_ciclo",        "label": "App de seguimiento de ciclo",                  "descripcion": "Tracker de ciclo menstrual con fases visualizadas, calendario y registro de síntomas.", "tipo": "app",     "estado": "disponible", "cta": "Abrir app", "url": "/ciclo-impulsa.html" },
-        { "id": "descarga_planner", "label": "Planner descargable: 'Mi ciclo mes a mes'",     "descripcion": "PDF imprimible para llevar registro fuera de la app.",                                  "tipo": "libro",   "estado": "proximamente" }
-      ]
+        {
+          "id": "app_ciclo",
+          "label": "App de seguimiento de ciclo",
+          "descripcion": "Tracker de ciclo menstrual con fases visualizadas, calendario y registro de síntomas.",
+          "tipo": "app",
+          "estado": "disponible",
+          "cta": "Abrir app",
+          "url": "/ciclo-impulsa.html"
+        },
+        {
+          "id": "biblioteca_ciclo",
+          "label": "Biblioteca de ciclo y fertilidad",
+          "descripcion": "10 libros y 5 videos sobre ciclo menstrual, método sintotérmico y salud hormonal.",
+          "tipo": "biblioteca",
+          "estado": "disponible",
+          "cta": "Ir a la biblioteca"
+        }
+      ],
+      "biblioteca": {
+        "libros": [
+          {
+            "titulo": "El arte de conocer tu ciclo",
+            "autora": "Toni Weschler",
+            "descripcion": "El clásico del método de temperatura basal y moco cervical."
+          },
+          {
+            "titulo": "Ciclo vivo",
+            "autora": "Lara Briden",
+            "descripcion": "La guía completa para entender y optimizar la salud hormonal."
+          },
+          {
+            "titulo": "Menstruación sin misterio",
+            "autora": "Cecilia Fontanesi",
+            "descripcion": "Todo sobre el ciclo menstrual desde una perspectiva integradora."
+          },
+          {
+            "titulo": "Hormonas en equilibrio",
+            "autora": "Aviva Romm",
+            "descripcion": "Cómo recuperar el equilibrio hormonal de forma natural."
+          },
+          {
+            "titulo": "SOP: entiende tu ciclo",
+            "autora": "Angela Grassi",
+            "descripcion": "Manejo del síndrome de ovario poliquístico y su impacto en el ciclo."
+          },
+          {
+            "titulo": "Ventana fértil: maximizar las chances de concepción",
+            "autora": "S. Malpani",
+            "descripcion": "Guía práctica para identificar y aprovechar los días fértiles."
+          },
+          {
+            "titulo": "Ciclo menstrual y estado de ánimo",
+            "autora": "C. Northrup",
+            "descripcion": "La conexión entre fases del ciclo, emociones y productividad."
+          },
+          {
+            "titulo": "Método sintotérmico: manual de aprendizaje",
+            "autora": "R. Rötzer",
+            "descripcion": "La guía clásica del método Rötzer adaptada al español."
+          },
+          {
+            "titulo": "El período sin tabú",
+            "autora": "Nadya Okamoto",
+            "descripcion": "Una mirada fresca y sin estigma sobre la menstruación."
+          },
+          {
+            "titulo": "Medicina funcional y salud reproductiva",
+            "autora": "M. Gottfried",
+            "descripcion": "Enfoque integrativo para la salud hormonal femenina."
+          }
+        ],
+        "videos": [
+          {
+            "titulo": "Cómo usar la app de ciclo de Impulsa paso a paso",
+            "duracion": "15 min",
+            "descripcion": "Tutorial completo del tracker de ciclo menstrual."
+          },
+          {
+            "titulo": "Entendé tu ciclo: las 4 fases y qué hace tu cuerpo en cada una",
+            "duracion": "34 min",
+            "descripcion": "Explicación visual con animaciones del ciclo completo."
+          },
+          {
+            "titulo": "Cómo identificar tu ventana fértil con certeza",
+            "duracion": "28 min",
+            "descripcion": "Temperatura, moco cervical y signos físicos explicados."
+          },
+          {
+            "titulo": "Ciclo irregular: causas más comunes y qué hacer",
+            "duracion": "41 min",
+            "descripcion": "Cuándo preocuparse y cuándo no, con ginecóloga."
+          },
+          {
+            "titulo": "Hormonas y fertilidad: la guía que te faltaba",
+            "duracion": "49 min",
+            "descripcion": "Todo sobre estrógeno, progesterona, FSH y LH en el ciclo."
+          }
+        ]
+      }
     },
     "dinamica_pareja": {
       "nombre": "Dinámica de Pareja",
@@ -62,24 +508,254 @@
       "categoria": "pareja",
       "eco_card_id": "c-par",
       "subrecursos": [
-        { "id": "sesion_pareja",    "label": "Sesión en pareja con coach perinatal",          "descripcion": "Facilitación de la conversación sobre decisión de maternidad. No es terapia, es estructura.", "tipo": "reserva",  "estado": "disponible", "cta": "Reservar sesión" },
-        { "id": "calendar_parejas", "label": "Calendar: webinars y encuentros para parejas",  "descripcion": "Charlas y rondas entre parejas en preparación. Online y presencial.",                            "tipo": "calendar", "estado": "proximamente" },
-        { "id": "grupo_parejas",    "label": "Grupo: 'Parejas en preparación'",                "descripcion": "Grupo guiado de seis encuentros con otras parejas en proceso de decisión.",                     "tipo": "encuentro","estado": "proximamente" },
-        { "id": "libro_carga",      "label": "Libro: 'Reparto de carga mental'",               "descripcion": "Manual para anticipar el reparto operativo antes que llegue el bebé.",                          "tipo": "libro",    "estado": "proximamente" }
-      ]
+        {
+          "id": "sesion_pareja",
+          "label": "Sesión en pareja con coach perinatal",
+          "descripcion": "Facilitación de la conversación sobre decisión de maternidad. No es terapia, es estructura.",
+          "tipo": "reserva",
+          "estado": "disponible",
+          "cta": "Reservar sesión",
+          "profesional": {
+            "nombre": "Alejandra Torres",
+            "especialidad": "Coach perinatal y de pareja",
+            "foto": "https://i.pravatar.cc/80?img=32"
+          }
+        },
+        {
+          "id": "calendar_parejas",
+          "label": "Calendar: webinars y encuentros para parejas",
+          "descripcion": "Charlas y rondas entre parejas en preparación. Online y presencial.",
+          "tipo": "calendar",
+          "estado": "proximamente"
+        },
+        {
+          "id": "grupo_parejas",
+          "label": "Grupo: 'Parejas en preparación'",
+          "descripcion": "Grupo guiado de seis encuentros con otras parejas en proceso de decisión.",
+          "tipo": "encuentro",
+          "estado": "proximamente"
+        },
+        {
+          "id": "biblioteca_pareja",
+          "label": "Biblioteca de recursos de pareja",
+          "descripcion": "10 libros y 5 videos sobre dinámica de pareja, carga mental y comunicación.",
+          "tipo": "biblioteca",
+          "estado": "disponible",
+          "cta": "Ir a la biblioteca"
+        }
+      ],
+      "biblioteca": {
+        "libros": [
+          {
+            "titulo": "Hold Me Tight — Abrázame fuerte",
+            "autora": "Sue Johnson",
+            "descripcion": "La terapia focalizada en las emociones aplicada a la pareja moderna."
+          },
+          {
+            "titulo": "El reparto justo",
+            "autora": "Eve Rodsky",
+            "descripcion": "Cómo distribuir la carga invisible del hogar y la crianza."
+          },
+          {
+            "titulo": "Cuando la pareja decide (o no) tener hijos",
+            "autora": "M. Carrillo",
+            "descripcion": "Guía para navegar el desacuerdo reproductivo sin dañar el vínculo."
+          },
+          {
+            "titulo": "Inteligencia emocional en la pareja",
+            "autora": "J. Gottman",
+            "descripcion": "Los principios de las parejas que duran, aplicados a la decisión de ser padres."
+          },
+          {
+            "titulo": "Carga mental: esto lo hago yo",
+            "autora": "Emma (cómic)",
+            "descripcion": "El fenómeno viral sobre la distribución invisible del trabajo del hogar."
+          },
+          {
+            "titulo": "La pareja que decide",
+            "autora": "F. Rodríguez",
+            "descripcion": "Marco práctico para tomar decisiones vitales importantes en pareja."
+          },
+          {
+            "titulo": "Acuerdos de crianza",
+            "autora": "P. Heine",
+            "descripcion": "Cómo anticipar acuerdos de crianza antes de que llegue el bebé."
+          },
+          {
+            "titulo": "Comunicación no violenta para padres",
+            "autora": "Marshall Rosenberg",
+            "descripcion": "La CNV aplicada a la comunicación en pareja durante la maternidad."
+          },
+          {
+            "titulo": "El mito del amor romántico",
+            "autora": "Walter Riso",
+            "descripcion": "Cómo construir un vínculo sano más allá de los mandatos."
+          },
+          {
+            "titulo": "Las cinco heridas que impiden ser uno mismo",
+            "autora": "Lise Bourbeau",
+            "descripcion": "Cómo los patrones emocionales propios afectan las decisiones de pareja."
+          }
+        ],
+        "videos": [
+          {
+            "titulo": "Cuando uno quiere y el otro no: cómo navegarlo",
+            "duracion": "43 min",
+            "descripcion": "Webinar Impulsa para parejas en distinto momento."
+          },
+          {
+            "titulo": "La conversación que necesitan tener: guía paso a paso",
+            "duracion": "38 min",
+            "descripcion": "Estructura para la conversación sobre maternidad en pareja."
+          },
+          {
+            "titulo": "Carga mental y maternidad: anticipar el reparto",
+            "duracion": "31 min",
+            "descripcion": "Cómo acordar el reparto real antes de que el bebé llegue."
+          },
+          {
+            "titulo": "El miedo de él vs. el reloj de ella: cómo alinearse",
+            "duracion": "47 min",
+            "descripcion": "Dinámicas de género en la decisión reproductiva."
+          },
+          {
+            "titulo": "Coaching de pareja perinatal: qué es y cómo funciona",
+            "duracion": "22 min",
+            "descripcion": "Qué esperar de una sesión de facilitación para parejas."
+          }
+        ]
+      }
     },
     "comunidad_pares": {
-      "nombre": "Comunidad de Pares",
-      "descripcion": "Círculos guiados de mujeres en la misma etapa que vos. Conversaciones reales, no foros anónimos de internet.",
-      "drawer_intro": "Otras mujeres que están donde vos estás, conversando con estructura y propósito. Círculos vía Zoom, encuentros presenciales y escuela de padres.",
+      "nombre": "Tu comunidad",
+      "descripcion": "Tu lugar entre mujeres que entienden sin que tengas que explicar desde cero. Círculos guiados, encuentros reales y una escuela de padres que te prepara de verdad.",
+      "drawer_intro": "No estás sola en esto. Hay otras mujeres exactamente donde vos estás — que se preguntan lo mismo, sienten lo mismo, necesitan lo mismo. Los círculos de Impulsa son el espacio que no encontraste en Instagram ni en el grupo de WhatsApp: conversaciones con estructura, conducidas por especialistas, entre personas reales que están en la misma etapa. Presencial en CABA y virtual en todo el país.",
       "anchor": "#ecosistema",
       "categoria": "comunidad",
       "eco_card_id": "c-com",
       "subrecursos": [
-        { "id": "zoom_circulos",    "label": "Círculos vía Zoom (mensual, por etapa)",  "descripcion": "Encuentros mensuales con seis a ocho mujeres en tu misma etapa.",                          "tipo": "encuentro","estado": "proximamente" },
-        { "id": "escuela_padres",   "label": "Escuela de padres",                        "descripcion": "Programa de doce semanas con módulos sobre cuerpo, plata, pareja y red de apoyo.",          "tipo": "encuentro","estado": "proximamente" },
-        { "id": "jornada_anual",    "label": "Jornadas presenciales por etapa",          "descripcion": "Encuentros grandes en CABA dos veces al año. Speakers, talleres, networking.",              "tipo": "encuentro","estado": "proximamente" }
-      ]
+        {
+          "id": "zoom_circulos",
+          "label": "Círculos mensuales vía Zoom",
+          "descripcion": "6 a 8 mujeres por grupo, misma etapa de vida. Un espacio para decir lo que no le decís a nadie más — sin juzgar, sin consejos no pedidos, con facilitadora especializada.",
+          "tipo": "encuentro",
+          "estado": "proximamente",
+          "cta": "Anotarme"
+        },
+        {
+          "id": "encuentros_presenciales",
+          "label": "Encuentros presenciales en CABA y GBA",
+          "descripcion": "Rondas chicas en persona, sin pantallas. El tipo de conversación que se tiene mejor mirándose a la cara. Máximo 10 personas por encuentro.",
+          "tipo": "encuentro",
+          "estado": "proximamente",
+          "cta": "Anotarme"
+        },
+        {
+          "id": "escuela_padres",
+          "label": "Escuela de padres — 12 semanas",
+          "descripcion": "Programa completo para quienes ya decidieron avanzar. Módulos sobre cuerpo, finanzas, pareja, red de apoyo y crianza temprana. Con material, mentoras y comunidad propia.",
+          "tipo": "encuentro",
+          "estado": "proximamente",
+          "cta": "Conocer el programa"
+        },
+        {
+          "id": "jornada_anual",
+          "label": "Jornadas anuales — evento presencial grande",
+          "descripcion": "Dos veces al año en CABA. Speakers, talleres prácticos y espacio para conectar con mujeres de todo el país que están en tu mismo momento.",
+          "tipo": "encuentro",
+          "estado": "proximamente",
+          "cta": "Sumarme a la lista"
+        },
+        {
+          "id": "biblioteca_comunidad",
+          "label": "Biblioteca de comunidad y crianza",
+          "descripcion": "10 libros y 5 videos sobre maternidad consciente, redes de apoyo y comunidad.",
+          "tipo": "biblioteca",
+          "estado": "disponible",
+          "cta": "Ir a la biblioteca"
+        }
+      ],
+      "biblioteca": {
+        "libros": [
+          {
+            "titulo": "El pueblo que necesito para criar",
+            "autora": "K. de Vries",
+            "descripcion": "Cómo construir una red de apoyo real en la maternidad contemporánea."
+          },
+          {
+            "titulo": "Maternidad y libertad",
+            "autora": "Adrienne Rich",
+            "descripcion": "El clásico feminista sobre la experiencia de la maternidad."
+          },
+          {
+            "titulo": "Criar sin miedo",
+            "autora": "Carlos González",
+            "descripcion": "Crianza con apego desde una perspectiva médica y humana."
+          },
+          {
+            "titulo": "El cerebro del niño",
+            "autora": "Daniel Siegel",
+            "descripcion": "Neurociencia aplicada a la crianza temprana."
+          },
+          {
+            "titulo": "Parentalidad positiva",
+            "autora": "Rebeca Muñoz",
+            "descripcion": "Herramientas prácticas de crianza respetuosa."
+          },
+          {
+            "titulo": "Cómo hablar para que los niños escuchen",
+            "autora": "Faber & Mazlish",
+            "descripcion": "El manual de comunicación más vendido para padres."
+          },
+          {
+            "titulo": "Ser padres hoy: lo que nadie nos dijo",
+            "autora": "A. Noriega",
+            "descripcion": "Una guía honesta sobre el primer año de parentalidad."
+          },
+          {
+            "titulo": "La aldea que no existe",
+            "autora": "M. Picouto",
+            "descripcion": "Por qué criamos en soledad y cómo cambiar eso."
+          },
+          {
+            "titulo": "Tribu de madres",
+            "autora": "L. Brizendine",
+            "descripcion": "La neurociencia de la maternidad y el rol de la comunidad."
+          },
+          {
+            "titulo": "El manifiesto de la maternidad real",
+            "autora": "Jill Smokler",
+            "descripcion": "Una mirada sin filtros sobre lo que nadie te cuenta antes."
+          }
+        ],
+        "videos": [
+          {
+            "titulo": "Círculo de apertura: qué es un círculo Impulsa y cómo funciona",
+            "duracion": "19 min",
+            "descripcion": "Presentación del modelo de círculos guiados."
+          },
+          {
+            "titulo": "La soledad en la maternidad: por qué es tan común y cómo salir",
+            "duracion": "44 min",
+            "descripcion": "Webinar con psicóloga perinatal sobre aislamiento materno."
+          },
+          {
+            "titulo": "Cómo construir tu red de apoyo antes del bebé",
+            "duracion": "36 min",
+            "descripcion": "Guía práctica para mapear y activar tu red."
+          },
+          {
+            "titulo": "Escuela de padres Impulsa: presentación del programa",
+            "duracion": "28 min",
+            "descripcion": "Qué es, cómo funciona y qué vas a aprender en 12 semanas."
+          },
+          {
+            "titulo": "Testimonios reales: mujeres que pasaron por los círculos",
+            "duracion": "33 min",
+            "descripcion": "Experiencias de participantes de los círculos Impulsa."
+          }
+        ]
+      }
     }
   }
 }
