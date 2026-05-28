@@ -1416,10 +1416,14 @@
       animation: drawerSlideIn .42s var(--ease-spring);
       --accent: var(--purple-500);
       --accent-bg: var(--purple-100);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
     }
     @keyframes drawerSlideIn {
-      from { transform: translateX(40px); opacity: .6; }
-      to   { transform: none; opacity: 1; }
+      from { transform: translate3d(40px, 0, 0); opacity: .6; }
+      to   { transform: translate3d(0, 0, 0); opacity: 1; }
     }
     .eco-drawer-close {
       position: absolute; top: 16px; right: 16px;
