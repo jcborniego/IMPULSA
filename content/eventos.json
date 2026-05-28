@@ -1,0 +1,61 @@
+{
+  "version": 1,
+  "_doc": "Eventos próximos del ecosistema. Cada evento se filtra por tool_id (pilar) en el drawer correspondiente. Fechas en formato ISO (YYYY-MM-DD HH:mm). Eventos con fecha pasada se filtran en runtime. Modalidad: online | presencial | hibrido.",
+  "eventos": [
+    {
+      "id": "ev-emo-jun-2026",
+      "tool_id": "psicologia_perinatal",
+      "titulo": "¿Quiero ser madre o me lo pidieron?",
+      "descripcion": "Webinar en vivo · separar mandato de deseo · con cupo limitado",
+      "fecha_iso": "2026-06-15 19:00",
+      "fecha_label": "Lunes 15 de junio · 19hs",
+      "modalidad": "online",
+      "estado": "proximamente",
+      "cta": "Anotarme cuando abra"
+    },
+    {
+      "id": "ev-par-jun-2026",
+      "tool_id": "dinamica_pareja",
+      "titulo": "Cuando uno quiere y el otro no",
+      "descripcion": "Webinar para parejas · sin chantaje ni renuncia",
+      "fecha_iso": "2026-06-22 20:00",
+      "fecha_label": "Lunes 22 de junio · 20hs",
+      "modalidad": "online",
+      "estado": "proximamente",
+      "cta": "Anotarme cuando abra"
+    },
+    {
+      "id": "ev-com-jul-2026",
+      "tool_id": "comunidad_pares",
+      "titulo": "Primera jornada anual: estar en preparación",
+      "descripcion": "Encuentro presencial · CABA · speakers + talleres + networking",
+      "fecha_iso": "2026-07-12 10:00",
+      "fecha_label": "Sábado 12 de julio · 10 a 18hs",
+      "modalidad": "presencial",
+      "estado": "proximamente",
+      "cta": "Sumarme a la lista"
+    },
+    {
+      "id": "ev-fer-jul-2026",
+      "tool_id": "salud_fertilidad",
+      "titulo": "Reserva ovárica: qué te dice y qué no",
+      "descripcion": "Webinar técnico · interpretar estudios sin pánico",
+      "fecha_iso": "2026-07-08 19:00",
+      "fecha_label": "Miércoles 8 de julio · 19hs",
+      "modalidad": "online",
+      "estado": "proximamente",
+      "cta": "Anotarme cuando abra"
+    },
+    {
+      "id": "ev-com-jul2-2026",
+      "tool_id": "comunidad_pares",
+      "titulo": "Círculo: 'Pensándolo'",
+      "descripcion": "Ronda chica vía Zoom · mujeres pre-decisión",
+      "fecha_iso": "2026-07-20 19:30",
+      "fecha_label": "Lunes 20 de julio · 19:30hs",
+      "modalidad": "online",
+      "estado": "proximamente",
+      "cta": "Sumarme al círculo"
+    }
+  ]
+}

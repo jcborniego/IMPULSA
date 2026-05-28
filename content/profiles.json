@@ -1,0 +1,317 @@
+{
+  "version": 2,
+  "profiles": {
+    "duda_identidad": {
+      "nombre": "La que se está preguntando si quiere, en serio",
+      "headline": "Esto no es indecisión. Es la pregunta más honesta que te podés hacer, y nadie te enseñó a hacerla sola.",
+      "diagnostico": "Estás antes de la decisión, no antes del coraje. Que te lo preguntes en serio ya es trabajo. Lo que sentís — esa mezcla de quizás sí y quizás no — no es indecisión, es honestidad. Lo que necesitás ahora no es presión: es información sin agenda y un espacio para pensar en voz alta sin que nadie te empuje hacia ningún lado.",
+      "diagnostico_extendido": "Estás antes de la decisión, no antes del coraje. Que te lo preguntes en serio ya es trabajo — la mayoría se escapa a esa pregunta encajando una respuesta cómoda; vos no. Lo que sentís — esa mezcla de quizás sí y quizás no — no es indecisión, es honestidad. Y la honestidad pide tiempo, no urgencia. Lo que necesitás ahora no es alguien que te empuje hacia un lado: es información sin agenda y un espacio para pensar en voz alta. La pregunta de fondo casi nunca es 'sí o no maternidad'. Es 'qué quiero yo en serio, separado de lo que se espera de mí'. Eso no se resuelve en una semana ni con un test online — se resuelve con conversaciones reales, con vos misma y con personas que ya pasaron por ahí. Te conviene empezar despacio, mirando primero qué pesa más: el mandato externo, el miedo al cambio, o un deseo propio que todavía no se animó a decirse en voz alta.",
+      "pasos": [
+        "Separá tus deseos de los mandatos: anotá tres razones por las que querrías y tres por las que no, sin filtro.",
+        "Conversá con dos mujeres cuyo camino respetes — una con hijos, una sin hijos por elección — sobre el costo real de cada vida.",
+        "Identificá la pregunta de fondo (¿es miedo al cambio, a la pareja, a vos misma?) antes de buscar respuestas.",
+        "Date un horizonte concreto: 90 días para explorar sin obligarte a decidir."
+      ],
+      "kit": [
+        { "tool_id": "psicologia_perinatal", "subrecurso_id": "sesion_1a1",      "estado": "disponible",    "trigger_refs": ["p2a", "p4a"], "motivo_template": "Porque {p2a} y {p4a}, una sesión 1:1 con una psicóloga perinatal te ayuda a desarmar la pregunta antes de buscar la respuesta.", "fallback_motivo": "Una sesión 1:1 te da el espacio que no se puede pedir prestado a familia ni amigas." },
+        { "tool_id": "comunidad_pares",      "subrecurso_id": "zoom_circulos",   "estado": "proximamente",  "trigger_refs": ["p5a"],         "motivo_template": "Como {p5a}, un círculo guiado con otras mujeres en la misma encrucijada rompe el aislamiento sin presión.",                                                "fallback_motivo": "Saberte no sola en la pregunta es parte de la respuesta." },
+        { "tool_id": "psicologia_perinatal", "subrecurso_id": "webinar_decision","estado": "proximamente",  "trigger_refs": ["p8"],          "motivo_template": "Como {p8}, este webinar te da marco sin necesidad de agendar una sesión.",                                                                              "fallback_motivo": "Un webinar funciona como puerta de entrada antes de comprometerte a más." },
+        { "tool_id": "comunidad_pares",      "subrecurso_id": "escuela_padres",  "estado": "proximamente",  "trigger_refs": ["p3a"],         "motivo_template": "Si la pregunta {p3a}, escuchar a personas que ya están del otro lado te ordena el mapa más rápido que seguir pensándola sola.",                          "fallback_motivo": "Aprender de quienes ya pasaron acorta camino." }
+      ],
+      "herramientas": [
+        { "tool_id": "psicologia_perinatal", "motivo": "Una psicóloga perinatal te ayuda a desarmar la pregunta antes de buscar la respuesta." },
+        { "tool_id": "comunidad_pares",      "motivo": "Círculos guiados con mujeres en la misma encrucijada, sin opiniones no pedidas." }
+      ],
+      "contenido": { "tipo": "webinar", "titulo": "¿Quiero ser madre o me lo pidieron? — separar mandato de deseo" },
+      "disclaimer": null
+    },
+
+    "duda_pareja": {
+      "nombre": "La que mira la pareja antes que el cuerpo",
+      "headline": "No estás trabada. Estás esperando una señal que todavía no llegó.",
+      "diagnostico": "La pregunta dejó de ser solo tuya, ahora es de los dos — y eso la vuelve más densa. No están bloqueados, están sin lenguaje compartido. Lo que falta no es una decisión, es una conversación estructurada en la que ninguno arrastre al otro ni espere que el tiempo decida por ustedes.",
+      "diagnostico_extendido": "La pregunta dejó de ser solo tuya, ahora es de los dos — y eso la vuelve más densa, no más complicada. No están bloqueados, están sin lenguaje compartido. Cada uno tiene su propia versión de la pregunta y rara vez la traducen al mismo idioma. Lo que falta no es una decisión, es una conversación estructurada en la que ninguno arrastre al otro ni espere que el tiempo decida por ustedes. La cena del domingo no alcanza; tampoco el viaje romántico. Lo que sirve es un espacio dedicado, con tiempo, sin pantallas, donde la pregunta no se resuelva en esa sesión. Lo que se resuelve es saber qué necesita escuchar cada uno antes de poder responder en serio. Si lo intentaron solos y se trabó, no es que la pareja esté rota — es que la conversación necesita estructura externa.",
+      "pasos": [
+        "Acordá una conversación de 60 minutos sin pantallas para hablar el tema (no se resuelve en la cena).",
+        "Cada uno responde por separado: ¿por qué sí, por qué no, qué necesito para sentirme listo/a?",
+        "Identifiquen un punto innegociable de cada uno (no es para ceder, es para conocerse).",
+        "No fuercen acuerdo en una sola sesión. Dejen que decante una semana antes de volver al tema."
+      ],
+      "kit": [
+        { "tool_id": "dinamica_pareja",      "subrecurso_id": "sesion_pareja",    "estado": "disponible",   "trigger_refs": ["p2a", "p5a"], "motivo_template": "Porque {p2a} y {p5a}, una sesión en pareja con coach perinatal les da estructura — no es terapia, es facilitación de la conversación que vienen postergando.", "fallback_motivo": "Una sesión con facilitador externo ahorra meses de conversaciones que no llegan a nada." },
+        { "tool_id": "psicologia_perinatal", "subrecurso_id": "sesion_1a1",       "estado": "disponible",   "trigger_refs": ["p4a"],         "motivo_template": "Aparte de la sesión de pareja: como {p4a}, también te conviene un espacio individual para ordenar lo tuyo antes de la conversación conjunta.",                "fallback_motivo": "Tener un espacio propio antes de la conversación de pareja ayuda a llegar más clara." },
+        { "tool_id": "dinamica_pareja",      "subrecurso_id": "calendar_parejas", "estado": "proximamente", "trigger_refs": ["p8"],          "motivo_template": "Como {p8}, los webinars y encuentros para parejas les permiten escucharlo juntos sin que uno tenga que 'convencer' al otro.",                                  "fallback_motivo": "Tener un espacio compartido fuera del living cambia el tono de la conversación." },
+        { "tool_id": "comunidad_pares",      "subrecurso_id": "zoom_circulos",    "estado": "proximamente", "trigger_refs": ["p3a"],         "motivo_template": "Si la pregunta {p3a}, conectarte con otras mujeres que están en la misma situación te valida que no estás trabada — estás haciendo el trabajo bien.",         "fallback_motivo": "La validación de pares acorta el camino emocional." }
+      ],
+      "herramientas": [
+        { "tool_id": "dinamica_pareja",      "motivo": "Una coach de pareja les da estructura para la conversación — no es terapia, es facilitación." },
+        { "tool_id": "psicologia_perinatal", "motivo": "Sesión individual para ordenar lo tuyo antes de la conversación conjunta." }
+      ],
+      "contenido": { "tipo": "webinar", "titulo": "Conversaciones honestas con tu pareja sobre maternidad" },
+      "disclaimer": null
+    },
+
+    "duda_cuerpo": {
+      "nombre": "La que necesita datos antes de decidir",
+      "headline": "Tener números de tu cuerpo no te obliga a nada — te devuelve el control de la conversación.",
+      "diagnostico": "Antes de decidir querer, necesitás saber qué te dice tu cuerpo hoy. Es lúcido y poco común ordenar primero los datos médicos. La edad no es un veredicto, pero sí información que merece estudiarse sin alarma. No estás corriendo: estás haciéndote cargo de la parte que sí podés controlar.",
+      "diagnostico_extendido": "Antes de decidir querer, necesitás saber qué te dice tu cuerpo hoy. Es lúcido y poco común ordenar primero los datos médicos — la mayoría se entera tarde de lo que estaba pasando ahí dentro. La edad no es un veredicto, pero sí información que merece estudiarse sin alarma y sin urgencia inventada. No estás corriendo: estás haciéndote cargo de la parte que sí podés controlar. Pedir estudios de reserva ovárica, perfil hormonal y un control ginecológico con foco en fertilidad no te obliga a tomar decisiones — te devuelve datos para tomarlas con menos ruido. Lo que vas a saber después de un mes de estudios es: dónde estás parada hoy, qué ventana realista tenés, y qué decisiones requieren urgencia y cuáles pueden esperar. Eso es información, no presión.",
+      "pasos": [
+        "Hacé una consulta ginecológica con foco en fertilidad (no chequeo general).",
+        "Pedí estudios de reserva ovárica (AMH) y perfil hormonal completo.",
+        "Trackeá tu ciclo durante dos meses para tener data propia al consultar.",
+        "Definí con la profesional qué información cambia tu decisión y qué no."
+      ],
+      "kit": [
+        { "tool_id": "salud_fertilidad", "subrecurso_id": "reserva_analisis", "estado": "disponible",   "trigger_refs": ["p2a", "p6"], "motivo_template": "Porque {p2a} y {p6}, los estudios preventivos te devuelven el control de la conversación — y la edad importa para qué pedir, no para asustarte.", "fallback_motivo": "Empezar por el cuerpo ordena todas las decisiones que vienen después." },
+        { "tool_id": "salud_fertilidad", "subrecurso_id": "consulta_1a1",     "estado": "disponible",   "trigger_refs": ["p4a"],       "motivo_template": "Como {p4a}, una consulta 1:1 con ginecóloga te explica los estudios sin alarmismo y te dice qué cambia tu decisión y qué no.",                              "fallback_motivo": "Hablar con una profesional que ya escuchó esto antes ayuda a interpretar los números." },
+        { "tool_id": "control_ciclo",    "subrecurso_id": "app_ciclo",        "estado": "disponible",   "trigger_refs": [],            "motivo_template": "Trackear tu ciclo dos meses antes de la consulta te da data propia para llegar mejor preparada — no dependés solo de tus recuerdos.",                       "fallback_motivo": "Tu ciclo es tu fuente más directa de información sobre tu cuerpo." },
+        { "tool_id": "psicologia_perinatal", "subrecurso_id": "sesion_1a1",   "estado": "disponible",   "trigger_refs": ["p3a"],       "motivo_template": "Si {p3a}, la decisión también merece espacio emocional — los datos no resuelven solos la pregunta de fondo.",                                              "fallback_motivo": "Los números ayudan, pero la decisión final también es emocional." }
+      ],
+      "herramientas": [
+        { "tool_id": "salud_fertilidad", "motivo": "Estudios preventivos con interpretación clínica — saber dónde estás parada hoy." },
+        { "tool_id": "control_ciclo",    "motivo": "Mapeo de tu ventana fértil con notificaciones privadas, dos meses te dan claridad." }
+      ],
+      "contenido": { "tipo": "webinar", "titulo": "Reserva ovárica: qué te dice y qué no — leer estudios sin pánico" },
+      "disclaimer": "Los estudios de fertilidad son orientativos. No predicen embarazo, pero sí dan contexto para decidir con menos ruido."
+    },
+
+    "duda_plata_momento": {
+      "nombre": "La que tiene la cabeza llena de Excel",
+      "headline": "Que te frene la plata o el momento no te hace materialista. Te hace responsable. Falta el mapa, no las ganas.",
+      "diagnostico": "Tu duda tiene una textura distinta: no es identidad, es contexto. Carrera, ciudad, sueldo, alquiler — todo se mueve y no parece haber un momento perfecto. La verdad es que no lo hay, pero sí hay momentos más o menos sostenibles. La pregunta no es \"cuándo\", es \"qué necesitamos tener para que dejen de ser un freno\".",
+      "diagnostico_extendido": "Tu duda tiene una textura distinta: no es identidad, es contexto. Carrera, ciudad, sueldo, alquiler — todo se mueve y no parece haber un momento perfecto. La verdad es que no lo hay, pero sí hay momentos más o menos sostenibles. La pregunta no es 'cuándo', es 'qué necesitamos tener para que dejen de ser un freno'. Hoy probablemente tenés números mentales aproximados, miedos vagos sobre 'no me da', y postergaciones que se renuevan cada seis meses. Lo que rompe ese loop es cambiar la conversación: en vez de 'cuándo nos va a alcanzar', poner sobre la mesa un número concreto de costo real en tu ciudad, un piso económico definido por vos (no 'estar tranquilos'), y una hoja de ruta de qué se puede mover. La maternidad no necesita números perfectos — necesita números reales para que dejes de adivinar.",
+      "pasos": [
+        "Listá tus tres prioridades de vida (carrera, ciudad, pareja, etc.) y dónde encaja la maternidad realmente.",
+        "Calculá un escenario base de costo mensual de los primeros dos años, en tu ciudad y tu realidad.",
+        "Identificá tu \"piso\" económico (no \"estar tranquilos\", sí un número concreto que tendrías que tener).",
+        "Hablá con dos mujeres con hijos en tu mismo nivel económico sobre cómo lo resolvieron en serio."
+      ],
+      "kit": [
+        { "tool_id": "orientacion_financiera", "subrecurso_id": "simulador",      "estado": "disponible",   "trigger_refs": ["p2a", "p4a"], "motivo_template": "Porque {p2a} y {p4a}, el simulador te muestra el número real para tu ciudad y tu sueldo — no el promedio de Google ni el de Pinterest.", "fallback_motivo": "Ver el número concreto rompe el loop de 'esperar a estar tranquilos'." },
+        { "tool_id": "orientacion_financiera", "subrecurso_id": "sesion_1a1_fin", "estado": "disponible",   "trigger_refs": ["p5a"],         "motivo_template": "Como {p5a}, una sesión 1:1 con orientador financiero traduce el simulador en un plan concreto y aterrizado a tu caso.",                  "fallback_motivo": "Un plan personal vale más que mil planillas genéricas." },
+        { "tool_id": "comunidad_pares",        "subrecurso_id": "zoom_circulos",  "estado": "proximamente", "trigger_refs": [],              "motivo_template": "Conectar con otras mujeres en tu nivel económico te da contexto real — cómo lo resolvieron sin glamour ni miseria.",                       "fallback_motivo": "Los pares en tu misma situación cuentan lo que los manuales no." },
+        { "tool_id": "psicologia_perinatal",   "subrecurso_id": "sesion_1a1",     "estado": "disponible",   "trigger_refs": ["p3a"],         "motivo_template": "Si {p3a}, la ansiedad financiera ya se acumuló — un espacio para ordenarla aparte hace que los números dejen de ser un fantasma.",       "fallback_motivo": "La ansiedad y el dinero son temas separados, conviene tratarlos así." }
+      ],
+      "herramientas": [
+        { "tool_id": "orientacion_financiera", "motivo": "Simulador real por ciudad y sueldo + asesora que traduce las planillas al castellano." },
+        { "tool_id": "comunidad_pares",        "motivo": "Conversaciones honestas sobre plata y maternidad, sin filtros de Instagram." }
+      ],
+      "contenido": { "tipo": "webinar", "titulo": "¿Existe el momento perfecto? Maternidad, carrera y plata sin idealizar" },
+      "disclaimer": null
+    },
+
+    "duda_miedo": {
+      "nombre": "La que tiene miedo a arrepentirse",
+      "headline": "El miedo a equivocarte en cualquier dirección es información, no cobardía.",
+      "diagnostico": "Te asusta tanto decir que sí como decir que no. Eso no es debilidad, es percibir el peso real de la decisión. La mayoría se evita esa pregunta encajando la respuesta más cómoda. Vos no. El miedo a arrepentirte merece ser mirado con alguien, no resuelto rápido para que se vaya.",
+      "diagnostico_extendido": "Te asusta tanto decir que sí como decir que no. Eso no es debilidad, es percibir el peso real de la decisión. La mayoría se evita esa pregunta encajando la respuesta más cómoda — la que sus padres esperan, la que su pareja necesita, la que sus amigas validan. Vos no. El miedo a arrepentirte merece ser mirado con alguien, no resuelto rápido para que se vaya. Pero ojo: el miedo a arrepentirte no es lo mismo que un trastorno de ansiedad — si te genera angustia sostenida o síntomas físicos, eso es señal de buscar apoyo profesional ya, no más adelante. Lo que más sirve acá no es 'animarte' (eso es cliché y no ayuda); es desarmar el miedo en partes: qué temés específicamente, de dónde viene, qué experiencias te marcaron. El miedo en abstracto se inmoviliza solo. El miedo desmenuzado se puede trabajar.",
+      "pasos": [
+        "Anotá específicamente qué temés de cada escenario (ser madre / no ser madre).",
+        "Identificá si ese miedo viene de información, de experiencias propias o de mandato externo.",
+        "Buscá una psicóloga con foco en maternidad consciente — no terapia general, especialista en este tema.",
+        "Date permiso para sostener la duda mientras la trabajás; no es necesario resolverla esta semana."
+      ],
+      "kit": [
+        { "tool_id": "psicologia_perinatal", "subrecurso_id": "sesion_1a1",      "estado": "disponible",   "trigger_refs": ["p2a", "p4a"], "motivo_template": "Porque {p2a} y {p4a}, una psicóloga perinatal te ayuda a desarmar el miedo en partes concretas en vez de cargarlo entero.", "fallback_motivo": "El miedo desmenuzado es trabajable. El miedo abstracto no." },
+        { "tool_id": "psicologia_perinatal", "subrecurso_id": "webinar_decision","estado": "proximamente", "trigger_refs": ["p8"],          "motivo_template": "Como {p8}, este webinar te da marco sin necesidad de exponerte aún a una sesión.",                                    "fallback_motivo": "Un webinar es buena puerta de entrada antes del 1:1." },
+        { "tool_id": "comunidad_pares",      "subrecurso_id": "zoom_circulos",   "estado": "proximamente", "trigger_refs": ["p5a"],         "motivo_template": "Como {p5a}, escuchar a otras mujeres con el mismo miedo te valida que no estás 'mal' por sentirlo.",                "fallback_motivo": "Validación entre pares baja el peso del miedo solitario." }
+      ],
+      "herramientas": [
+        { "tool_id": "psicologia_perinatal", "motivo": "Especialistas en la decisión de maternidad — no patologizan la duda, la acompañan." },
+        { "tool_id": "comunidad_pares",      "motivo": "Saberte no sola en el miedo es parte de la solución." }
+      ],
+      "contenido": { "tipo": "webinar", "titulo": "Miedo a arrepentirse: cuando la decisión pesa en los dos lados" },
+      "disclaimer": "Si el miedo te genera angustia sostenida o síntomas físicos, no esperes — buscá apoyo profesional ahora."
+    },
+
+    "impedido_fertilidad": {
+      "nombre": "El sí con un signo de pregunta biológico",
+      "headline": "La decisión está hecha. Falta saber dónde está parado tu cuerpo, sin alarmismo ni urgencia inventada.",
+      "diagnostico": "Querer y no poder (todavía), o no saber si vas a poder, es una de las cargas más invisibles. Lo que estás atravesando no es falta de paciencia: es duelo de un tiempo que imaginaste distinto. El plan no es \"intentarlo más fuerte\" — es ordenar el siguiente paso clínico con acompañamiento real.",
+      "diagnostico_extendido": "Querer y no poder (todavía), o no saber si vas a poder, es una de las cargas más invisibles. Lo que estás atravesando no es falta de paciencia: es duelo de un tiempo que imaginaste distinto. El plan no es 'intentarlo más fuerte' — es ordenar el siguiente paso clínico con acompañamiento real. La búsqueda activa larga desgasta cuerpo, pareja y vida social al mismo tiempo. Por eso lo importante no es solo el camino médico: es sostener todo lo demás mientras lo recorrés. Eso incluye permiso para faltar a baby showers, pedir apoyo emocional especializado en fertilidad (no terapia general), y conectarte con otras mujeres que están en lo mismo — no como grupo de quejas, sino como red que entiende sin que tengas que explicar todo desde cero. La medicina ordena lo clínico. El resto, lo ordenás vos con la red correcta.",
+      "pasos": [
+        "Si ya tenés diagnóstico, traé los estudios a una segunda opinión — el primer dx no es siempre el camino.",
+        "Definí ventana de búsqueda con la profesional (cuánto tiempo antes de escalar a tratamiento).",
+        "Buscá apoyo emocional ahora, no después — el desgaste se acumula y agota la pareja.",
+        "Cuidá los espacios sociales (baby showers, redes): permitido decir que no en esta etapa."
+      ],
+      "kit": [
+        { "tool_id": "salud_fertilidad",     "subrecurso_id": "consulta_1a1",     "estado": "disponible",   "trigger_refs": ["p2b", "p4b"], "motivo_template": "Porque {p2b} y {p4b}, una consulta clínica con foco en fertilidad ordena el siguiente paso y descarta supuestos.", "fallback_motivo": "Una segunda opinión médica vale el tiempo invertido — el primer dx no siempre es el camino." },
+        { "tool_id": "salud_fertilidad",     "subrecurso_id": "reserva_analisis", "estado": "disponible",   "trigger_refs": ["p6"],          "motivo_template": "Como {p6}, los estudios actualizados te dan información concreta sobre dónde estás parada hoy.",                  "fallback_motivo": "Estudios al día son la base de cualquier decisión clínica futura." },
+        { "tool_id": "psicologia_perinatal", "subrecurso_id": "sesion_1a1",       "estado": "disponible",   "trigger_refs": ["p5b"],         "motivo_template": "Como {p5b}, una psicóloga con experiencia en fertilidad sostiene el desgaste emocional que la búsqueda larga acumula.",         "fallback_motivo": "Apoyo emocional con especialista hace la diferencia en procesos largos." },
+        { "tool_id": "comunidad_pares",      "subrecurso_id": "zoom_circulos",    "estado": "proximamente", "trigger_refs": ["p3b"],         "motivo_template": "Si {p3b}, conectarte con otras mujeres en búsqueda activa rompe el aislamiento — saberte no sola es parte del tratamiento.", "fallback_motivo": "Los círculos de búsqueda activa son red real, no foros." },
+        { "tool_id": "control_ciclo",        "subrecurso_id": "app_ciclo",        "estado": "disponible",   "trigger_refs": [],              "motivo_template": "Trackear tu ciclo te da data clínica útil para llevar a cada consulta y mejorar el seguimiento.",                              "fallback_motivo": "Datos propios sobre tu ciclo le sirven a tu profesional tratante." },
+        { "tool_id": "dinamica_pareja",      "subrecurso_id": "sesion_pareja",    "estado": "disponible",   "trigger_refs": ["p7"],          "motivo_template": "Como {p7}, sostener la pareja durante la búsqueda merece su propio espacio — el desgaste afecta a los dos.",         "fallback_motivo": "Cuidar la pareja en la búsqueda evita que el proceso lastime el vínculo." }
+      ],
+      "herramientas": [
+        { "tool_id": "psicologia_perinatal", "motivo": "Psicólogas con experiencia específica en fertilidad — esto necesita especialista, no terapia general." },
+        { "tool_id": "salud_fertilidad",     "motivo": "Segunda opinión clínica y mapeo de tratamientos posibles con tiempos reales." },
+        { "tool_id": "comunidad_pares",      "motivo": "Círculos de mujeres en proceso de búsqueda — saberte no sola es parte del tratamiento." }
+      ],
+      "contenido": { "tipo": "webinar", "titulo": "Búsqueda activa: sostener cuerpo y vínculo cuando se hace largo" },
+      "disclaimer": "Las recomendaciones acá son de acompañamiento, no clínicas. Cualquier decisión médica se toma con tu profesional tratante."
+    },
+
+    "impedido_financiero": {
+      "nombre": "El proyecto en pausa por números",
+      "headline": "No es 'no quiero'. Es 'no puedo todavía'. La diferencia importa y se puede planificar.",
+      "diagnostico": "La plata es razón legítima, no excusa. Y la mala noticia es que \"esperar a estar listos económicamente\" no es un plan, es un loop. La buena: con números reales sobre la mesa, dejás de improvisar y empezás a poder evaluar trade-offs concretos en lugar de postergar indefinidamente.",
+      "diagnostico_extendido": "La plata es razón legítima, no excusa. Y la mala noticia es que 'esperar a estar listos económicamente' no es un plan, es un loop. La buena: con números reales sobre la mesa, dejás de improvisar y empezás a poder evaluar trade-offs concretos en lugar de postergar indefinidamente. Lo que cambia el juego no es ganar más, es saber con precisión cuánto cuesta lo que querés. Un costo real para tu ciudad, con tu cobertura médica, con tu estilo de vida — no el promedio de Google ni el de Instagram. Después de eso, el siguiente paso es definir un piso económico concreto: 'X pesos ahorrados + Y ingreso estable'. Eso te saca del 'todavía no es momento' eterno y te pone en 'cuando tenga esto, sí'. Lo que se mide se puede planificar; lo que se asume es donde se atascan los proyectos.",
+      "pasos": [
+        "Calculá el costo real de los primeros 12 meses en tu ciudad (no Google promedio, tu realidad).",
+        "Mapeá obras sociales y prepagas: cobertura de embarazo, parto y pediatría difiere muchísimo.",
+        "Identificá tres gastos no esenciales actuales que podrían redirigirse — sin moralizar, solo números.",
+        "Definí un umbral mínimo concreto (no \"estar tranquilos\", sí \"X pesos ahorrados + Y ingreso estable\")."
+      ],
+      "kit": [
+        { "tool_id": "orientacion_financiera", "subrecurso_id": "simulador",      "estado": "disponible",   "trigger_refs": ["p2b", "p4b"], "motivo_template": "Porque {p2b} y {p4b}, el simulador te muestra el costo real mes a mes para tu ciudad, con tu cobertura y tu estilo — no el promedio que no aplica.", "fallback_motivo": "Ver el número real es lo único que rompe el loop del 'todavía no'." },
+        { "tool_id": "orientacion_financiera", "subrecurso_id": "sesion_1a1_fin", "estado": "disponible",   "trigger_refs": ["p3b"],         "motivo_template": "Como {p3b}, una sesión 1:1 con orientador financiero arma tu plan personalizado — no más planillas genéricas que no se ajustan a tu caso.",      "fallback_motivo": "Un plan personalizado se ejecuta; uno genérico se ignora." },
+        { "tool_id": "orientacion_financiera", "subrecurso_id": "libro_buenas",   "estado": "proximamente", "trigger_refs": ["p8"],          "motivo_template": "Como {p8}, una guía escrita sobre buenas prácticas financieras te queda como referencia para volver a consultar cuando necesites.",                "fallback_motivo": "Material escrito es útil para volver a consultar a tu ritmo." },
+        { "tool_id": "psicologia_perinatal",   "subrecurso_id": "sesion_1a1",     "estado": "disponible",   "trigger_refs": ["p5b"],         "motivo_template": "Como {p5b}, la ansiedad financiera intoxica la decisión — vale ordenarla en un espacio aparte de los números.",                              "fallback_motivo": "Lo financiero y lo emocional son dos temas, no uno; conviene tratarlos por separado." }
+      ],
+      "herramientas": [
+        { "tool_id": "orientacion_financiera", "motivo": "Simulador de costos por ciudad y sueldo + asesora que traduce planes de obra social al castellano." },
+        { "tool_id": "psicologia_perinatal",   "motivo": "Opcional, pero la ansiedad financiera intoxica la decisión — vale ordenarla aparte." }
+      ],
+      "contenido": { "tipo": "webinar", "titulo": "Maternidad y plata: armar el número real (no el de Instagram)" },
+      "disclaimer": null
+    },
+
+    "impedido_pareja": {
+      "nombre": "La que va dos pasos delante de su pareja",
+      "headline": "Estás un paso adelante. Es una conversación que necesita estructura, no más insistencia.",
+      "diagnostico": "Estar en distinto lugar del camino no significa que el camino esté roto. Significa que necesitan trabajo de pareja antes que trabajo de proyecto. Forzar timing acá tiene un costo alto. Convencer no es estrategia: entender qué traba a tu pareja, sí. Y para eso necesitan algo más que la cena de los domingos.",
+      "diagnostico_extendido": "Estar en distinto lugar del camino no significa que el camino esté roto. Significa que necesitan trabajo de pareja antes que trabajo de proyecto. Forzar timing acá tiene un costo alto: o cedés con resentimiento, o presionás y dañás el vínculo. Convencer no es estrategia — entender qué traba a tu pareja, sí. Y para eso necesitan algo más que la cena de los domingos. Lo primero es saber si lo que escuchás es un 'no' definitivo o un 'todavía no'. Son problemas distintos. El 'todavía no' se puede mapear: qué condiciones cambiarían su perspectiva, en qué plazo. El 'no' definitivo merece una conversación más profunda con apoyo externo. Forzar la conversación sola, sin estructura, suele ir a parar a los mismos lugares: vos pidiendo, tu pareja resistiéndose, ambos cansados de la misma escena.",
+      "pasos": [
+        "Pedí escuchar primero, no convencer — agendá una conversación donde solo entendés su perspectiva.",
+        "Identificá si es un \"no\" definitivo o un \"todavía no\" (son problemas muy distintos).",
+        "Si es \"todavía no\", pedí qué cambiaría su perspectiva en concreto y en qué plazo.",
+        "Si la conversación se traba sola, traigan facilitación externa antes que esperar seis meses más."
+      ],
+      "kit": [
+        { "tool_id": "dinamica_pareja",      "subrecurso_id": "sesion_pareja",    "estado": "disponible",   "trigger_refs": ["p2b", "p3b"], "motivo_template": "Porque {p2b} y {p3b}, una coach de pareja les da estructura — la conversación deja el living y entra a un espacio sostenido.", "fallback_motivo": "Una facilitadora externa cambia el tono de la conversación de raíz." },
+        { "tool_id": "dinamica_pareja",      "subrecurso_id": "calendar_parejas", "estado": "proximamente", "trigger_refs": ["p8"],          "motivo_template": "Como {p8}, los webinars y encuentros para parejas les permiten escucharlo juntos sin que vos tengas que ser la mensajera.",      "fallback_motivo": "Tener material compartido fuera de la pareja sirve de puente." },
+        { "tool_id": "dinamica_pareja",      "subrecurso_id": "libro_carga",      "estado": "proximamente", "trigger_refs": [],              "motivo_template": "Anticipar el reparto de carga mental ahora ahorra meses de tensión post-bebé — el momento es antes, no durante.",                  "fallback_motivo": "Material sobre reparto de carga ordena el tema antes de que sea urgente." },
+        { "tool_id": "psicologia_perinatal", "subrecurso_id": "sesion_1a1",       "estado": "disponible",   "trigger_refs": ["p5b"],         "motivo_template": "Como {p5b}, tu parte del peso (frustración, urgencia, miedo al tiempo) merece espacio propio aparte de la conversación de pareja.", "fallback_motivo": "Pedir reparto justo cansa; tener un espacio propio te ayuda a no quemarte." }
+      ],
+      "herramientas": [
+        { "tool_id": "dinamica_pareja",      "motivo": "Coach de pareja para que la conversación deje el living y entre a un espacio sostenido." },
+        { "tool_id": "psicologia_perinatal", "motivo": "Tu parte del peso (frustración, urgencia, miedo al tiempo) merece espacio propio." }
+      ],
+      "contenido": { "tipo": "webinar", "titulo": "Cuando uno quiere y el otro no — sin chantaje ni renuncia" },
+      "disclaimer": null
+    },
+
+    "impedido_miedo_info": {
+      "nombre": "El sí trabado por cabeza y falta de mapa",
+      "headline": "Sabés que sí. Lo que falta es un plan que ordene los miedos y la información dispersa.",
+      "diagnostico": "No es que estés perdida, es que el sistema no está armado para guiarte. Buscaste en Google y volviste con más preguntas. Lo que necesitás es secuencia, no más información — saber qué hacer primero, qué después, y qué puede esperar. El miedo y la falta de info se retroalimentan, y se rompen con un plan concreto.",
+      "diagnostico_extendido": "No es que estés perdida, es que el sistema no está armado para guiarte. Buscaste en Google y volviste con más preguntas. Lo que necesitás es secuencia, no más información — saber qué hacer primero, qué después, y qué puede esperar. El miedo y la falta de info se retroalimentan, y se rompen con un plan concreto. El orden correcto suele ser: empezar por el cuerpo (consulta médica de fertilidad, no chequeo general), después la plata (cálculo de los primeros 12 meses), después la pareja (la conversación que estás postergando), y al final la red (quién va a estar). Hacer todo a la vez es la mejor manera de no avanzar en nada. Hacer en este orden te da puntos de apoyo concretos para cada decisión siguiente. Cuando tenés el dato clínico, sabés cuán urgente es la conversación financiera; cuando tenés el número, sabés qué pedirle a tu pareja en términos concretos.",
+      "pasos": [
+        "Empezá por una consulta médica de fertilidad (no chequeo general): es tu mapa base.",
+        "En paralelo, hacé el cálculo financiero de los primeros 12 meses.",
+        "Identificá una conversación clave con tu pareja que estás postergando.",
+        "No intentes todo a la vez: orden de prioridad cuerpo → plata → pareja → red."
+      ],
+      "kit": [
+        { "tool_id": "salud_fertilidad",       "subrecurso_id": "consulta_1a1",     "estado": "disponible",   "trigger_refs": ["p2b", "p5b"], "motivo_template": "Porque {p2b} y {p5b}, una consulta médica de fertilidad es tu mapa base — el dato clínico ordena todas las decisiones que vienen.", "fallback_motivo": "El cuerpo se aclara primero, lo demás se acomoda después." },
+        { "tool_id": "orientacion_financiera", "subrecurso_id": "sesion_1a1_fin",   "estado": "disponible",   "trigger_refs": ["p4b"],         "motivo_template": "Como {p4b}, una sesión 1:1 con orientador financiero te arma la secuencia personalizada paso a paso.",                            "fallback_motivo": "Una sesión 1:1 te da el plan ordenado que Google no entrega." },
+        { "tool_id": "psicologia_perinatal",   "subrecurso_id": "sesion_1a1",       "estado": "disponible",   "trigger_refs": ["p3b"],         "motivo_template": "Como {p3b}, procesar el miedo en paralelo a lo concreto evita que el plan se trabe por dentro mientras avanza por fuera.",       "fallback_motivo": "Trabajar el miedo y lo concreto a la vez funciona mejor que esperar a 'estar lista'." },
+        { "tool_id": "comunidad_pares",        "subrecurso_id": "escuela_padres",   "estado": "proximamente", "trigger_refs": ["p8"],          "motivo_template": "Como {p8}, la escuela de padres te da marco aplicado sin necesidad de armar todo desde cero.",                                    "fallback_motivo": "Programas estructurados son más fáciles de seguir que armar tu propio camino." }
+      ],
+      "herramientas": [
+        { "tool_id": "salud_fertilidad",       "motivo": "Arrancá por acá: el dato clínico ordena todo lo demás." },
+        { "tool_id": "orientacion_financiera", "motivo": "Sesión 1:1 para mapear desde dónde partís y armar tu secuencia personal." },
+        { "tool_id": "psicologia_perinatal",   "motivo": "Para procesar el miedo mientras avanzás con lo concreto." }
+      ],
+      "contenido": { "tipo": "webinar", "titulo": "Por dónde empezar — la hoja de ruta de la maternidad planificada" },
+      "disclaimer": null
+    },
+
+    "decidida_cuerpo_red": {
+      "nombre": "La que está preparando el terreno",
+      "headline": "Estás haciendo algo poco común: prepararte antes, no después.",
+      "diagnostico": "Tenés el sí y estás en modo organizar. Preparación pre-concepcional no es un mito wellness — es una ventana real de tres a seis meses donde lo que hacés impacta. Tu plan acá no es ansiedad de optimizar, es alineación tranquila entre cuerpo, red de apoyo y rutina. Esto es lo que distingue maternidad planificada de improvisada.",
+      "diagnostico_extendido": "Tenés el sí y estás en modo organizar. Preparación pre-concepcional no es un mito wellness — es una ventana real de tres a seis meses donde lo que hacés impacta. Tu plan acá no es ansiedad de optimizar, es alineación tranquila entre cuerpo, red de apoyo y rutina. Esto es lo que distingue maternidad planificada de improvisada. La ventaja de prepararte antes es triple: tu cuerpo arranca la búsqueda en mejores condiciones, tu vida cotidiana ya está acomodada para que cuando llegue no sea caos total, y la red de apoyo está mapeada (sabés quién va a estar y quién no, sin asumir). La parte clínica es importante pero relativamente directa: visita pre-concepcional, ácido fólico, vacunas al día, revisión de medicamentos crónicos. Lo más subestimado es la parte de red — preguntar explícitamente a familia y amigas qué tipo de apoyo pueden o no dar. Asumir que van a estar disponibles es donde después aparecen las decepciones.",
+      "pasos": [
+        "Visita pre-concepcional con ginecóloga: ácido fólico, estudios base, vacunas al día.",
+        "Trackeá ciclo dos a tres meses antes de búsqueda activa para identificar tu ventana real.",
+        "Revisá medicamentos crónicos con profesional (algunos requieren ajuste antes de embarazo).",
+        "Mapeá tu red de apoyo real (familia, amigas) sin asumir disponibilidad — preguntá.",
+        "Ordená sueño y estrés ahora — no después. El cuerpo lo agradece."
+      ],
+      "kit": [
+        { "tool_id": "salud_fertilidad",     "subrecurso_id": "consulta_1a1",     "estado": "disponible",   "trigger_refs": ["p2c", "p5c"], "motivo_template": "Porque {p2c} y {p5c}, una visita pre-concepcional ordena lo clínico antes de la búsqueda — vacunas, ácido fólico, revisión de medicación.", "fallback_motivo": "La visita pre-concepcional es la base de toda preparación." },
+        { "tool_id": "salud_fertilidad",     "subrecurso_id": "reserva_analisis", "estado": "disponible",   "trigger_refs": ["p6"],          "motivo_template": "Como {p6}, estudios base actualizados antes de búsqueda activa te ahorran sorpresas durante el camino.",                                     "fallback_motivo": "Estudios base actualizados son punto de partida limpio." },
+        { "tool_id": "control_ciclo",        "subrecurso_id": "app_ciclo",        "estado": "disponible",   "trigger_refs": ["p4c"],         "motivo_template": "Como {p4c}, dos a tres meses de tracking antes de búsqueda activa te dan tu ventana fértil real.",                                            "fallback_motivo": "Tu ciclo propio rastreado vale más que un promedio teórico." },
+        { "tool_id": "comunidad_pares",      "subrecurso_id": "escuela_padres",   "estado": "proximamente", "trigger_refs": ["p3c"],         "motivo_template": "Como {p3c}, conectarte con otras parejas en preparación valida que el orden no es ansiedad, es estrategia.",                                  "fallback_motivo": "Programas estructurados acortan curva de aprendizaje." },
+        { "tool_id": "psicologia_perinatal", "subrecurso_id": "sesion_1a1",       "estado": "disponible",   "trigger_refs": ["p7"],          "motivo_template": "Como {p7}, ordenar lo emocional antes de la búsqueda evita que pequeñas tensiones se vuelvan crisis post-embarazo.",                       "fallback_motivo": "Trabajar lo emocional antes evita que aparezca todo junto después." }
+      ],
+      "herramientas": [
+        { "tool_id": "salud_fertilidad", "motivo": "Estudios pre-concepcionales y profesional que conoce el momento específico." },
+        { "tool_id": "control_ciclo",    "motivo": "Mapeo de ventana fértil con privacidad real, sin apps que venden tus datos." },
+        { "tool_id": "comunidad_pares",  "motivo": "Conexión con otras mujeres en preparación — anclás realidad antes de la búsqueda." }
+      ],
+      "contenido": { "tipo": "webinar", "titulo": "Tres meses antes — preparación pre-concepcional basada en evidencia" },
+      "disclaimer": "Estos pasos complementan, no reemplazan, el seguimiento con tu ginecóloga."
+    },
+
+    "decidida_plata_pareja": {
+      "nombre": "La que arma el plan financiero y de pareja",
+      "headline": "Tomar la decisión es 30% del trabajo. Lo otro es construir las condiciones.",
+      "diagnostico": "Ambos quieren, y ahora la pregunta es cómo llegar juntos sin que uno cargue el 80%. La planificación previa es donde se forja el reparto futuro — no después, ahora. Lo que conversen estos meses define la dinámica de la maternidad real. Y los números merecen el mismo respeto que la conversación emocional.",
+      "diagnostico_extendido": "Ambos quieren, y ahora la pregunta es cómo llegar juntos sin que uno cargue el 80%. La planificación previa es donde se forja el reparto futuro — no después, ahora. Lo que conversen estos meses define la dinámica de la maternidad real. Y los números merecen el mismo respeto que la conversación emocional. La realidad es que la mayoría de las parejas que se sienten 'alineadas' al inicio descubren después que estaban alineadas en lo abstracto pero no en lo operativo — quién se levanta a las 3 AM, quién pide licencia, quién prioriza su carrera, quién maneja la logística. Anticipar esos acuerdos ahora, con tiempo y sin la presión del bebé real, es lo que distingue una pareja que se sostiene de una que se desgasta. Lo financiero va en paralelo: costo real, cobertura, licencias, fondo de emergencia. No para asustarse, para llegar a la búsqueda sin que el dinero sea una conversación de urgencia.",
+      "pasos": [
+        "Costeá los primeros 12 meses post-nacimiento (cobertura médica, equipamiento, cuidados).",
+        "Revisá obra social o prepaga: cambios pre-concepción cuestan menos que mid-embarazo.",
+        "Conversación de roles: quién hace qué, cuándo, cómo se redistribuye la carga doméstica.",
+        "Acordá expectativas de licencias y trabajo post-nacimiento — antes, no durante.",
+        "Armá un fondo de emergencia separado del ahorro general, mínimo tres meses de gastos fijos."
+      ],
+      "kit": [
+        { "tool_id": "orientacion_financiera", "subrecurso_id": "simulador",      "estado": "disponible",   "trigger_refs": ["p2c", "p4c"], "motivo_template": "Porque {p2c} y {p4c}, el simulador les arma el costo real de los primeros 12 meses con su cobertura y su realidad.",       "fallback_motivo": "Tener el número claro permite planificar sin asumir." },
+        { "tool_id": "orientacion_financiera", "subrecurso_id": "sesion_1a1_fin", "estado": "disponible",   "trigger_refs": ["p3c"],         "motivo_template": "Como {p3c}, una sesión 1:1 con orientador financiero traduce el simulador en un plan accionable con tus tiempos.", "fallback_motivo": "Un plan financiero personalizado es la diferencia entre saber y ejecutar." },
+        { "tool_id": "dinamica_pareja",        "subrecurso_id": "sesion_pareja",  "estado": "disponible",   "trigger_refs": ["p7"],          "motivo_template": "Como {p7}, una o dos sesiones de coaching pre-búsqueda ahorran meses de tensión post-bebé — el reparto se acuerda antes.", "fallback_motivo": "Anticipar el reparto operativo ahora evita resentimientos después." },
+        { "tool_id": "dinamica_pareja",        "subrecurso_id": "libro_carga",    "estado": "proximamente", "trigger_refs": ["p8"],          "motivo_template": "Como {p8}, material sobre reparto de carga mental les queda para volver a revisar cuando aparezcan tensiones reales.",     "fallback_motivo": "Material escrito sobre carga mental funciona como referencia continua." },
+        { "tool_id": "comunidad_pares",        "subrecurso_id": "escuela_padres", "estado": "proximamente", "trigger_refs": [],              "motivo_template": "Conectarse con otras parejas en preparación valida que el orden no es ansiedad — es estrategia.",                          "fallback_motivo": "Aprender de quienes ya pasaron acelera el aprendizaje." },
+        { "tool_id": "psicologia_perinatal",   "subrecurso_id": "sesion_1a1",     "estado": "disponible",   "trigger_refs": ["p5c"],         "motivo_template": "Como {p5c}, sostener tu parte de la conversación (pedir reparto justo cansa) merece su propio espacio.",                  "fallback_motivo": "Tener un espacio propio te ayuda a llegar entera a las conversaciones de pareja." }
+      ],
+      "herramientas": [
+        { "tool_id": "orientacion_financiera", "motivo": "Simulador real por ciudad/ingreso y asesora que entiende cobertura argentina." },
+        { "tool_id": "dinamica_pareja",        "motivo": "Una o dos sesiones de coaching antes de búsqueda ahorra meses de tensión después." },
+        { "tool_id": "psicologia_perinatal",   "motivo": "Para sostener tu parte de la conversación — pedir reparto justo cansa." }
+      ],
+      "contenido": { "tipo": "webinar", "titulo": "Reparto de carga mental — antes del bebé, no después" },
+      "disclaimer": null
+    }
+  },
+
+  "routing_rules": {
+    "default_by_p2": {
+      "A": {
+        "identidad": "duda_identidad",
+        "pareja":    "duda_pareja",
+        "cuerpo":    "duda_cuerpo",
+        "plata":     "duda_plata_momento",
+        "momento":   "duda_plata_momento",
+        "miedo":     "duda_miedo"
+      },
+      "B": {
+        "fertilidad": "impedido_fertilidad",
+        "plata":      "impedido_financiero",
+        "pareja":     "impedido_pareja",
+        "miedo":      "impedido_miedo_info",
+        "info":       "impedido_miedo_info"
+      },
+      "C": {
+        "cuerpo": "decidida_cuerpo_red",
+        "red":    "decidida_cuerpo_red",
+        "info":   "decidida_cuerpo_red",
+        "plata":  "decidida_plata_pareja",
+        "pareja": "decidida_plata_pareja"
+      }
+    },
+    "fallback": "duda_identidad"
+  }
+}

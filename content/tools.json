@@ -1,0 +1,85 @@
+{
+  "version": 3,
+  "tools": {
+    "psicologia_perinatal": {
+      "nombre": "Apoyo Emocional",
+      "descripcion": "Sesiones 1:1 con psicólogas perinatales para ordenar miedos, expectativas y la culpa que nadie te avisó que ibas a sentir.",
+      "drawer_intro": "Espacio para procesar lo que la decisión de maternidad mueve por dentro. Sesiones individuales, contenido escrito y encuentros entre pares — todo con foco específico en este tema, no terapia general.",
+      "anchor": "#ecosistema",
+      "categoria": "emocional",
+      "eco_card_id": "c-emo",
+      "subrecursos": [
+        { "id": "sesion_1a1",        "label": "Sesión 1:1 con psicóloga perinatal",   "descripcion": "Cincuenta minutos con especialista en decisión de maternidad. Foco en este tema, no terapia general.", "tipo": "reserva",  "estado": "disponible",   "cta": "Reservar turno" },
+        { "id": "webinar_decision",  "label": "Webinar: 'Decidir sin urgencia'",       "descripcion": "Charla en vivo mensual sobre cómo desarmar la pregunta en partes trabajables.",                              "tipo": "webinar",  "estado": "proximamente" },
+        { "id": "libro_maternidades","label": "Libro: 'Maternidades pensadas'",         "descripcion": "Lectura curada por nuestro equipo. Treinta páginas para separar mandato de deseo.",                              "tipo": "libro",    "estado": "proximamente" },
+        { "id": "encuentro_mensual", "label": "Encuentros presenciales mensuales",      "descripcion": "Rondas chicas en CABA y GBA para hablar el tema sin pantallas.",                                                "tipo": "encuentro","estado": "proximamente" }
+      ]
+    },
+    "orientacion_financiera": {
+      "nombre": "Orientación Financiera",
+      "descripcion": "Simulador transparente de costos de crianza año a año en tu ciudad, con tu sueldo, y asesoría 1:1 para armar el plan.",
+      "drawer_intro": "Los números reales antes que las decisiones. Simulador propio, asesoría uno a uno y material escrito para que la plata deje de ser razón abstracta de postergación.",
+      "anchor": "#ecosistema",
+      "categoria": "financiera",
+      "eco_card_id": "c-fin",
+      "subrecursos": [
+        { "id": "simulador",       "label": "Simulador de costos de crianza",                "descripcion": "Costo mes a mes de 42 meses (embarazo + 3 años). Con tu ciudad y tu cobertura.", "tipo": "app",      "estado": "disponible", "cta": "Abrir simulador", "url": "/simulador-impulsa.html" },
+        { "id": "sesion_1a1_fin",  "label": "Sesión 1:1 con orientador/a financiero",        "descripcion": "Cuarenta minutos para traducir el simulador en un plan personalizado.",          "tipo": "reserva",  "estado": "disponible", "cta": "Reservar turno" },
+        { "id": "libro_buenas",    "label": "Guía: 'Buenas prácticas financieras pre-bebé'", "descripcion": "PDF descargable con los pasos previos al embarazo: cobertura, fondo, licencias.","tipo": "libro",    "estado": "proximamente" },
+        { "id": "libro_padres",    "label": "Libro: 'Finanzas para padres'",                  "descripcion": "Manual completo para el primer año post-nacimiento.",                              "tipo": "libro",    "estado": "proximamente" }
+      ]
+    },
+    "salud_fertilidad": {
+      "nombre": "Salud y Fertilidad",
+      "descripcion": "Estudios preventivos con base científica real e interpretación clínica. Saber dónde estás parada antes de necesitarlo.",
+      "drawer_intro": "Información clínica para decidir con menos ruido. Reserva de estudios, consultas con especialistas en fertilidad y material para interpretar lo que dicen los números sin alarmismo.",
+      "anchor": "#ecosistema",
+      "categoria": "salud",
+      "eco_card_id": "c-fer",
+      "subrecursos": [
+        { "id": "reserva_analisis", "label": "Reservá turno para estudios de fertilidad",     "descripcion": "Reserva ovárica, perfil hormonal, eco transvaginal — los estudios que importan para tu decisión.", "tipo": "reserva", "estado": "disponible", "cta": "Reservar turno" },
+        { "id": "consulta_1a1",     "label": "Consulta 1:1 con ginecóloga/médica",            "descripcion": "Cuarenta minutos con profesional especializada en fertilidad, no consulta general.",               "tipo": "reserva", "estado": "disponible", "cta": "Reservar consulta" },
+        { "id": "guia_estudios",    "label": "Guía: 'Qué estudios pedir y por qué'",          "descripcion": "PDF descargable para leer antes de la primera consulta.",                                          "tipo": "libro",   "estado": "proximamente" }
+      ]
+    },
+    "control_ciclo": {
+      "nombre": "Control de Ciclo",
+      "descripcion": "Mapeo inteligente de tu ventana fértil con notificaciones privadas. Vos decidís qué se comparte y con quién.",
+      "drawer_intro": "Tu cuerpo, tu data. App propia con SVG ring de fases, registro diario y privacidad real — sin venta de datos como las apps mainstream.",
+      "anchor": "#ecosistema",
+      "categoria": "salud",
+      "eco_card_id": "c-cic",
+      "subrecursos": [
+        { "id": "app_ciclo",        "label": "App de seguimiento de ciclo",                  "descripcion": "Tracker de ciclo menstrual con fases visualizadas, calendario y registro de síntomas.", "tipo": "app",     "estado": "disponible", "cta": "Abrir app", "url": "/ciclo-impulsa.html" },
+        { "id": "descarga_planner", "label": "Planner descargable: 'Mi ciclo mes a mes'",     "descripcion": "PDF imprimible para llevar registro fuera de la app.",                                  "tipo": "libro",   "estado": "proximamente" }
+      ]
+    },
+    "dinamica_pareja": {
+      "nombre": "Dinámica de Pareja",
+      "descripcion": "Coaching de pareja para conversaciones honestas, reparto real de carga mental y alineación de visiones antes que sea tarde.",
+      "drawer_intro": "La conversación que necesita estructura, no solo paciencia. Sesiones en pareja con coach perinatal, encuentros entre parejas y material sobre reparto de carga mental.",
+      "anchor": "#ecosistema",
+      "categoria": "pareja",
+      "eco_card_id": "c-par",
+      "subrecursos": [
+        { "id": "sesion_pareja",    "label": "Sesión en pareja con coach perinatal",          "descripcion": "Facilitación de la conversación sobre decisión de maternidad. No es terapia, es estructura.", "tipo": "reserva",  "estado": "disponible", "cta": "Reservar sesión" },
+        { "id": "calendar_parejas", "label": "Calendar: webinars y encuentros para parejas",  "descripcion": "Charlas y rondas entre parejas en preparación. Online y presencial.",                            "tipo": "calendar", "estado": "proximamente" },
+        { "id": "grupo_parejas",    "label": "Grupo: 'Parejas en preparación'",                "descripcion": "Grupo guiado de seis encuentros con otras parejas en proceso de decisión.",                     "tipo": "encuentro","estado": "proximamente" },
+        { "id": "libro_carga",      "label": "Libro: 'Reparto de carga mental'",               "descripcion": "Manual para anticipar el reparto operativo antes que llegue el bebé.",                          "tipo": "libro",    "estado": "proximamente" }
+      ]
+    },
+    "comunidad_pares": {
+      "nombre": "Comunidad de Pares",
+      "descripcion": "Círculos guiados de mujeres en la misma etapa que vos. Conversaciones reales, no foros anónimos de internet.",
+      "drawer_intro": "Otras mujeres que están donde vos estás, conversando con estructura y propósito. Círculos vía Zoom, encuentros presenciales y escuela de padres.",
+      "anchor": "#ecosistema",
+      "categoria": "comunidad",
+      "eco_card_id": "c-com",
+      "subrecursos": [
+        { "id": "zoom_circulos",    "label": "Círculos vía Zoom (mensual, por etapa)",  "descripcion": "Encuentros mensuales con seis a ocho mujeres en tu misma etapa.",                          "tipo": "encuentro","estado": "proximamente" },
+        { "id": "escuela_padres",   "label": "Escuela de padres",                        "descripcion": "Programa de doce semanas con módulos sobre cuerpo, plata, pareja y red de apoyo.",          "tipo": "encuentro","estado": "proximamente" },
+        { "id": "jornada_anual",    "label": "Jornadas presenciales por etapa",          "descripcion": "Encuentros grandes en CABA dos veces al año. Speakers, talleres, networking.",              "tipo": "encuentro","estado": "proximamente" }
+      ]
+    }
+  }
+}

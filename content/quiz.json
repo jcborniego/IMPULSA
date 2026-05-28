@@ -1,0 +1,229 @@
+{
+  "version": 1,
+  "questions": [
+    {
+      "id": "p1",
+      "title": "¿Dónde estás con la idea de ser madre?",
+      "subtitle": "No hay respuesta correcta. Elegí la que más se parece a hoy.",
+      "type": "single",
+      "branch": true,
+      "options": [
+        { "value": "duda",   "label": "Todavía no sé si quiero",          "sub": "La pregunta está abierta y eso me incomoda o me da curiosidad",   "branch_to": "A" },
+        { "value": "freno",  "label": "Sé que quiero, pero algo me frena","sub": "Tengo el sí, pero hay algo (cuerpo, plata, pareja, miedo) que me traba", "branch_to": "B" },
+        { "value": "avance", "label": "Sé que quiero y quiero prepararme","sub": "Estoy en modo organizar para arrancar bien",                       "branch_to": "C" }
+      ]
+    },
+
+    {
+      "id": "p2a",
+      "branch": "A",
+      "title": "¿De dónde te parece que viene la duda?",
+      "subtitle": "Marcá la que más resuena hoy.",
+      "type": "single",
+      "options": [
+        { "value": "identidad","label": "No sé si yo quiero",                      "sub": "Más allá de lo que se espera de mí" },
+        { "value": "pareja",   "label": "Mi vínculo de pareja no se siente listo", "sub": "Estamos en momentos distintos" },
+        { "value": "cuerpo",   "label": "No tengo claro qué pasa con mi cuerpo",   "sub": "Mis tiempos, mi salud reproductiva" },
+        { "value": "plata",    "label": "Pensar en la plata me cierra la cabeza",  "sub": "No sé si los números nos dan" },
+        { "value": "momento",  "label": "Es el momento de vida",                   "sub": "Carrera, ciudad, todo se mueve" },
+        { "value": "miedo",    "label": "Me da miedo arrepentirme",                "sub": "En cualquier dirección" }
+      ]
+    },
+    {
+      "id": "p3a",
+      "branch": "A",
+      "title": "¿Hace cuánto que la pregunta da vueltas?",
+      "type": "single",
+      "options": [
+        { "value": "semanas", "label": "Semanas",            "sub": "Recién la estoy mirando de frente" },
+        { "value": "meses",   "label": "Algunos meses",      "sub": "Va y viene" },
+        { "value": "anios",   "label": "Más de un año",      "sub": "Ya me cansa pensarlo en loop" }
+      ]
+    },
+    {
+      "id": "p4a",
+      "branch": "A",
+      "title": "Si pudieras salir de acá con una sola cosa clara, ¿cuál sería?",
+      "type": "single",
+      "options": [
+        { "value": "yo_clara",   "label": "Entender qué quiero yo",          "sub": "Separado del afuera" },
+        { "value": "info_cuerpo","label": "Información real sobre mi cuerpo","sub": "Sin alarmismo, sin urgencia inventada" },
+        { "value": "costos",     "label": "Saber qué cuesta realmente",      "sub": "En plata y en energía" },
+        { "value": "charla",     "label": "Una conversación honesta",        "sub": "Con alguien que no me juzgue" }
+      ]
+    },
+    {
+      "id": "p5a",
+      "branch": "A",
+      "title": "¿Con quién estás hablando esto hoy?",
+      "type": "single",
+      "options": [
+        { "value": "nadie",        "label": "Con nadie",                "sub": "Lo pienso sola" },
+        { "value": "pareja",       "label": "Con mi pareja",            "sub": "Estamos en eso" },
+        { "value": "amigas",       "label": "Con amigas",               "sub": "Charlas sueltas" },
+        { "value": "profesional",  "label": "Con un/a profesional",     "sub": "Suelto, no estructurado" },
+        { "value": "terapia",      "label": "En terapia",               "sub": "Lo estoy trabajando" }
+      ]
+    },
+
+    {
+      "id": "p2b",
+      "branch": "B",
+      "title": "¿Cuál es el freno más fuerte hoy?",
+      "subtitle": "Elegí el que más pesa. El resto los vemos después.",
+      "type": "single",
+      "options": [
+        { "value": "fertilidad","label": "Mi salud o fertilidad",         "sub": "No sé en qué estoy parada" },
+        { "value": "plata",     "label": "La economía",                    "sub": "Los números no me cierran" },
+        { "value": "pareja",    "label": "Mi pareja no está en la misma", "sub": "Tiempos o ganas distintas" },
+        { "value": "miedo",     "label": "Mis propios miedos",            "sub": "Carrera, cuerpo, identidad" },
+        { "value": "info",      "label": "Falta de información clara",    "sub": "No sé por dónde arrancar" }
+      ]
+    },
+    {
+      "id": "p3b",
+      "branch": "B",
+      "title": "¿Qué intentaste hasta ahora?",
+      "type": "single",
+      "options": [
+        { "value": "nada",        "label": "Nada todavía",          "sub": "Me trabo antes de empezar" },
+        { "value": "googlear",    "label": "Buscar info por mi cuenta", "sub": "Me saturé" },
+        { "value": "profesional", "label": "Hablé con un/a profesional","sub": "Pero quedó suelto" },
+        { "value": "pareja",      "label": "Lo hablé con mi pareja",    "sub": "No llegamos a un plan" }
+      ]
+    },
+    {
+      "id": "p4b",
+      "branch": "B",
+      "title": "¿Qué te movería la aguja esta semana?",
+      "type": "single",
+      "options": [
+        { "value": "estudios",  "label": "Saber dónde estoy de salud",       "sub": "Estudios concretos" },
+        { "value": "numeros",   "label": "Tener números reales",             "sub": "Cuánto, cuándo, cómo" },
+        { "value": "pareja",    "label": "Una conversación guiada en pareja","sub": "Con estructura, no monólogo" },
+        { "value": "psico",     "label": "Espacio con psicóloga perinatal",  "sub": "Procesar miedos con especialista" },
+        { "value": "plan",      "label": "Un plan ordenado, escrito",        "sub": "Paso a paso" }
+      ]
+    },
+    {
+      "id": "p5b",
+      "branch": "B",
+      "title": "¿Cuán claro tenés el próximo paso?",
+      "type": "single",
+      "options": [
+        { "value": "ninguno",   "label": "Ninguno",                       "sub": "No sé ni por dónde" },
+        { "value": "borroso",   "label": "Lo veo borroso",                "sub": "Tengo intuición, no certeza" },
+        { "value": "qué_no_cómo","label": "Sé qué quiero pero no cómo",   "sub": "Falta método" },
+        { "value": "claro",     "label": "Sé exactamente",                "sub": "Falta arrancar" }
+      ]
+    },
+
+    {
+      "id": "p2c",
+      "branch": "C",
+      "title": "¿Qué necesitás preparar primero?",
+      "type": "single",
+      "options": [
+        { "value": "cuerpo", "label": "Mi cuerpo",         "sub": "Chequeos, fertilidad, hábitos" },
+        { "value": "plata",  "label": "La plata",          "sub": "Ahorro, presupuesto, licencia" },
+        { "value": "pareja", "label": "La pareja",         "sub": "Roles, acuerdos, expectativas" },
+        { "value": "red",    "label": "Mi red de apoyo",   "sub": "Con quién voy a contar" },
+        { "value": "info",   "label": "La información",    "sub": "Entender bien todo el mapa" }
+      ]
+    },
+    {
+      "id": "p3c",
+      "branch": "C",
+      "title": "¿Hay un timing en mente?",
+      "type": "single",
+      "options": [
+        { "value": "ya",     "label": "Lo antes posible",   "sub": "Ya estamos en eso" },
+        { "value": "6m",     "label": "En los próximos 6 meses" },
+        { "value": "anio",   "label": "Este año",           "sub": "Sin fecha exacta" },
+        { "value": "2anios", "label": "Más adelante",       "sub": "Dentro de 1 a 2 años" }
+      ]
+    },
+    {
+      "id": "p4c",
+      "branch": "C",
+      "title": "Si tuvieras 30 días con un equipo, ¿con qué arrancarías?",
+      "type": "single",
+      "options": [
+        { "value": "estudios",  "label": "Estudios preventivos de fertilidad" },
+        { "value": "simulador", "label": "Simulador financiero y plan de ahorro" },
+        { "value": "coaching",  "label": "Coaching de pareja para alinear" },
+        { "value": "ciclo",     "label": "Mapear ciclo y ventana fértil" },
+        { "value": "comunidad", "label": "Comunidad de mujeres en la misma" }
+      ]
+    },
+    {
+      "id": "p5c",
+      "branch": "C",
+      "title": "¿Cómo está tu salud general hoy?",
+      "subtitle": "Lo que respondas queda confidencial.",
+      "type": "single",
+      "options": [
+        { "value": "orden",     "label": "Todo en orden",         "sub": "Chequeos al día" },
+        { "value": "falta",     "label": "Falta chequeo general", "sub": "Hace tiempo que no voy" },
+        { "value": "activos",   "label": "Hay temas activos",     "sub": "Tratamiento, condición, seguimiento" },
+        { "value": "no_decir",  "label": "Prefiero no decir" }
+      ]
+    },
+
+    {
+      "id": "p6",
+      "branch": "common",
+      "title": "¿En qué rango de edad estás?",
+      "type": "chips",
+      "options": [
+        { "value": "25_28", "label": "25-28" },
+        { "value": "29_31", "label": "29-31" },
+        { "value": "32_34", "label": "32-34" },
+        { "value": "35_37", "label": "35-37" },
+        { "value": "38_mas","label": "38+"   }
+      ]
+    },
+    {
+      "id": "p7",
+      "branch": "common",
+      "title": "¿Hoy estás con pareja?",
+      "type": "single",
+      "options": [
+        { "value": "si_alineada", "label": "Sí, y estamos alineados" },
+        { "value": "si_proceso",  "label": "Sí, pero todavía estamos conversándolo" },
+        { "value": "no",          "label": "No, estoy decidiendo sola" },
+        { "value": "no_decir",    "label": "Prefiero no contestar" }
+      ]
+    },
+    {
+      "id": "p8",
+      "branch": "common",
+      "title": "¿Cómo aprendés mejor?",
+      "subtitle": "Para priorizar tu plan según cómo lo consumas.",
+      "type": "single",
+      "options": [
+        { "value": "escrito",  "label": "Contenido escrito",       "sub": "Guías, artículos, libros" },
+        { "value": "webinars", "label": "Webinars y videos",       "sub": "Charlas que pueda mirar a mi ritmo" },
+        { "value": "uno_a_uno","label": "Sesiones 1:1",            "sub": "Una persona, mi situación" },
+        { "value": "mix",      "label": "Una mezcla",              "sub": "Depende del momento" }
+      ]
+    },
+    {
+      "id": "p9",
+      "branch": "common",
+      "optional": true,
+      "title": "¿En qué ciudad estás?",
+      "subtitle": "Para conectarte con profesionales cerca tuyo. Podés saltar este paso.",
+      "type": "single_with_skip",
+      "options": [
+        { "value": "caba",         "label": "CABA" },
+        { "value": "gba",          "label": "Gran Buenos Aires" },
+        { "value": "cordoba",      "label": "Córdoba" },
+        { "value": "rosario",      "label": "Rosario" },
+        { "value": "mendoza",      "label": "Mendoza" },
+        { "value": "otra_arg",     "label": "Otra ciudad de Argentina" },
+        { "value": "exterior",     "label": "Vivo en el exterior" }
+      ]
+    }
+  ]
+}
