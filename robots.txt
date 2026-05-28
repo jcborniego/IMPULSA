@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /content/
+
+Sitemap: https://juan-weld.vercel.app/sitemap.xml

@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#5B2D8E">
+<title>Impulsa · Simulador — Costos reales de crianza en Argentina 2026</title>
+<meta name="description" content="Calculá el costo de criar un hijo en Argentina: 42 meses (embarazo + 3 años), 80+ ítems con 3 niveles económicos. Precios mayo 2026 CABA/GBA. Parte del ecosistema Impulsa.">
+<link rel="canonical" href="https://juan-weld.vercel.app/simulador-impulsa.html">
+<meta property="og:title" content="Impulsa · Simulador de costos de crianza">
+<meta property="og:description" content="Cuánto cuesta criar en Argentina 2026, con tu sueldo, tu ciudad y tu realidad. Parte del ecosistema Impulsa.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://juan-weld.vercel.app/simulador-impulsa.html">
+<meta property="og:locale" content="es_AR">
+<meta property="og:image" content="https://juan-weld.vercel.app/hero-mujer.webp">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%235B2D8E'/%3E%3Cstop offset='1' stop-color='%23F5B83D'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='url(%23g)'/%3E%3Ctext x='32' y='44' text-anchor='middle' font-family='Georgia,serif' font-size='38' font-style='italic' fill='white'%3Ei%3C/text%3E%3C/svg%3E">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500;1,700&family=DM+Sans:wght@300;400;500;600&family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Nunito:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F8F5FC;--bg2:#FDFCFF;--bg3:#EDE6FB;
+  --pri:#1A1130;--pur:#5B2D8E;--pur-l:#7B4DAE;--pur-pale:#EDE6FB;--pur-xs:#F8F5FF;
+  --txt:#1A1130;--txt-m:#4A3872;--txt-d:#9589BA;
+  --bdr:#DDD4F3;--bdr-sm:#EDE6FB;
+  --sh:0 2px 16px rgba(26,17,48,.08);--sh-md:0 6px 28px rgba(26,17,48,.12);
+  --grn:#15803D;--grn-bg:#DCFCE7;--grn-bdr:#86EFAC;
+  --ylw:#92400E;--ylw-bg:#FEF3C7;--ylw-bdr:#FCD34D;
+  --red:#991B1B;--red-bg:#FEE2E2;--red-bdr:#FCA5A5;
+  --warn:#B45309;--warn-bg:#FFFBEB;--warn-bdr:#FDE68A;
+  --seg-radius:8px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--txt);min-height:100vh}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 70% 45% at 0% 0%,rgba(91,45,142,.07) 0%,transparent 60%),radial-gradient(ellipse 50% 35% at 100% 100%,rgba(91,45,142,.05) 0%,transparent 55%);pointer-events:none;z-index:0}
+
+.wrap{max-width:860px;margin:0 auto;padding:0 20px 100px;position:relative;z-index:1}
+
+/* HEADER */
+.sim-head{padding:52px 0 40px;text-align:center}
+.sim-logo{display:inline-flex;align-items:center;gap:6px;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:600;color:var(--pri);letter-spacing:-.02em;margin-bottom:20px}
+.sim-logo-dot{width:7px;height:7px;background:var(--pur);border-radius:50%}
+.sim-h1{font-family:'Playfair Display',serif;font-size:clamp(28px,5.5vw,48px);font-weight:700;line-height:1.08;margin-bottom:14px;color:var(--pri)}
+.sim-h1 em{font-style:italic;color:var(--pur)}
+.sim-sub{color:var(--txt-m);font-size:15.5px;max-width:500px;margin:0 auto;line-height:1.6}
+
+/* INCOME */
+.income-box{background:var(--bg2);border:1px solid var(--bdr);border-radius:20px;padding:26px 28px;margin-bottom:24px;box-shadow:var(--sh)}
+.income-lbl{font-size:11.5px;font-weight:600;color:var(--txt-d);text-transform:uppercase;letter-spacing:.12em;margin-bottom:10px}
+.income-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.income-field{display:flex;align-items:center;background:var(--bg3);border:1.5px solid var(--bdr);border-radius:12px;padding:0 16px;flex:1;min-width:180px;transition:border-color .2s,box-shadow .2s}
+.income-field:focus-within{border-color:var(--pur);box-shadow:0 0 0 3px rgba(91,45,142,.12)}
+.income-pfx{color:var(--txt-d);font-size:15px;padding-right:10px;border-right:1px solid var(--bdr);margin-right:10px}
+.income-inp{background:none;border:none;outline:none;color:var(--pri);font-family:'DM Sans',sans-serif;font-size:22px;font-weight:700;width:100%;padding:14px 0}
+.income-inp::placeholder{color:var(--txt-d);font-weight:300}
+.income-inp::-webkit-outer-spin-button,.income-inp::-webkit-inner-spin-button{-webkit-appearance:none}
+.income-inp[type=number]{-moz-appearance:textfield}
+.lvl-badge{padding:10px 18px;border-radius:24px;font-size:12px;font-weight:600;white-space:nowrap;transition:all .3s}
+.lvl-badge.none{background:var(--pur-pale);color:var(--txt-d);border:1.5px solid var(--bdr)}
+.lvl-badge.eco{background:var(--grn-bg);color:var(--grn);border:1.5px solid var(--grn-bdr)}
+.lvl-badge.mid{background:var(--ylw-bg);color:var(--ylw);border:1.5px solid var(--ylw-bdr)}
+.lvl-badge.pre{background:var(--pur-pale);color:var(--pur);border:1.5px solid var(--bdr)}
+
+/* INCOME BREAKDOWN */
+.lvl-breakdown{display:none;gap:8px}
+.lvl-breakdown.visible{display:grid;grid-template-columns:repeat(3,1fr)}
+@media(max-width:600px){.lvl-breakdown.visible{grid-template-columns:1fr}}
+.lvl-row{padding:10px 14px;border-radius:10px;border:1.5px solid var(--bdr-sm);background:var(--pur-xs);transition:all .2s}
+.lvl-row.active{border-color:var(--pur);background:var(--pur-pale)}
+.lvl-row-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:3px}
+.lvl-row-name{font-size:12px;font-weight:600;color:var(--txt-m)}
+.lvl-row-pct{font-size:11px;font-weight:700;padding:1px 7px;border-radius:8px}
+.lvl-row-pct.ok{background:var(--grn-bg);color:var(--grn)}
+.lvl-row-pct.caution{background:var(--ylw-bg);color:var(--ylw)}
+.lvl-row-pct.high{background:var(--red-bg);color:var(--red)}
+.lvl-row-amt{font-size:11px;color:var(--txt-d)}
+.lvl-row-tag{font-size:10px;margin-top:3px;color:var(--pur);font-weight:500}
+
+/* SUMMARY */
+.sum-card{background:var(--pri);border-radius:20px;padding:28px 30px;margin-bottom:24px;box-shadow:var(--sh-md);position:relative;overflow:hidden;color:#fff}
+.sum-card::before{content:'';position:absolute;top:-30%;right:-10%;width:260px;height:260px;background:rgba(123,77,174,.25);border-radius:50%;pointer-events:none}
+.sum-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.14em;color:rgba(255,255,255,.5);margin-bottom:20px}
+.sum-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:560px){.sum-grid{grid-template-columns:1fr 1fr}}
+.sg-h{font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:.12em;color:rgba(255,255,255,.5);margin-bottom:5px}
+.sg-num{font-family:'Playfair Display',serif;font-size:clamp(22px,4vw,30px);font-weight:700;transition:all .35s;color:#fff}
+.sg-sub{font-size:11px;color:rgba(255,255,255,.4);margin-top:2px}
+.ratio-row{display:flex;align-items:center;gap:12px;margin-top:20px;padding-top:18px;border-top:1px solid rgba(255,255,255,.12)}
+.ratio-label{font-size:11px;color:rgba(255,255,255,.5);white-space:nowrap}
+.ratio-bg{flex:1;height:5px;background:rgba(255,255,255,.15);border-radius:3px;overflow:hidden}
+.ratio-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,#4ade80,#fbbf24 50%,#f87171);transition:width .5s ease}
+.ratio-txt{font-size:13px;font-weight:700;min-width:48px;text-align:right;transition:color .3s;color:#fff}
+
+/* OVERVIEW */
+.ov-box{background:var(--bg2);border:1px solid var(--bdr);border-radius:16px;padding:20px 24px;margin-bottom:22px;box-shadow:var(--sh)}
+.ov-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--txt-d);margin-bottom:14px}
+.ov-row{display:flex;align-items:center;gap:10px;padding:5px 0;cursor:pointer;border-radius:6px;transition:background .15s;padding-left:4px;padding-right:4px;margin:-2px -4px}
+.ov-row:hover{background:var(--pur-xs)}
+.ov-em{font-size:14px;width:22px;flex-shrink:0}
+.ov-nm{width:160px;font-size:11.5px;color:var(--txt-m);flex-shrink:0;line-height:1.2;transition:color .2s}
+.ov-row:hover .ov-nm{color:var(--pri)}
+.ov-bar-bg{flex:1;height:4px;background:var(--pur-pale);border-radius:2px;overflow:hidden}
+.ov-bar-fill{height:100%;border-radius:2px;background:linear-gradient(90deg,var(--pur),var(--pur-l));transition:width .5s ease}
+.ov-amt{width:90px;text-align:right;font-size:12px;font-weight:700;color:var(--pri);transition:all .3s;white-space:nowrap}
+
+/* STAGES */
+.sct{font-family:'Playfair Display',serif;font-size:22px;color:var(--txt-m);margin-bottom:14px}
+.sct em{font-style:italic;color:var(--pri)}
+.stage-card{background:var(--bg2);border:1.5px solid var(--bdr);border-radius:16px;margin-bottom:10px;overflow:hidden;transition:border-color .2s,box-shadow .2s;box-shadow:var(--sh);animation:fiu .35s ease both}
+@keyframes fiu{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.stage-card:nth-child(1){animation-delay:.03s}.stage-card:nth-child(2){animation-delay:.06s}.stage-card:nth-child(3){animation-delay:.09s}
+.stage-card:nth-child(4){animation-delay:.12s}.stage-card:nth-child(5){animation-delay:.15s}.stage-card:nth-child(6){animation-delay:.18s}
+.stage-card:nth-child(7){animation-delay:.21s}.stage-card:nth-child(8){animation-delay:.24s}
+.stage-card:hover{border-color:var(--pur);box-shadow:var(--sh-md)}
+.stage-hd{display:flex;align-items:center;padding:16px 20px;cursor:pointer;gap:12px;user-select:none;transition:background .15s}
+.stage-hd:hover{background:var(--pur-xs)}
+.stage-em{font-size:20px;flex-shrink:0}
+.stage-info{flex:1}
+.stage-nm{font-weight:700;font-size:15px;color:var(--pri)}
+.stage-st{font-size:11px;color:var(--txt-d);margin-top:2px}
+.stage-right{text-align:right;flex-shrink:0}
+.stage-num{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--pur);transition:all .3s}
+.stage-freq{font-size:10px;color:var(--txt-d)}
+.chev{width:18px;height:18px;flex-shrink:0;color:var(--txt-d);transition:transform .3s}
+.stage-card.open .chev{transform:rotate(180deg)}
+.stage-bd{display:none;border-top:1px solid var(--bdr-sm)}
+.stage-card.open .stage-bd{display:block}
+
+/* CATEGORIES */
+.cat-wrap{border-bottom:1px solid var(--bdr-sm)}
+.cat-wrap:last-child{border-bottom:none}
+.cat-hd{display:flex;align-items:center;padding:12px 20px;cursor:pointer;gap:9px;transition:background .15s;user-select:none}
+.cat-hd:hover{background:var(--pur-xs)}
+.cat-em{font-size:15px;flex-shrink:0}
+.cat-nm{flex:1;font-size:13px;font-weight:600;color:var(--txt-m)}
+.cat-sub{font-size:12px;font-weight:700;color:var(--pri);transition:all .3s;white-space:nowrap}
+.cat-chev{width:14px;height:14px;flex-shrink:0;color:var(--txt-d);transition:transform .3s}
+.cat-wrap.open .cat-chev{transform:rotate(180deg)}
+.cat-bd{display:none;padding:2px 20px 16px}
+.cat-wrap.open .cat-bd{display:block}
+
+/* ITEMS */
+.exp-row{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:start;padding:10px 0;border-bottom:1px solid var(--bdr-sm)}
+.exp-row:last-child{border-bottom:none}
+.exp-nm{font-size:13px;color:var(--txt-m);margin-bottom:4px;line-height:1.35;font-weight:500}
+.tag-once{display:inline-block;font-size:9px;background:var(--ylw-bg);color:var(--ylw);border:1px solid var(--ylw-bdr);border-radius:4px;padding:1px 5px;margin-left:4px;vertical-align:middle;font-weight:600}
+.exp-note{font-size:11px;color:var(--txt-d);margin-bottom:5px;font-style:italic;line-height:1.4}
+.exp-right{text-align:right;min-width:76px}
+.exp-amt{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:var(--pri);transition:all .3s}
+.exp-amt.off{color:var(--txt-d)}
+.exp-frq{font-size:9.5px;color:var(--txt-d);margin-top:2px}
+.exp-row.disabled .exp-nm{color:var(--txt-d)}
+.exp-row.disabled .exp-note{color:var(--txt-d)}
+
+/* WARNING callout */
+.warn-msg{display:none;margin-top:6px;padding:7px 10px;background:var(--warn-bg);border:1px solid var(--warn-bdr);border-radius:8px;font-size:11px;color:var(--warn);line-height:1.45;border-left:3px solid #F59E0B}
+.warn-msg.visible{display:block}
+
+/* SEG CONTROL */
+.seg{display:inline-flex;gap:2px;background:var(--bg3);border:1px solid var(--bdr);border-radius:var(--seg-radius);padding:3px;width:175px}
+.sb{flex:1;padding:5px 3px;border:none;background:transparent;border-radius:5px;font-family:'DM Sans',sans-serif;font-size:10px;font-weight:500;color:var(--txt-d);cursor:pointer;transition:all .18s;text-align:center;line-height:1.25}
+.sb:hover{color:var(--txt-m);background:rgba(91,45,142,.08)}
+.sb.a0{background:var(--grn-bg);color:var(--grn);font-weight:600}
+.sb.a1{background:var(--ylw-bg);color:var(--ylw);font-weight:600}
+.sb.a2{background:var(--pur-pale);color:var(--pur);font-weight:600}
+
+/* SWITCH */
+.sw{position:relative;width:36px;height:20px;flex-shrink:0}
+.sw input{display:none}
+.sw-tk{position:absolute;inset:0;background:var(--bg3);border:1.5px solid var(--bdr);border-radius:10px;cursor:pointer;transition:all .22s}
+.sw input:checked+.sw-tk{background:var(--pur);border-color:var(--pur)}
+.sw-tk::after{content:'';position:absolute;width:13px;height:13px;background:var(--txt-d);border-radius:50%;top:2px;left:2px;transition:transform .22s,background .22s}
+.sw input:checked+.sw-tk::after{transform:translateX(16px);background:#fff}
+.sw-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+
+/* FOOT NOTE */
+.foot-note{font-size:11.5px;color:var(--txt-d);padding:14px 18px;background:var(--bg2);border:1px solid var(--bdr);border-radius:12px;margin-top:24px;line-height:1.6;box-shadow:var(--sh)}
+
+/* RESPONSIVE */
+@media(max-width:560px){
+  .stage-hd,.cat-hd{padding-left:14px;padding-right:14px}
+  .cat-bd{padding-left:14px;padding-right:14px}
+  .seg{width:155px}.sb{font-size:9.5px}
+  .ov-nm{width:130px}
+  .sum-grid{grid-template-columns:1fr 1fr}
+}
+/* IMPULSA SHELL — barra de navegación de vuelta al sitio */
+.impulsa-shell{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 16px;height:48px;background:#fff;border-bottom:1px solid #ECE3F8;box-shadow:0 1px 2px rgba(26,17,48,.04);font-family:'Nunito',system-ui,-apple-system,sans-serif;font-size:13px;color:#1A1130}
+.impulsa-shell a{text-decoration:none}
+.impulsa-shell-back,.impulsa-shell-cta{display:inline-flex;align-items:center;gap:6px;padding:7px 12px;border-radius:999px;font-weight:700;font-size:12.5px;color:#4B3D6E;transition:background .2s,color .2s;min-height:32px}
+.impulsa-shell-back:hover{background:#ECE3F8;color:#5B2D8E}
+.impulsa-shell-cta{background:#1A1130;color:#fff}
+.impulsa-shell-cta:hover{background:#5B2D8E;color:#fff}
+.impulsa-shell-logo{font-family:'Fraunces','Playfair Display',serif;font-weight:500;font-size:17px;color:#5B2D8E;letter-spacing:-.02em;display:inline-flex;align-items:center;gap:4px}
+.impulsa-shell-dot{width:6px;height:6px;border-radius:50%;background:#F5B83D;display:inline-block}
+body{padding-top:48px}
+@media(max-width:420px){.impulsa-shell-back span,.impulsa-shell-cta span{display:none}.impulsa-shell-logo{font-size:15px}}
+</style>
+</head>
+<body>
+
+<!-- IMPULSA SHELL -->
+<header class="impulsa-shell" role="navigation" aria-label="Navegación Impulsa">
+  <a href="/#ecosistema" class="impulsa-shell-back" aria-label="Volver al sitio Impulsa">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    <span>Volver al sitio</span>
+  </a>
+  <a href="/" class="impulsa-shell-logo" aria-label="Impulsa">impulsa<span class="impulsa-shell-dot" aria-hidden="true"></span></a>
+  <a href="/#cta" class="impulsa-shell-cta">
+    <span>Diagnóstico</span>
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+  </a>
+</header>
+
+<div class="wrap">
+
+  <div class="sim-head">
+    <div class="sim-logo">impulsa<span class="sim-logo-dot"></span></div>
+    <h1 class="sim-h1">Crianza real,<br><em>con números reales</em></h1>
+    <p class="sim-sub">Calculá cuánto cuesta el camino de embarazo a los 3 años. Sin sorpresas. Con claridad.</p>
+  </div>
+
+  <!-- INCOME -->
+  <div class="income-box">
+    <div class="income-lbl">Ingreso mensual del hogar (neto)</div>
+    <div class="income-row">
+      <div class="income-field">
+        <span class="income-pfx">$</span>
+        <input type="number" class="income-inp" id="inc" placeholder="0" min="0" step="100000" oninput="onIncome()">
+      </div>
+      <div class="lvl-badge none" id="lvl-badge">Ingresá tu ingreso</div>
+    </div>
+    <div class="lvl-breakdown" id="lvl-breakdown">
+      <div class="lvl-row" id="lrow-0">
+        <div class="lvl-row-top"><span class="lvl-row-name">🟢 Económico</span><span class="lvl-row-pct" id="lpct-0">—</span></div>
+        <div class="lvl-row-amt">Prom. $180K/mes · pico $330K</div>
+      </div>
+      <div class="lvl-row" id="lrow-1">
+        <div class="lvl-row-top"><span class="lvl-row-name">🟡 Medio</span><span class="lvl-row-pct" id="lpct-1">—</span></div>
+        <div class="lvl-row-amt">Prom. $565K/mes · pico $1.1M</div>
+      </div>
+      <div class="lvl-row" id="lrow-2">
+        <div class="lvl-row-top"><span class="lvl-row-name">🟣 Premium</span><span class="lvl-row-pct" id="lpct-2">—</span></div>
+        <div class="lvl-row-amt">Prom. $1.3M/mes · pico $2.8M</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUMMARY -->
+  <div class="sum-card">
+    <div class="sum-label">Resumen del período completo · Embarazo + 3 años (42 meses)</div>
+    <div class="sum-grid">
+      <div><div class="sg-h">Promedio mensual</div><div class="sg-num" id="s-avg">$0</div><div class="sg-sub">Sobre 42 meses</div></div>
+      <div><div class="sg-h">Total acumulado</div><div class="sg-num" id="s-tot">$0</div><div class="sg-sub">Todo el período</div></div>
+      <div><div class="sg-h">Pico mensual</div><div class="sg-num" id="s-pik">$0</div><div class="sg-sub" id="s-pik-nm">—</div></div>
+    </div>
+    <div class="ratio-row" id="ratio-row" style="display:none">
+      <span class="ratio-label">% del ingreso (prom.):</span>
+      <div class="ratio-bg"><div class="ratio-fill" id="r-fill" style="width:0%"></div></div>
+      <span class="ratio-txt" id="r-txt">—</span>
+    </div>
+  </div>
+
+  <!-- OVERVIEW -->
+  <div class="ov-box">
+    <div class="ov-label">Promedio mensual por etapa — clic para ir directo</div>
+    <div id="ov-grid"></div>
+  </div>
+
+  <div class="sct"><em>Desglose</em> completo por etapa</div>
+  <div id="stages"></div>
+
+  <div class="foot-note">
+    💡 <strong>Precios de referencia mayo 2026 · CABA / GBA.</strong> Basados en catálogos de MercadoLibre, farmacias y guarderías privadas. Los costos únicos (canastilla, parto) están amortizados en el período de la etapa. &nbsp;· &nbsp;
+    🟢 Genérico / obra social &nbsp;·&nbsp; 🟡 Marca / prepaga media &nbsp;·&nbsp; 🟣 Primera marca / clínica privada. &nbsp;·&nbsp;
+    Los costos de oportunidad laboral no están incluidos.
+  </div>
+</div>
+
+<script>
+/* =============================================
+   DATA — t:'S'=slider siempre on  'SW'=switch  'SS'=switch+slider
+          w:1=ítem sensible (advertencia si se baja de nivel)
+          ot:1=gasto único amortizado
+   ============================================= */
+const ST = [
+  {id:'e1',nm:'Embarazo · Trimestre 1',st:'Semanas 1–12 · 3 meses',em:'🌱',dur:3,cats:[
+    {id:'sal',nm:'Salud y controles',em:'🏥',items:[
+      {id:'obs',nm:'Consulta obstetra/ginecólogo',nt:'x3 durante el trimestre',t:'S',lb:['Obra social','Prepaga media','Clínica privada'],v:[25000,50000,90000],w:1},
+      {id:'asang',nm:'Análisis de sangre inicial completo',nt:'Hemograma, toxo, rubéola, chagas, HIV, VDRL, hepatitis B/C, TSH, glucemia',t:'S',lb:['OS/PAMI','Lab. privado','Lab. premium'],v:[10000,18333,26667],ot:1,w:1},
+      {id:'aori',nm:'Análisis de orina',t:'S',lb:['OS','Privado','Premium'],v:[2667,4000,6000],ot:1,w:1},
+      {id:'etv',nm:'Ecografía transvaginal inicial',t:'S',lb:['OS','Centro privado','Centro premium'],v:[8333,15000,23333],ot:1,w:1},
+      {id:'etn',nm:'Ecografía 11–14 sem + translucencia nucal',t:'S',lb:['OS','Centro privado','Centro premium'],v:[11667,21667,33333],ot:1,w:1},
+      {id:'nace',nm:'Test ADN fetal (NACE)',nt:'Análisis genético no invasivo — opcional',t:'SS',lb:['—','Privado','Premium'],v:[0,33333,66667],on:0,ot:1},
+      {id:'cop1',nm:'Copagos / módulos prepaga mensual',t:'S',lb:['OS básica','Prepaga media','Top tier'],v:[5000,15000,30000],w:1},
+    ]},
+    {id:'far',nm:'Suplementos y farmacia',em:'💊',items:[
+      {id:'afo',nm:'Ácido fólico',t:'S',lb:['Genérico','Marca','Premium'],v:[5000,8000,12000],w:1},
+      {id:'hyi',nm:'Hierro + Yodo',t:'S',lb:['Genérico','Marca','Premium'],v:[6000,10000,18000],w:1},
+      {id:'vitd',nm:'Vitamina D + Calcio',t:'S',lb:['Genérico','Marca','Premium'],v:[5000,10000,20000],w:1},
+      {id:'nau',nm:'Medicación para náuseas',nt:'Ondansetrón, jengibre, pulseras',t:'SS',lb:['Básico','Medio','Premium'],v:[5000,15000,30000],on:0,w:1},
+    ]},
+    {id:'ind',nm:'Indumentaria',em:'👗',items:[
+      {id:'rpin',nm:'Ropa interior premamá',nt:'Corpiños sin aro, bombachas especiales',t:'S',lb:['Económico','Marca local','Importado'],v:[5000,10000,20000],ot:1},
+      {id:'app',nm:'App de seguimiento premium',nt:'Ovia, What to Expect, Glow…',t:'SW',v:[0,3000,8000],on:0},
+    ]},
+    {id:'emo',nm:'Salud emocional',em:'🧠',items:[
+      {id:'psi1',nm:'Psicóloga perinatal',nt:'2 sesiones por mes',t:'SS',lb:['—','Privada','Especialista'],v:[0,60000,120000],on:0},
+    ]},
+  ]},
+
+  {id:'e2',nm:'Embarazo · Trimestre 2',st:'Semanas 13–26 · 3 meses',em:'🌸',dur:3,cats:[
+    {id:'sal',nm:'Salud y controles',em:'🏥',items:[
+      {id:'obs2',nm:'Consulta obstetra',nt:'x2 durante el trimestre',t:'S',lb:['Obra social','Prepaga media','Clínica privada'],v:[16667,33333,60000],w:1},
+      {id:'art',nm:'Análisis de rutina',nt:'Glucemia, orina, hemograma',t:'S',lb:['OS','Privado','Premium'],v:[5000,8333,13333],ot:1,w:1},
+      {id:'emorf',nm:'Ecografía morfológica (sem. 20)',t:'S',lb:['OS','Centro privado','Centro premium'],v:[16667,30000,50000],ot:1,w:1},
+      {id:'ecoca',nm:'Ecocardiograma fetal',nt:'Según indicación médica',t:'SS',lb:['—','Privado','Premium'],v:[0,20000,33333],on:0,ot:1,w:1},
+      {id:'cop2',nm:'Copagos prepaga mensual',t:'S',lb:['OS básica','Prepaga media','Top tier'],v:[5000,15000,30000],w:1},
+      {id:'nutr',nm:'Nutricionista especializada en embarazo',t:'SS',lb:['—','Privada','Especialista'],v:[0,13333,26667],on:0,ot:1},
+      {id:'odon',nm:'Odontólogo (preventivo embarazo)',t:'SS',lb:['OS','Privado','Premium'],v:[6667,13333,26667],on:1,ot:1,w:1},
+      {id:'derm',nm:'Dermatólogo (melasma, estrías)',t:'SS',lb:['—','Privado','Premium'],v:[0,13333,26667],on:0,ot:1},
+    ]},
+    {id:'far',nm:'Suplementos',em:'💊',items:[
+      {id:'sup2',nm:'Suplementos continuación',nt:'Hierro, yodo, vit. D, ácido fólico',t:'S',lb:['Genérico','Marca','Premium'],v:[16000,28000,50000],w:1},
+    ]},
+    {id:'ind',nm:'Indumentaria y confort',em:'👗',items:[
+      {id:'ropa2',nm:'Ropa premamá 2da tanda',nt:'Pantalones, vestidos, ropa de trabajo',t:'S',lb:['Económico','Marca local','Importado'],v:[13333,30000,66667],ot:1},
+      {id:'alm',nm:'Almohada de embarazo',t:'S',lb:['Genérica','Marca','Premium'],v:[5000,10000,20000],ot:1},
+      {id:'crem',nm:'Cremas antiestría / aceite rosa mosqueta',t:'S',lb:['Genérico','Marca','Premium'],v:[8000,18000,40000]},
+      {id:'calz',nm:'Calzado cómodo (pies se ensanchan)',t:'S',lb:['Económico','Marca local','Importado'],v:[6667,16667,40000],ot:1},
+      {id:'faja',nm:'Faja de sostén abdominal',t:'S',lb:['Genérica','Marca','Premium'],v:[3333,8333,16667],ot:1},
+      {id:'medi',nm:'Medias de compresión',t:'S',lb:['Genéricas','Marca','Premium'],v:[2667,5000,10000],ot:1},
+    ]},
+    {id:'bie',nm:'Bienestar y preparación',em:'🧘',items:[
+      {id:'yoga',nm:'Yoga / Pilates prenatal',t:'SS',lb:['—','Grupal','Personal'],v:[0,30000,70000],on:0},
+      {id:'cpar',nm:'Curso de preparación para el parto',t:'SS',lb:['—','Grupal','Privado'],v:[0,16667,40000],on:0,ot:1},
+      {id:'psi2',nm:'Psicóloga perinatal',t:'SS',lb:['—','Privada','Especialista'],v:[0,60000,120000],on:0},
+      {id:'libr',nm:'Libros de crianza',t:'SW',v:[0,6667,13333],on:0,ot:1},
+      {id:'baby',nm:'Viaje "babymoon"',t:'SS',lb:['—','Nacional','Internacional'],v:[0,0,133333],on:0,ot:1},
+    ]},
+    {id:'ada',nm:'Adaptaciones',em:'🏠',items:[
+      {id:'sill',nm:'Silla ergonómica / adaptaciones en trabajo',t:'SS',lb:['—','Básica','Premium'],v:[0,16667,33333],on:0,ot:1},
+    ]},
+  ]},
+
+  {id:'e3',nm:'Embarazo · Trimestre 3',st:'Semanas 27–40 · 3 meses',em:'🌺',dur:3,cats:[
+    {id:'sal',nm:'Salud y controles',em:'🏥',items:[
+      {id:'obs3',nm:'Consulta obstetra',nt:'x4 aprox. — frecuencia aumenta al final',t:'S',lb:['Obra social','Prepaga media','Clínica privada'],v:[33333,66667,120000],w:1},
+      {id:'ecrec',nm:'Ecografía de crecimiento + Doppler',t:'S',lb:['OS','Centro privado','Premium'],v:[13333,25000,43333],ot:1,w:1},
+      {id:'nst',nm:'Monitoreo fetal (NST) últimas semanas',t:'S',lb:['OS','Privado','Premium'],v:[6667,13333,23333],ot:1,w:1},
+      {id:'strep',nm:'Hisopado Streptococo B',t:'S',lb:['OS','Lab. privado','Lab. premium'],v:[3333,6667,11667],ot:1,w:1},
+      {id:'apre',nm:'Análisis pre-parto finales',t:'S',lb:['OS','Privado','Premium'],v:[5000,10000,16667],ot:1,w:1},
+      {id:'anes',nm:'Consulta con anestesista',t:'SS',lb:['—','Privado','Especialista'],v:[0,10000,23333],on:0,ot:1},
+      {id:'neo',nm:'Consulta con neonatólogo',t:'SS',lb:['—','Privado','Especialista'],v:[0,10000,20000],on:0,ot:1},
+      {id:'cop3',nm:'Copagos prepaga mensual',t:'S',lb:['OS básica','Prepaga media','Top tier'],v:[15000,45000,90000],w:1},
+    ]},
+    {id:'far',nm:'Farmacia y cuidado físico',em:'💊',items:[
+      {id:'sup3',nm:'Suplementos continuación',t:'S',lb:['Genérico','Marca','Premium'],v:[16000,28000,50000],w:1},
+      {id:'cre3',nm:'Cremas / tratamiento várices y hemorroides',t:'S',lb:['Genérico','Marca','Premium'],v:[8000,20000,45000]},
+      {id:'kin',nm:'Fisioterapia de piso pélvico (preventiva)',t:'SS',lb:['—','Clínica privada','Especialista'],v:[0,40000,80000],on:0},
+    ]},
+    {id:'ind',nm:'Indumentaria y valija',em:'👗',items:[
+      {id:'ropa3',nm:'Ropa premamá 3era tanda',t:'S',lb:['Económico','Marca local','Importado'],v:[6667,20000,50000],ot:1},
+      {id:'fap',nm:'Faja de soporte pélvico',t:'S',lb:['Genérica','Marca','Premium'],v:[3333,6667,15000],ot:1},
+      {id:'val',nm:'Valija de internación',nt:'Ropa mamá + ropa bebé + artículos higiene',t:'S',lb:['Económico','Completo','Premium'],v:[6667,16667,40000],ot:1},
+    ]},
+    {id:'can',nm:'Canastilla y equipamiento',em:'🧸',items:[
+      {id:'cuna',nm:'Cuna + colchón',t:'S',lb:['Nacional básica','Marca importada','Premium'],v:[26667,60000,133333],ot:1},
+      {id:'rcam',nm:'Ropa de cama bebé (sábanas, mantas, sleeping bag)',t:'S',lb:['Genérico','Marca','Premium'],v:[6667,15000,33333],ot:1},
+      {id:'mois',nm:'Moisés / cuco portátil',t:'S',lb:['Básico','Marca','Premium'],v:[10000,23333,60000],ot:1},
+      {id:'coch',nm:'Cochecito / travel system',t:'S',lb:['Nacional básico','Marca importada','Premium import.'],v:[50000,116667,266667],ot:1},
+      {id:'sauto',nm:'Silla de auto grupo 0+',nt:'⚠️ Obligatoria por ley',t:'S',lb:['Nacional','Marca importada','Premium'],v:[26667,60000,150000],ot:1,w:1},
+      {id:'bane',nm:'Bañera de bebé',t:'S',lb:['Básica','Marca','Premium'],v:[2667,6000,15000],ot:1},
+      {id:'camb',nm:'Cambiador / cómoda adaptada',t:'S',lb:['Básico','Marca','Premium'],v:[10000,26667,66667],ot:1},
+      {id:'mon',nm:'Monitor de bebé / babyfón',t:'SS',lb:['—','Con audio','Con video'],v:[0,20000,50000],on:0,ot:1},
+      {id:'humi',nm:'Humidificador',t:'SS',lb:['—','Básico','Smart'],v:[0,16667,40000],on:0,ot:1},
+      {id:'pbeb',nm:'Portabebés / fular',t:'SS',lb:['—','Ergonómico','Premium'],v:[0,13333,40000],on:0,ot:1},
+      {id:'saca',nm:'Sacaleches eléctrico',t:'SS',lb:['—','Eléct. marca','Doble hospital'],v:[0,23333,66667],on:0,ot:1},
+      {id:'almlac',nm:'Almohada de lactancia',t:'S',lb:['Genérica','Marca','Premium'],v:[5000,10000,23333],ot:1},
+      {id:'bib',nm:'Biberones + esterilizador + calientabiberones',t:'S',lb:['Genérico','Avent/Chicco','Premium'],v:[6667,16667,40000],ot:1},
+      {id:'rrn',nm:'Ropa recién nacido (bodies, enteritos, pijamas talle RN/000)',t:'S',lb:['Económica','H&M / Zara kids','Importada'],v:[13333,33333,83333],ot:1},
+      {id:'higini',nm:'Artículos higiene iniciales',nt:'Termómetro, aspirador nasal, gasas, cremas, jabón bebé',t:'S',lb:['Genérico','Marca','Premium'],v:[5000,11667,26667],ot:1,w:1},
+      {id:'chup',nm:'Chupetes (varios)',t:'S',lb:['Genéricos','Avent / NUK','Orthodontic'],v:[1667,4000,10000],ot:1},
+      {id:'deco',nm:'Decoración / pintura habitación bebé',t:'SS',lb:['—','Básica','Diseñada'],v:[0,33333,133333],on:0,ot:1},
+      {id:'sillon',nm:'Sillón / mecedora de lactancia',t:'SS',lb:['—','Cómoda','Premium'],v:[0,50000,133333],on:0,ot:1},
+    ]},
+    {id:'bie',nm:'Bienestar final',em:'🧘',items:[
+      {id:'clac',nm:'Curso de lactancia + RCP bebés',t:'SS',lb:['—','Grupal','Privado'],v:[0,10000,20000],on:0,ot:1},
+      {id:'psi3',nm:'Psicóloga perinatal',t:'SS',lb:['—','Privada','Especialista'],v:[0,60000,120000],on:0},
+    ]},
+    {id:'par',nm:'Parto e internación',em:'🏥',items:[
+      {id:'int',nm:'Internación (descubierto habitación individual)',t:'SS',lb:['—','Hab. simple','Suite'],v:[0,50000,166667],on:0,ot:1},
+      {id:'anesp',nm:'Anestesista (fuera de cobertura)',t:'SS',lb:['—','Privado','Especialista'],v:[0,26667,66667],on:0,ot:1},
+      {id:'neop',nm:'Neonatólogo en sala de parto',t:'SS',lb:['—','Privado','Especialista'],v:[0,13333,33333],on:0,ot:1},
+      {id:'banco',nm:'Banco de sangre de cordón umbilical',t:'SS',lb:['—','—','Premium'],v:[0,0,166667],on:0,ot:1},
+      {id:'foto',nm:'Fotografía / video del parto',t:'SS',lb:['—','Fotógrafa','Estudio premium'],v:[0,33333,100000],on:0,ot:1},
+      {id:'dias',nm:'Días extra internación (contingencia)',t:'SW',v:[0,16667,66667],on:0,ot:1},
+    ]},
+    {id:'seg',nm:'Seguros',em:'🛡️',items:[
+      {id:'svida',nm:'Seguro de vida (contratación nueva)',t:'SS',lb:['—','Básico','Completo'],v:[0,20000,50000],on:0},
+    ]},
+  ]},
+
+  {id:'b1',nm:'Bebé · 0–3 meses',st:'Primeros meses críticos',em:'🍼',dur:3,cats:[
+    {id:'sbe',nm:'Salud del bebé',em:'👶',items:[
+      {id:'ped1',nm:'Pediatra',nt:'x4/mes (mes 1) · x2/mes (meses 2-3)',t:'S',lb:['OS','Privado','Premium'],v:[50000,100000,180000],w:1},
+      {id:'neoseg',nm:'Neonatólogo de seguimiento',t:'SS',lb:['—','Si hubo complicaciones','Alta frecuencia'],v:[0,30000,60000],on:0,w:1},
+      {id:'vac1',nm:'Vacunas privadas (extra al calendario público)',nt:'Meningococo B, rotavirus, neumococo',t:'SS',lb:['—','Algunas','Todas'],v:[0,50000,100000],on:0,ot:1,w:1},
+      {id:'tamiz',nm:'Tamiz metabólico / auditivo ampliado',t:'SS',lb:['—','Estándar','Ampliado'],v:[0,10000,23333],on:0,ot:1,w:1},
+      {id:'guar1',nm:'Guardia / urgencias pediátricas',nt:'Fiebre, cólicos, contingencia',t:'S',lb:['OS','Privada','Premium'],v:[20000,40000,70000],w:1},
+      {id:'cop4',nm:'Copago prepaga (bebé incorporado)',t:'S',lb:['OS básica','Prepaga media','Top tier'],v:[20000,50000,100000],w:1},
+    ]},
+    {id:'sma',nm:'Recuperación mamá',em:'🤱',items:[
+      {id:'mpp',nm:'Medicamentos post-parto',nt:'Hierro, vitaminas, cicatrizantes, analgésicos',t:'S',lb:['Genérico','Marca','Premium'],v:[15000,30000,60000],w:1},
+      {id:'fpp',nm:'Faja post-parto',t:'S',lb:['Básica','Marca','Premium'],v:[5000,11667,26667],ot:1},
+      {id:'kpp',nm:'Kinesiología piso pélvico post-parto',t:'SS',lb:['—','Clínica privada','Especialista'],v:[0,50000,100000],on:0},
+      {id:'psipp',nm:'Psicóloga post-parto (baby blues / DPP)',t:'SS',lb:['—','Privada','Especialista'],v:[0,60000,120000],on:0,w:1},
+      {id:'conslac',nm:'Consultas lactancia (mastitis, grietas)',t:'SS',lb:['—','Partera/puericultora','IBCLC'],v:[15000,30000,60000],on:1,w:1},
+    ]},
+    {id:'ali',nm:'Alimentación del bebé',em:'🍼',items:[
+      {id:'form',nm:'Leche maternizada / de fórmula',nt:'Solo si no hay lactancia exclusiva',t:'SS',lb:['—','Marca local','Importada'],v:[0,180000,350000],on:0,w:1},
+      {id:'lacc',nm:'Accesorios de lactancia (copas, cremas, protectores)',t:'S',lb:['Básico','Marca','Premium'],v:[5000,15000,35000],w:1},
+    ]},
+    {id:'hig',nm:'Higiene y pañales',em:'🧷',items:[
+      {id:'pan1',nm:'Pañales',nt:'~6-8 por día = ~210/mes, talle RN / P',t:'S',lb:['Babysec/genérico','Pampers / Huggies','Premium importado'],v:[55000,80000,110000],w:1},
+      {id:'toa',nm:'Toallitas húmedas',t:'S',lb:['Genéricas','Marca','Premium'],v:[12000,20000,30000],w:1},
+      {id:'crc',nm:'Crema para cola',t:'S',lb:['Genérica','Marca','Premium'],v:[5000,10000,20000],w:1},
+      {id:'misc',nm:'Suero fisiológico, gasas, algodón',t:'S',lb:['Genérico','Marca','Premium'],v:[5000,8000,15000],w:1},
+    ]},
+    {id:'ind',nm:'Indumentaria bebé',em:'👕',items:[
+      {id:'r0',nm:'Ropa talla 0000–000',nt:'Se queda chica en semanas',t:'S',lb:['Económica','H&M / Zara kids','Importada'],v:[6667,16667,40000],ot:1},
+      {id:'slp',nm:'Sleeping bags / abrigadores',t:'S',lb:['Genérico','Marca','Premium'],v:[3333,8333,20000],ot:1},
+    ]},
+    {id:'cui',nm:'Apoyo y cuidado',em:'🏠',items:[
+      {id:'nin1',nm:'Niñera / ayuda doméstica extra primeras semanas',t:'SS',lb:['—','Informal','Formal / agencia'],v:[0,80000,200000],on:0},
+      {id:'apps',nm:'Apps de seguimiento y ruido blanco',t:'SS',lb:['—','Una app','Varias'],v:[0,3000,8000],on:0},
+    ]},
+  ]},
+
+  {id:'b2',nm:'Bebé · 3–6 meses',st:'El bebé empieza a explorar',em:'🌼',dur:3,cats:[
+    {id:'sal',nm:'Salud',em:'🏥',items:[
+      {id:'ped2',nm:'Pediatra (x2/mes)',t:'S',lb:['OS','Privado','Premium'],v:[30000,60000,120000],w:1},
+      {id:'vac2',nm:'Vacunas privadas 2da tanda',t:'SS',lb:['—','Algunas','Todas'],v:[0,26667,53333],on:0,ot:1,w:1},
+      {id:'guar2',nm:'Guardia urgencias (bronquiolitis, otitis)',t:'S',lb:['OS','Privada','Premium'],v:[25000,50000,80000],w:1},
+      {id:'cop5',nm:'Copago prepaga',t:'S',lb:['OS básica','Prepaga media','Top tier'],v:[20000,50000,100000],w:1},
+      {id:'nebu',nm:'Nebulizador',t:'SS',lb:['—','Básico','Digital'],v:[0,16667,40000],on:0,ot:1,w:1},
+    ]},
+    {id:'ali',nm:'Alimentación',em:'🍼',items:[
+      {id:'form2',nm:'Leche maternizada (si aplica)',t:'SS',lb:['—','Marca local','Importada'],v:[0,180000,350000],on:0,w:1},
+      {id:'lacc2',nm:'Accesorios lactancia',t:'S',lb:['Básico','Marca','Premium'],v:[5000,10000,20000],w:1},
+    ]},
+    {id:'hig',nm:'Higiene y pañales',em:'🧷',items:[
+      {id:'pan2',nm:'Pañales talla P / M (~200/mes)',t:'S',lb:['Babysec','Pampers / Huggies','Premium'],v:[60000,85000,115000],w:1},
+      {id:'hig2',nm:'Toallitas + higiene general',t:'S',lb:['Genérico','Marca','Premium'],v:[17000,28000,45000],w:1},
+    ]},
+    {id:'ind',nm:'Indumentaria',em:'👕',items:[
+      {id:'r00',nm:'Ropa talla 0 / 00',t:'S',lb:['Económica','H&M / Zara kids','Importada'],v:[8333,20000,50000],ot:1},
+    ]},
+    {id:'est',nm:'Estimulación y juguetes',em:'🧸',items:[
+      {id:'gim',nm:'Gimnasio de actividades / mordillos / juguetes sensoriales',t:'S',lb:['Genérico','Marca','Premium'],v:[3333,10000,23333],ot:1},
+      {id:'ham',nm:'Hamaca / columpio eléctrico',t:'SS',lb:['—','Básica','Premium'],v:[0,20000,50000],on:0,ot:1},
+    ]},
+    {id:'cui',nm:'Educación y cuidado',em:'🏫',items:[
+      {id:'jar2',nm:'Jardín maternal / sala cuna',nt:'Si la mamá volvió a trabajar',t:'SS',lb:['—','Privado zona','Palermo/Recoleta'],v:[0,200000,450000],on:0},
+      {id:'nin2',nm:'Niñera parcial',t:'SS',lb:['—','Informal','Formal / agencia'],v:[0,100000,250000],on:0},
+    ]},
+  ]},
+
+  {id:'b3',nm:'Bebé · 6–9 meses',st:'Inicia la alimentación sólida',em:'🥕',dur:3,cats:[
+    {id:'sal',nm:'Salud',em:'🏥',items:[
+      {id:'ped3',nm:'Pediatra (x1-2/mes)',t:'S',lb:['OS','Privado','Premium'],v:[25000,50000,100000],w:1},
+      {id:'vac3',nm:'Vacunas privadas 3er refuerzo',t:'SS',lb:['—','Algunas','Todas'],v:[0,20000,40000],on:0,ot:1,w:1},
+      {id:'guar3',nm:'Guardia urgencias',t:'S',lb:['OS','Privada','Premium'],v:[20000,40000,70000],w:1},
+      {id:'alerg',nm:'Consulta alergias alimentarias',t:'SS',lb:['—','Privado','Especialista'],v:[0,13333,26667],on:0,ot:1,w:1},
+      {id:'cop6',nm:'Copago prepaga',t:'S',lb:['OS básica','Prepaga media','Top tier'],v:[20000,50000,100000],w:1},
+    ]},
+    {id:'ali',nm:'Alimentación complementaria',em:'🥣',items:[
+      {id:'proc',nm:'Procesadora / mixer de mano',t:'S',lb:['Básica','Marca','Premium'],v:[6667,16667,40000],ot:1},
+      {id:'scomer',nm:'Silla de comer alta',t:'S',lb:['Básica','Chicco / Joie','Premium'],v:[10000,26667,66667],ot:1},
+      {id:'vaj',nm:'Vajilla bebé (platos succión, vasos, cubiertos)',t:'S',lb:['Genérica','Marca','Premium'],v:[3333,8333,20000],ot:1},
+      {id:'bab',nm:'Baberos y delantales',t:'S',lb:['Genérico','Marca','Premium'],v:[8000,15000,30000]},
+      {id:'supc',nm:'Incremento supermercado (frutas, verduras, proteínas)',t:'S',lb:['Mínimo','Moderado','Amplio'],v:[20000,40000,80000],w:1},
+    ]},
+    {id:'hig',nm:'Higiene y pañales',em:'🧷',items:[
+      {id:'pan3',nm:'Pañales talla M / G (~180/mes)',t:'S',lb:['Babysec','Pampers / Huggies','Premium'],v:[60000,85000,115000],w:1},
+      {id:'hig3',nm:'Toallitas + higiene general',t:'S',lb:['Genérico','Marca','Premium'],v:[17000,28000,45000],w:1},
+    ]},
+    {id:'ind',nm:'Indumentaria',em:'👕',items:[
+      {id:'r12',nm:'Ropa talla 1 / 2',t:'S',lb:['Económica','H&M / Zara kids','Importada'],v:[8333,20000,50000],ot:1},
+      {id:'calz1',nm:'Calzado (primeros borceguítos blandos)',t:'S',lb:['Básico','Marca local','Importado'],v:[3333,8333,23333],ot:1},
+    ]},
+    {id:'segur',nm:'Seguridad del hogar',em:'🔒',items:[
+      {id:'segh',nm:'Barreras escaleras, protectores enchufes, cerraduras cajones',t:'S',lb:['Básico','Completo','Premium'],v:[3333,10000,23333],ot:1,w:1},
+    ]},
+    {id:'cui',nm:'Educación y cuidado',em:'🏫',items:[
+      {id:'jar3',nm:'Jardín maternal (jornada completa)',t:'SS',lb:['—','Privado zona','Palermo/Recoleta'],v:[0,250000,500000],on:0},
+      {id:'nin3',nm:'Niñera',t:'SS',lb:['—','Informal','Formal'],v:[0,100000,250000],on:0},
+    ]},
+  ]},
+
+  {id:'b4',nm:'Bebé · 9–12 meses',st:'Primeros pasos',em:'👣',dur:3,cats:[
+    {id:'sal',nm:'Salud',em:'🏥',items:[
+      {id:'ped4',nm:'Pediatra (x1/mes + urgencias)',t:'S',lb:['OS','Privado','Premium'],v:[25000,50000,100000],w:1},
+      {id:'ctrl',nm:'Control auditivo y de visión',t:'S',lb:['OS','Privado','Premium'],v:[3333,8333,16667],ot:1,w:1},
+      {id:'vac4',nm:'Vacunas del año + no obligatorias',t:'SS',lb:['—','Algunas','Todas'],v:[0,26667,53333],on:0,ot:1,w:1},
+      {id:'guar4',nm:'Guardia urgencias',t:'S',lb:['OS','Privada','Premium'],v:[20000,40000,70000],w:1},
+      {id:'cop7',nm:'Copago prepaga',t:'S',lb:['OS básica','Prepaga media','Top tier'],v:[20000,50000,100000],w:1},
+    ]},
+    {id:'ali',nm:'Alimentación',em:'🍽️',items:[
+      {id:'alim4',nm:'Alimentación variada (ya come bastante)',t:'S',lb:['Básico','Variado','Premium'],v:[30000,60000,120000],w:1},
+      {id:'snk',nm:'Snacks, galletitas, yogures especiales',t:'S',lb:['Genérico','Marca','Premium'],v:[10000,20000,40000],w:1},
+    ]},
+    {id:'hig',nm:'Higiene y pañales',em:'🧷',items:[
+      {id:'pan4',nm:'Pañales talla G / XG (~160/mes)',t:'S',lb:['Babysec','Pampers / Huggies','Premium'],v:[55000,80000,110000],w:1},
+      {id:'hig4',nm:'Higiene general',t:'S',lb:['Genérico','Marca','Premium'],v:[17000,28000,45000],w:1},
+    ]},
+    {id:'ind',nm:'Indumentaria',em:'👕',items:[
+      {id:'r23',nm:'Ropa talla 2 / 3',t:'S',lb:['Económica','H&M / Zara kids','Importada'],v:[8333,21667,53333],ot:1},
+      {id:'calz2',nm:'Calzado primeros pasos',t:'S',lb:['Básico','Marca local','Importado'],v:[5000,13333,33333],ot:1},
+    ]},
+    {id:'jug',nm:'Juguetes y desarrollo',em:'🧸',items:[
+      {id:'jug4',nm:'Correpasillos / bloques / andador',t:'S',lb:['Básico','Marca','Didáctico premium'],v:[5000,16667,40000],ot:1},
+      {id:'lib4',nm:'Libros de cartón resistentes',t:'S',lb:['Básicos','Marca local','Importados'],v:[1667,5000,11667],ot:1},
+    ]},
+    {id:'ev',nm:'Eventos y recuerdos',em:'🎂',items:[
+      {id:'cum1',nm:'Cumpleaños de 1 año (torta, decoración, fotos)',t:'SS',lb:['—','Familiar','Evento completo'],v:[0,66667,200000],on:0,ot:1},
+      {id:'foto1',nm:'Sesión fotográfica profesional primer año',t:'SS',lb:['—','Fotógrafa','Estudio premium'],v:[0,33333,100000],on:0,ot:1},
+    ]},
+    {id:'cui',nm:'Educación y cuidado',em:'🏫',items:[
+      {id:'jar4',nm:'Jardín maternal',t:'SS',lb:['—','Privado zona','Palermo/Recoleta'],v:[0,250000,550000],on:0},
+      {id:'nin4',nm:'Niñera parcial',t:'SS',lb:['—','Informal','Formal'],v:[0,100000,250000],on:0},
+    ]},
+  ]},
+
+  {id:'a13',nm:'Año 1 a 3',st:'Meses 12–36 · 24 meses',em:'🧒',dur:24,cats:[
+    {id:'sal',nm:'Salud',em:'🏥',items:[
+      {id:'peda',nm:'Pediatra (controles + imprevistos)',t:'S',lb:['OS','Privado','Premium'],v:[40000,80000,150000],w:1},
+      {id:'odont',nm:'Odontólogo pediátrico',t:'S',lb:['OS','Privado','Premium'],v:[10000,25000,60000],w:1},
+      {id:'oft',nm:'Oftalmólogo (primer control anual)',t:'SS',lb:['—','Privado','Premium'],v:[0,1250,3333],on:0,ot:1,w:1},
+      {id:'fono',nm:'Fonoaudióloga / psicomotricista',t:'SS',lb:['—','OS/privada','Especialista'],v:[0,50000,120000],on:0,w:1},
+      {id:'estim',nm:'Estimulación temprana',t:'SS',lb:['—','Grupal','Individual'],v:[0,60000,150000],on:0},
+      {id:'vaca',nm:'Vacunas anuales (privadas)',t:'SS',lb:['—','Algunas','Completas'],v:[0,2500,6667],on:0,ot:1,w:1},
+      {id:'meds',nm:'Medicamentos frecuentes',nt:'Antibióticos, broncodilatadores, antitérmicos',t:'S',lb:['Genérico','Marca','Premium'],v:[20000,40000,70000],w:1},
+      {id:'gura',nm:'Guardia / urgencias (prom. 4-6x/año)',t:'S',lb:['OS','Privada','Premium'],v:[17000,33000,60000],w:1},
+      {id:'copa',nm:'Prepaga (bebé en plan)',t:'S',lb:['OS básica','Prepaga media','Top tier'],v:[50000,120000,250000],w:1},
+    ]},
+    {id:'edu',nm:'Educación y cuidado',em:'🏫',items:[
+      {id:'jara',nm:'Jardín maternal privado',t:'SS',lb:['—','Privado zona','Palermo/Recoleta'],v:[0,280000,600000],on:0},
+      {id:'matr',nm:'Matrícula anual (amortizada)',t:'SS',lb:['—','Media','Alta'],v:[0,2500,6667],on:0,ot:1},
+      {id:'util',nm:'Útiles, mochila, guardapolvo jardín',t:'S',lb:['Básico','Marca','Premium'],v:[5000,15000,30000]},
+      {id:'nina',nm:'Niñera complementaria',t:'SS',lb:['—','Informal','Formal / agencia'],v:[0,80000,200000],on:0},
+      {id:'activ',nm:'Actividades extracurriculares',nt:'Música, natación, inglés, estimulación',t:'SS',lb:['—','Una actividad','Varias'],v:[0,50000,150000],on:0},
+    ]},
+    {id:'ali',nm:'Alimentación',em:'🍽️',items:[
+      {id:'lech',nm:'Leche de continuación / entera',t:'S',lb:['Genérica','Marca','Premium'],v:[20000,35000,60000],w:1},
+      {id:'snka',nm:'Snacks, galletitas, yogures, purés especiales',t:'S',lb:['Genérico','Marca','Premium'],v:[15000,30000,60000],w:1},
+      {id:'supa',nm:'Incremento gasto supermercado familiar',t:'S',lb:['Mínimo','Moderado','Amplio'],v:[30000,60000,120000],w:1},
+      {id:'vian',nm:'Vianda jardín (tuppers, bolsas, hiladera)',t:'SW',v:[0,5000,15000],on:0},
+    ]},
+    {id:'ind',nm:'Indumentaria',em:'👕',items:[
+      {id:'ropa',nm:'Ropa por temporada (2 talles/año)',t:'S',lb:['Económica','H&M / Zara kids','Importada'],v:[20000,55000,140000]},
+      {id:'calza',nm:'Calzado (3-4 pares/año)',t:'S',lb:['Básico','Marca local','Importado'],v:[15000,40000,100000]},
+      {id:'pana',nm:'Pañales (hasta ~2.5 años)',t:'S',lb:['Babysec','Pampers / Huggies','Premium'],v:[55000,80000,110000],w:1},
+      {id:'pull',nm:'Pull-ups entrenamiento (control esfínteres)',t:'SS',lb:['—','Básicos','Premium'],v:[0,35000,55000],on:0},
+    ]},
+    {id:'equ',nm:'Equipamiento',em:'🪑',items:[
+      {id:'sauto1',nm:'Silla de auto grupo 1 (cambio al año)',t:'S',lb:['Nacional','Importada marca','Premium'],v:[4167,8333,20833],ot:1,w:1},
+      {id:'camt',nm:'Cama de transición + barandas',t:'S',lb:['Básica','Marca','Premium'],v:[1250,3333,8333],ot:1},
+      {id:'juga',nm:'Juguetes por etapa de desarrollo',t:'S',lb:['Básicos','Marca','Didácticos premium'],v:[15000,40000,100000]},
+      {id:'liba',nm:'Libros y materiales educativos',t:'S',lb:['Básicos','Variados','Premium'],v:[5000,15000,40000]},
+    ]},
+    {id:'hog',nm:'Impacto en el hogar',em:'🏠',items:[
+      {id:'dom',nm:'Servicio doméstico adicional',t:'SS',lb:['—','Mensual','Frecuente'],v:[0,60000,150000],on:0},
+      {id:'esp',nm:'Mayor espacio (mudanza / alquiler más grande)',t:'SS',lb:['—','GBA','CABA'],v:[0,100000,400000],on:0},
+      {id:'lab',nm:'Pérdida días laborales por enfermedad del hijo',nt:'Estimado promedio',t:'S',lb:['Mínimo','Promedio','Alto'],v:[20000,50000,100000]},
+    ]},
+  ]},
+];
+
+/* =============================================
+   INCOME THRESHOLDS (regla del 20%)
+   Eco avg ~$180K → mínimo $1M (18%)
+   Medio avg ~$565K → mínimo $3M (19%)
+   Premium avg ~$1.3M → mínimo $7M (19%)
+   ============================================= */
+const LVL_MIN = [900000, 2800000, 6500000]; // ingresos mínimos para cada nivel (20% rule)
+const LVL_AVG = [180000, 565000, 1300000];  // costo promedio mensual por nivel
+
+function lvlFromInc(n){
+  if(!n||n<=0) return null;
+  // Suggests the HIGHEST level where avg monthly < 20% of income
+  if(n >= 6500000) return 2;
+  if(n >= 2800000) return 1;
+  return 0;
+}
+
+function pctClass(p){ return p<20?'ok':p<35?'caution':'high'; }
+
+/* =============================================
+   STATE
+   ============================================= */
+let LVL = 1;
+const STATE = {};
+
+function initState(){
+  ST.forEach(sg=>{ STATE[sg.id]={}; sg.cats.forEach(c=>{ STATE[sg.id][c.id]={}; c.items.forEach(it=>{
+    const on = it.t==='S'? true : (it.on!==undefined ? !!it.on : false);
+    STATE[sg.id][c.id][it.id]={ lv:LVL, on, warned:false };
+  }); }); });
+}
+
+function setAllLv(lv){
+  ST.forEach(sg=>sg.cats.forEach(c=>c.items.forEach(it=>{ STATE[sg.id][c.id][it.id].lv=lv; STATE[sg.id][c.id][it.id].warned=false; })));
+}
+
+function cost(sg,c,it){ const s=STATE[sg.id][c.id][it.id]; return s.on?(it.v[s.lv]||0):0; }
+function catTot(sg,c){ return c.items.reduce((a,it)=>a+cost(sg,c,it),0); }
+function stageTot(sg){ return sg.cats.reduce((a,c)=>a+catTot(sg,c),0); }
+
+function fmt(n){
+  if(n===0)return'$0';
+  if(n>=1000000)return'$'+(n/1000000).toFixed(1).replace('.0','')+'M';
+  if(n>=1000)return'$'+Math.round(n/1000)+'K';
+  return'$'+Math.round(n).toLocaleString('es-AR');
+}
+
+/* warn category labels */
+function warnLabel(it){
+  const nm=it.nm.toLowerCase();
+  if(nm.includes('pañal')||nm.includes('leche')||nm.includes('fórmula')||nm.includes('aliment')||nm.includes('suplemento')||nm.includes('ácido')||nm.includes('hierro')||nm.includes('vitamina'))
+    return 'alimentación y suplementación';
+  if(nm.includes('silla de auto'))
+    return 'seguridad vial (la silla de auto es obligatoria por ley)';
+  return 'controles médicos';
+}
+
+/* =============================================
+   RENDER
+   ============================================= */
+function renderAll(){ renderOv(); renderStages(); updSum(); }
+
+function renderOv(){
+  const g=document.getElementById('ov-grid'); g.innerHTML='';
+  const tots=ST.map(s=>stageTot(s)), mx=Math.max(...tots,1);
+  ST.forEach((sg,i)=>{
+    const v=tots[i], pct=(v/mx)*100;
+    const d=document.createElement('div'); d.className='ov-row';
+    d.innerHTML=`<span class="ov-em">${sg.em}</span><span class="ov-nm">${sg.nm}</span><div class="ov-bar-bg"><div class="ov-bar-fill" id="ob${sg.id}" style="width:${pct}%"></div></div><span class="ov-amt" id="oa${sg.id}">${fmt(v)}<span style="color:var(--txt-d);font-size:10px;font-weight:400">/mes</span></span>`;
+    d.onclick=()=>{ const el=document.getElementById('sc'+sg.id); if(el){el.scrollIntoView({behavior:'smooth',block:'start'});if(!el.classList.contains('open'))toggleSt(sg.id);} };
+    g.appendChild(d);
+  });
+}
+
+function updOv(){
+  const tots=ST.map(s=>stageTot(s)), mx=Math.max(...tots,1);
+  ST.forEach((sg,i)=>{
+    const v=tots[i];
+    const b=document.getElementById('ob'+sg.id), a=document.getElementById('oa'+sg.id);
+    if(b)b.style.width=(v/mx)*100+'%';
+    if(a)a.innerHTML=`${fmt(v)}<span style="color:var(--txt-d);font-size:10px;font-weight:400">/mes</span>`;
+  });
+}
+
+function renderStages(){
+  const ct=document.getElementById('stages'); ct.innerHTML='';
+  ST.forEach(sg=>{
+    const tot=stageTot(sg);
+    const card=document.createElement('div'); card.className='stage-card'; card.id='sc'+sg.id;
+    card.innerHTML=`
+      <div class="stage-hd" onclick="toggleSt('${sg.id}')">
+        <span class="stage-em">${sg.em}</span>
+        <div class="stage-info"><div class="stage-nm">${sg.nm}</div><div class="stage-st">${sg.st}</div></div>
+        <div class="stage-right"><div class="stage-num" id="sn${sg.id}">${fmt(tot)}</div><div class="stage-freq">/mes promedio</div></div>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="stage-bd" id="sb${sg.id}">${renderCats(sg)}</div>`;
+    ct.appendChild(card);
+  });
+}
+
+function renderCats(sg){
+  return sg.cats.map(c=>`
+    <div class="cat-wrap" id="cw${sg.id}${c.id}">
+      <div class="cat-hd" onclick="toggleCat('${sg.id}','${c.id}')">
+        <span class="cat-em">${c.em}</span><span class="cat-nm">${c.nm}</span>
+        <span class="cat-sub" id="cs${sg.id}${c.id}">${fmt(catTot(sg,c))}/mes</span>
+        <svg class="cat-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="cat-bd" id="cb${sg.id}${c.id}">${renderItems(sg,c)}</div>
+    </div>`).join('');
+}
+
+function renderItems(sg,c){
+  return c.items.map(it=>{
+    const s=STATE[sg.id][c.id][it.id], v=cost(sg,c,it), on=s.on;
+    const ot=it.ot?'<span class="tag-once">único</span>':'';
+    let ctrl='';
+    if(it.t==='S') ctrl=segCtrl(sg.id,c.id,it,s.lv);
+    else if(it.t==='SW') ctrl=swCtrl(sg.id,c.id,it,on);
+    else if(it.t==='SS') ctrl=`<div class="sw-row">${swCtrl(sg.id,c.id,it,on)}${on?segCtrl(sg.id,c.id,it,s.lv):''}</div>`;
+    const warnTxt=it.w&&s.warned?`<div class="warn-msg visible" id="wm${sg.id}${c.id}${it.id}">⚠️ No recomendamos recortar el presupuesto de <strong>${warnLabel(it)}</strong>. Este gasto protege la salud de mamá y/o bebé.</div>`:`<div class="warn-msg" id="wm${sg.id}${c.id}${it.id}">⚠️ No recomendamos recortar el presupuesto de <strong>${warnLabel(it)}</strong>. Este gasto protege la salud de mamá y/o bebé.</div>`;
+    return `<div class="exp-row${!on?' disabled':''}" id="er${sg.id}${c.id}${it.id}">
+      <div>
+        <div class="exp-nm">${it.nm}${ot}</div>
+        ${it.nt?`<div class="exp-note">${it.nt}</div>`:''}
+        <div id="ctl${sg.id}${c.id}${it.id}">${ctrl}</div>
+        ${it.w?warnTxt:''}
+      </div>
+      <div class="exp-right">
+        <div class="exp-amt${!on?' off':''}" id="ea${sg.id}${c.id}${it.id}">${on?fmt(v):'—'}</div>
+        <div class="exp-frq">${it.ot?'amortizado':'/mes'}</div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function segCtrl(sid,cid,it,lv){
+  const lb=it.lb||['Básico','Medio','Premium'];
+  return `<div class="seg" id="sg${sid}${cid}${it.id}">${[0,1,2].map(i=>`<button class="sb${lv===i?' a'+i:''}" onclick="setLv('${sid}','${cid}','${it.id}',${i})">${lb[i]}</button>`).join('')}</div>`;
+}
+function swCtrl(sid,cid,it,on){
+  return `<label class="sw"><input type="checkbox"${on?' checked':''} onchange="toggleIt('${sid}','${cid}','${it.id}',this.checked)"><span class="sw-tk"></span></label>`;
+}
+
+/* =============================================
+   INTERACTIONS
+   ============================================= */
+function toggleSt(id){ document.getElementById('sc'+id).classList.toggle('open'); }
+function toggleCat(sid,cid){ document.getElementById('cw'+sid+cid).classList.toggle('open'); }
+
+function setLv(sid,cid,iid,lv){
+  const sg=ST.find(s=>s.id===sid), c=sg.cats.find(x=>x.id===cid), it=c.items.find(i=>i.id===iid);
+  const s=STATE[sid][cid][iid];
+  // Check if sensitive and downgrading below recommended
+  if(it.w && lv<LVL && lv===0){
+    s.warned=true;
+  } else {
+    s.warned=false;
+  }
+  s.lv=lv;
+  updItem(sid,cid,iid);
+  updTots(sid,cid);
+}
+
+function toggleIt(sid,cid,iid,on){
+  const sg=ST.find(s=>s.id===sid), c=sg.cats.find(x=>x.id===cid), it=c.items.find(i=>i.id===iid);
+  const s=STATE[sid][cid][iid];
+  // Warn if turning off a sensitive item
+  if(it.w && !on && (LVL>0)){
+    s.warned=true;
+  } else {
+    s.warned=false;
+  }
+  s.on=on;
+  if(it.t==='SS'){
+    const el=document.getElementById('ctl'+sid+cid+iid);
+    if(el) el.innerHTML=`<div class="sw-row">${swCtrl(sid,cid,it,on)}${on?segCtrl(sid,cid,it,s.lv):''}</div>`;
+  }
+  updItem(sid,cid,iid);
+  // Update warn message
+  const wm=document.getElementById('wm'+sid+cid+iid);
+  if(wm) wm.classList.toggle('visible',s.warned);
+  updTots(sid,cid);
+}
+
+function updItem(sid,cid,iid){
+  const sg=ST.find(s=>s.id===sid), c=sg.cats.find(x=>x.id===cid), it=c.items.find(i=>i.id===iid);
+  const s=STATE[sid][cid][iid], v=cost(sg,c,it);
+  const row=document.getElementById('er'+sid+cid+iid);
+  const amt=document.getElementById('ea'+sid+cid+iid);
+  const seg=document.getElementById('sg'+sid+cid+iid);
+  const wm=document.getElementById('wm'+sid+cid+iid);
+  if(row) row.classList.toggle('disabled',!s.on);
+  if(amt){ amt.textContent=s.on?fmt(v):'—'; amt.classList.toggle('off',!s.on); }
+  if(seg) seg.querySelectorAll('.sb').forEach((b,i)=>{ b.className='sb'+(s.lv===i?' a'+i:''); });
+  if(wm) wm.classList.toggle('visible',s.warned);
+}
+
+function updTots(sid,cid){
+  const sg=ST.find(s=>s.id===sid), c=sg.cats.find(x=>x.id===cid);
+  const cs=document.getElementById('cs'+sid+cid); if(cs)cs.textContent=fmt(catTot(sg,c))+'/mes';
+  const sn=document.getElementById('sn'+sid); if(sn)sn.textContent=fmt(stageTot(sg));
+  updOv(); updSum();
+}
+
+function updAllLvUI(){
+  ST.forEach(sg=>sg.cats.forEach(c=>c.items.forEach(it=>updItem(sg.id,c.id,it.id))));
+  ST.forEach(sg=>{
+    sg.cats.forEach(c=>{ const cs=document.getElementById('cs'+sg.id+c.id); if(cs)cs.textContent=fmt(catTot(sg,c))+'/mes'; });
+    const sn=document.getElementById('sn'+sg.id); if(sn)sn.textContent=fmt(stageTot(sg));
+  });
+  updOv(); updSum();
+}
+
+function updSum(){
+  const inc=parseInt(document.getElementById('inc').value)||0;
+  const mths=ST.map(s=>stageTot(s));
+  const tots=ST.map((s,i)=>mths[i]*s.dur);
+  const grand=tots.reduce((a,b)=>a+b,0);
+  const totDur=ST.reduce((a,s)=>a+s.dur,0);
+  const avg=grand/totDur;
+  const pi=mths.indexOf(Math.max(...mths));
+  document.getElementById('s-avg').textContent=fmt(avg);
+  document.getElementById('s-tot').textContent=fmt(grand);
+  document.getElementById('s-pik').textContent=fmt(mths[pi]);
+  document.getElementById('s-pik-nm').textContent=ST[pi].nm;
+  if(inc>0){
+    const r=(avg/inc)*100, cp=Math.min(r,100);
+    document.getElementById('ratio-row').style.display='flex';
+    document.getElementById('r-fill').style.width=cp+'%';
+    document.getElementById('r-txt').textContent=Math.round(r)+'%';
+    const rc=r<20?'#4ade80':r<35?'#fbbf24':'#f87171';
+    document.getElementById('r-txt').style.color=rc;
+  } else { document.getElementById('ratio-row').style.display='none'; }
+}
+
+function onIncome(){
+  const inc=parseInt(document.getElementById('inc').value)||0;
+  const lv=lvlFromInc(inc);
+  const badge=document.getElementById('lvl-badge');
+  const names=['Económico','Medio','Premium'], cls=['eco','mid','pre'];
+  const bd=document.getElementById('lvl-breakdown');
+
+  if(lv===null){
+    badge.className='lvl-badge none'; badge.textContent='Ingresá tu ingreso';
+    bd.classList.remove('visible');
+  } else {
+    badge.className='lvl-badge '+cls[lv];
+    badge.textContent='Nivel '+names[lv]+' sugerido';
+    bd.classList.add('visible');
+    // Update breakdown percentages
+    [0,1,2].forEach(i=>{
+      const pct=inc>0?Math.round(LVL_AVG[i]/inc*100):0;
+      const p=document.getElementById('lpct-'+i);
+      if(p){ p.textContent=inc>0?pct+'% ing.':'—'; p.className='lvl-row-pct '+pctClass(pct); }
+      const row=document.getElementById('lrow-'+i);
+      if(row) row.classList.toggle('active',i===lv);
+      const tag=row&&row.querySelector('.lvl-row-tag');
+      if(tag) tag.remove();
+      if(row&&i===lv){
+        const t=document.createElement('div'); t.className='lvl-row-tag';
+        t.textContent='← Sugerido para tu ingreso'; row.appendChild(t);
+      }
+    });
+
+    if(lv!==LVL){ LVL=lv; setAllLv(lv); updAllLvUI(); }
+  }
+  updSum();
+}
+
+/* INIT */
+initState();
+renderAll();
+</script>
+</body>
+</html>

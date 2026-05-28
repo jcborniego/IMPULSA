@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="theme-color" content="#5B2D8E">
+<title>Impulsa · Mi Ciclo — Trackeá tu ciclo menstrual con privacidad real</title>
+<meta name="description" content="App de seguimiento de ciclo menstrual con SVG ring, calendario y registro diario de síntomas. Notificaciones privadas. Parte del ecosistema Impulsa.">
+<link rel="canonical" href="https://juan-weld.vercel.app/ciclo-impulsa.html">
+<meta property="og:title" content="Impulsa · Mi Ciclo">
+<meta property="og:description" content="Trackeá tu ciclo menstrual con privacidad real. Parte del ecosistema Impulsa.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://juan-weld.vercel.app/ciclo-impulsa.html">
+<meta property="og:locale" content="es_AR">
+<meta property="og:image" content="https://juan-weld.vercel.app/hero-mujer.webp">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%235B2D8E'/%3E%3Cstop offset='1' stop-color='%23F5B83D'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='url(%23g)'/%3E%3Ctext x='32' y='44' text-anchor='middle' font-family='Georgia,serif' font-size='38' font-style='italic' fill='white'%3Ei%3C/text%3E%3C/svg%3E">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500;1,700&family=DM+Sans:wght@300;400;500;600&family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Nunito:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F8F5FC;--white:#FFF;--pri:#1A1130;--pur:#5B2D8E;--pur-l:#8B5CF6;
+  --pur-pale:#EDE6FB;--pur-xs:#F8F5FF;--txt-m:#4A3872;--txt-d:#9589BA;
+  --bdr:#DDD4F3;--bdr-sm:#EDE6FB;
+  --sh:0 2px 12px rgba(26,17,48,.07);--sh-md:0 6px 24px rgba(26,17,48,.11);
+  --c-mens:#F9A8D4;--c-fert:#A78BFA;--c-ovul:#5B2D8E;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{height:100%;background:#E0D8F5}
+/* ─── MOBILE BASE ─── */
+body{
+  font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--pri);
+  max-width:430px;margin:0 auto;height:100vh;
+  display:flex;flex-direction:column;overflow:hidden;
+  box-shadow:0 0 40px rgba(27,11,78,.18);
+}
+/* ─── DESKTOP ─── */
+@media(min-width:640px){
+  html{background:var(--bg)}
+  body{max-width:900px;height:100vh;flex-direction:column;box-shadow:none;border:1px solid var(--bdr)}
+  .app-body{flex-direction:row!important;overflow:hidden}
+  .panel-ring{
+    width:360px;flex-shrink:0;border-right:1px solid var(--bdr);
+    overflow-y:auto;display:block!important
+  }
+  .panel-ring.m-hidden{display:block!important}
+  .panel-content{display:flex!important;flex-direction:column;flex:1;overflow:hidden}
+  .dtabs{display:flex!important}
+  .btm-tabs{display:none!important}
+  .panel-content .tab-scroll{flex:1;overflow-y:auto}
+}
+/* HEADER */
+.app-hd{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:13px 20px 11px;background:var(--white);
+  border-bottom:1px solid var(--bdr);flex-shrink:0;z-index:10
+}
+.logo{font-size:15px;font-weight:600;color:var(--pri);display:flex;align-items:center;gap:5px}
+.logo-dot{width:6px;height:6px;background:var(--pur);border-radius:50%}
+.hd-title{font-size:13px;font-weight:500;color:var(--txt-m)}
+.ico-btn{width:32px;height:32px;border:none;background:var(--pur-pale);border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--pur);transition:background .2s}
+.ico-btn:hover{background:var(--bdr)}
+/* APP BODY */
+.app-body{display:flex;flex-direction:column;flex:1;overflow:hidden}
+/* ─── PANELS ─── */
+.panel-ring{overflow-y:auto;-webkit-overflow-scrolling:touch}
+.panel-ring.m-hidden{display:none}
+.panel-content{display:none;overflow:hidden;flex-direction:column}
+.panel-content.m-shown{display:flex!important;flex-direction:column;flex:1;overflow:hidden}
+.tab-scroll{overflow-y:auto;-webkit-overflow-scrolling:touch;flex:1;padding-bottom:80px}
+/* DESKTOP TABS (right panel top) */
+.dtabs{
+  display:none;
+  border-bottom:1px solid var(--bdr);background:var(--white);flex-shrink:0
+}
+.dtb{
+  padding:14px 20px;border:none;background:none;font-family:'DM Sans',sans-serif;
+  font-size:13px;font-weight:500;color:var(--txt-d);cursor:pointer;
+  border-bottom:2px solid transparent;transition:all .2s
+}
+.dtb.active{color:var(--pur);border-bottom-color:var(--pur);font-weight:600}
+/* BOTTOM TABS (mobile) */
+.btm-tabs{
+  display:flex;background:var(--white);border-top:1px solid var(--bdr);
+  padding:8px 0 12px;flex-shrink:0;z-index:10
+}
+.tb{
+  flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;
+  border:none;background:none;cursor:pointer;padding:4px 0;
+  font-family:'DM Sans',sans-serif;color:var(--txt-d);font-size:11px;font-weight:500;transition:color .2s
+}
+.tb.active{color:var(--pur)}
+/* ─── ONBOARDING ─── */
+.ob-ov{position:fixed;inset:0;background:var(--bg);z-index:200;display:flex;flex-direction:column;max-width:430px;margin:0 auto;overflow-y:auto}
+@media(min-width:640px){.ob-ov{max-width:900px;border:1px solid var(--bdr)}}
+.ob-top{padding:44px 28px 0;text-align:center;flex-shrink:0}
+.ob-logo{font-size:16px;font-weight:600;color:var(--pri);display:inline-flex;align-items:center;gap:5px;margin-bottom:28px}
+.ob-logo-dot{width:6px;height:6px;background:var(--pur);border-radius:50%}
+.ob-prog{display:flex;gap:8px;justify-content:center}
+.ob-pd{width:8px;height:8px;border-radius:4px;background:var(--bdr);transition:all .3s}
+.ob-pd.done{background:var(--pur);width:22px}
+.ob-pd.cur{background:var(--pur-l)}
+.ob-step{display:none;flex:1;flex-direction:column;padding:28px 28px 36px}
+.ob-step.active{display:flex}
+.ob-em{font-size:40px;margin-bottom:12px}
+.ob-h{font-family:'Playfair Display',serif;font-size:25px;font-weight:700;margin-bottom:8px;color:var(--pri);line-height:1.15}
+.ob-h em{font-style:italic;color:var(--pur)}
+.ob-sub{font-size:14px;color:var(--txt-m);margin-bottom:26px;line-height:1.55}
+.ob-lbl{font-size:11.5px;font-weight:600;color:var(--txt-d);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px}
+.ob-date{width:100%;padding:13px 16px;border:1.5px solid var(--bdr);border-radius:14px;background:var(--white);font-family:'DM Sans',sans-serif;font-size:16px;font-weight:500;color:var(--pri);margin-bottom:8px;outline:none;transition:border-color .2s;-webkit-appearance:none;appearance:none}
+.ob-date:focus{border-color:var(--pur)}
+.ob-chips{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:8px}
+.ob-chip{padding:10px 18px;border:1.5px solid var(--bdr);border-radius:24px;background:var(--white);font-size:13.5px;font-weight:500;color:var(--txt-m);cursor:pointer;transition:all .18s;user-select:none}
+.ob-chip.sel{background:var(--pur-pale);border-color:var(--pur);color:var(--pur);font-weight:600}
+.ob-hint{font-size:11.5px;color:var(--txt-d);margin-bottom:22px;line-height:1.5}
+.btn-pri{width:100%;padding:15px;background:var(--pri);color:white;border:none;border-radius:14px;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:600;cursor:pointer;transition:background .2s,transform .1s;margin-top:auto}
+.btn-pri:hover{background:var(--pur)}
+.btn-pri:active{transform:scale(.98)}
+.btn-pri:disabled{opacity:.4;cursor:not-allowed}
+/* ─── RING AREA ─── */
+.ring-inner{padding:16px 18px 8px}
+.ring-wrap{position:relative;width:260px;height:260px;margin:0 auto 14px}
+@media(min-width:640px){.ring-wrap{width:280px;height:280px}}
+.ring-svg{display:block;width:100%;height:100%}
+/* Center overlay — safe zone: R=115, today pill r=9
+   Clear inner radius = 115−9 = 106px on a 260px canvas (half=130) → left/right safe zone = 130−106=24px BUT
+   we pad more (50px) for comfortable reading */
+.ring-center{
+  position:absolute;inset:0;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:0 54px;pointer-events:none
+}
+.ring-date-lbl{font-size:11px;color:var(--txt-d);font-weight:500;margin-bottom:5px}
+.ring-badge{font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;padding:3px 10px;border-radius:20px;margin-bottom:7px;white-space:nowrap}
+.rb-mens{background:#FEE2E2;color:#9F1239}
+.rb-foll{background:var(--pur-pale);color:var(--pur)}
+.rb-fert{background:#EDE9FE;color:#6D28D9}
+.rb-ovul{background:var(--pur);color:white}
+.rb-lute{background:#F5F3FF;color:#5B21B6}
+.ring-main{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--pri);line-height:1.25;margin-bottom:5px}
+.ring-day{font-size:11px;color:var(--txt-d)}
+/* quick cards & buttons */
+.q-btn{
+  display:flex;align-items:center;gap:12px;padding:13px 15px;
+  background:var(--white);border:1.5px solid var(--bdr);border-radius:14px;
+  width:100%;cursor:pointer;text-align:left;margin-bottom:9px;
+  box-shadow:var(--sh);transition:border-color .2s,box-shadow .2s;font-family:inherit
+}
+.q-btn:hover{border-color:var(--pur);box-shadow:var(--sh-md)}
+.q-btn-icon{font-size:19px}
+.q-btn-body{flex:1}
+.q-btn-title{font-size:13.5px;font-weight:600;color:var(--pri)}
+.q-btn-sub{font-size:11.5px;color:var(--txt-d);margin-top:1px}
+.q-btn-arr{color:var(--pur);font-size:17px;font-weight:600}
+.reg-btn{
+  display:flex;align-items:center;justify-content:center;gap:7px;
+  padding:13px;background:linear-gradient(135deg,#FDA4AF,#F472B6);color:white;
+  border:none;border-radius:14px;width:100%;cursor:pointer;
+  font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;margin-bottom:9px;
+  transition:opacity .2s,transform .1s;box-shadow:0 4px 14px rgba(244,114,182,.28)
+}
+.reg-btn:hover{opacity:.9}
+.reg-btn:active{transform:scale(.98)}
+/* fertile callout */
+.fert-call{background:linear-gradient(135deg,#EDE9FE,#DDD4F3);border:1.5px solid var(--c-fert);border-radius:14px;padding:12px 14px;margin-bottom:9px;display:flex;align-items:flex-start;gap:10px}
+.fert-call-icon{font-size:20px;flex-shrink:0;margin-top:1px}
+.fert-call-txt h4{font-size:13px;font-weight:700;color:var(--pur);margin-bottom:3px}
+.fert-call-txt p{font-size:11.5px;color:var(--txt-m);line-height:1.45}
+/* info card */
+.info-card{background:var(--white);border:1px solid var(--bdr);border-radius:16px;padding:15px 17px;margin-bottom:9px;box-shadow:var(--sh)}
+.info-card-h{font-size:10.5px;font-weight:600;text-transform:uppercase;letter-spacing:.13em;color:var(--txt-d);margin-bottom:11px}
+.phase-row{display:flex;align-items:center;gap:9px;padding:5px 0;border-bottom:1px solid var(--bdr-sm)}
+.phase-row:last-child{border-bottom:none}
+.pr-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+.pr-nm{font-size:12.5px;font-weight:500;flex:1}
+.pr-dt{font-size:11.5px;color:var(--txt-d)}
+/* ─── CALENDAR ─── */
+.cal-wrap{padding:20px}
+.cal-hd{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+.cal-title{font-family:'Playfair Display',serif;font-size:19px;font-weight:700}
+.cal-nav{display:flex;gap:6px}
+.cal-nb{width:30px;height:30px;border:1.5px solid var(--bdr);border-radius:50%;background:var(--white);cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--pur);transition:all .2s;font-size:14px}
+.cal-nb:hover{background:var(--pur-pale);border-color:var(--pur)}
+.cal-dow{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;margin-bottom:4px}
+.cal-dow span{text-align:center;font-size:11px;font-weight:600;color:var(--txt-d);padding:3px 0}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px}
+.cd{aspect-ratio:1;display:flex;align-items:center;justify-content:center;border-radius:50%;font-size:12.5px;font-weight:500;cursor:pointer;position:relative;transition:all .15s;color:var(--pri)}
+.cd.empty{cursor:default;pointer-events:none}
+.cd.otm{color:var(--txt-d);opacity:.35}
+.cd.tod{box-shadow:0 0 0 2px var(--pur);font-weight:700}
+.cd.logged::after{content:'';position:absolute;bottom:2px;left:50%;transform:translateX(-50%);width:3px;height:3px;border-radius:50%;background:var(--pur)}
+.cd.fut{opacity:.5}
+.cd.p-mens{background:#FEE2E2;color:#9F1239}
+.cd.p-foll{background:var(--pur-pale)}
+.cd.p-fert{background:#EDE9FE;color:#6D28D9;font-weight:600}
+.cd.p-ovul{background:var(--pur);color:white;font-weight:700}
+.cd.p-lute{background:#F5F3FF}
+.cd:hover:not(.empty){background:var(--pur-pale)!important;color:var(--pur)!important}
+.cal-legend{display:flex;flex-wrap:wrap;gap:9px;margin-top:15px}
+.cl-item{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--txt-m)}
+.cl-dot{width:9px;height:9px;border-radius:3px;flex-shrink:0}
+/* ─── SEGUIMIENTO ─── */
+.seg-wrap{padding:20px}
+.seg-date-nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.seg-date-center{text-align:center}
+.seg-lbl{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--txt-d);margin-bottom:3px}
+.seg-title{font-family:'Playfair Display',serif;font-size:20px;font-weight:700}
+.seg-sec{background:var(--white);border:1px solid var(--bdr);border-radius:16px;padding:16px;margin-bottom:11px;box-shadow:var(--sh)}
+.seg-sec-h{font-size:10.5px;font-weight:600;text-transform:uppercase;letter-spacing:.13em;color:var(--txt-d);margin-bottom:12px}
+.chips{display:flex;flex-wrap:wrap;gap:7px}
+.chip{padding:7px 13px;border:1.5px solid var(--bdr);border-radius:20px;font-size:12.5px;font-weight:500;color:var(--txt-m);cursor:pointer;transition:all .15s;background:var(--white);user-select:none}
+.chip:hover{border-color:var(--pur-l)}
+.chip.on{background:var(--pur-pale);border-color:var(--pur);color:var(--pur);font-weight:600}
+.chip.mood-on{background:var(--pur);border-color:var(--pur);color:white}
+.flow-row{display:flex;gap:7px}
+.flow-b{flex:1;padding:9px 3px;border:1.5px solid var(--bdr);border-radius:12px;background:var(--white);font-family:'DM Sans',sans-serif;font-size:11.5px;font-weight:500;color:var(--txt-m);cursor:pointer;text-align:center;transition:all .15s}
+.flow-b.on{background:#FEE2E2;border-color:var(--c-mens);color:#9F1239;font-weight:600}
+.pt-row{display:flex;align-items:center;justify-content:space-between;padding:10px 0}
+.pt-lbl{font-size:13.5px;font-weight:500}
+.pt-sub{font-size:11.5px;color:var(--txt-d);margin-top:2px}
+.sw{position:relative;width:42px;height:23px;flex-shrink:0}
+.sw input{display:none}
+.sw-tk{position:absolute;inset:0;background:var(--bdr);border-radius:12px;cursor:pointer;transition:background .22s}
+.sw input:checked+.sw-tk{background:var(--c-mens)}
+.sw-tk::after{content:'';position:absolute;width:17px;height:17px;background:white;border-radius:50%;top:3px;left:3px;transition:transform .22s;box-shadow:0 1px 4px rgba(0,0,0,.12)}
+.sw input:checked+.sw-tk::after{transform:translateX(19px)}
+.temp-row{display:flex;align-items:center;gap:10px}
+.temp-inp{width:100px;padding:9px 12px;border:1.5px solid var(--bdr);border-radius:10px;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:500;color:var(--pri);background:var(--white);outline:none;transition:border-color .2s}
+.temp-inp:focus{border-color:var(--pur)}
+.temp-lbl{font-size:12px;color:var(--txt-d)}
+.notes-ta{width:100%;padding:11px 13px;border:1.5px solid var(--bdr);border-radius:12px;font-family:'DM Sans',sans-serif;font-size:13.5px;color:var(--pri);background:var(--white);outline:none;resize:none;transition:border-color .2s;min-height:65px}
+.notes-ta:focus{border-color:var(--pur)}
+.save-btn{width:100%;padding:14px;background:var(--pri);color:white;border:none;border-radius:14px;font-family:'DM Sans',sans-serif;font-size:14.5px;font-weight:600;cursor:pointer;transition:background .2s,transform .1s}
+.save-btn:hover{background:var(--pur)}
+.save-btn:active{transform:scale(.98)}
+.saved-msg{text-align:center;font-size:13px;color:var(--pur);font-weight:600;margin-top:8px;display:none}
+::-webkit-scrollbar{width:3px}
+::-webkit-scrollbar-thumb{background:var(--bdr);border-radius:2px}
+/* IMPULSA SHELL — barra de navegación de vuelta al sitio */
+.impulsa-shell{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 16px;height:48px;background:#fff;border-bottom:1px solid #ECE3F8;box-shadow:0 1px 2px rgba(26,17,48,.04);font-family:'Nunito',system-ui,-apple-system,sans-serif;font-size:13px;color:#1A1130}
+.impulsa-shell a{text-decoration:none}
+.impulsa-shell-back,.impulsa-shell-cta{display:inline-flex;align-items:center;gap:6px;padding:7px 12px;border-radius:999px;font-weight:700;font-size:12.5px;color:#4B3D6E;transition:background .2s,color .2s;min-height:32px}
+.impulsa-shell-back:hover{background:#ECE3F8;color:#5B2D8E}
+.impulsa-shell-cta{background:#1A1130;color:#fff}
+.impulsa-shell-cta:hover{background:#5B2D8E;color:#fff}
+.impulsa-shell-logo{font-family:'Fraunces','Playfair Display',serif;font-weight:500;font-size:17px;color:#5B2D8E;letter-spacing:-.02em;display:inline-flex;align-items:center;gap:4px}
+.impulsa-shell-dot{width:6px;height:6px;border-radius:50%;background:#F5B83D;display:inline-block}
+body{padding-top:48px}
+@media(max-width:420px){.impulsa-shell-back span,.impulsa-shell-cta span{display:none}.impulsa-shell-logo{font-size:15px}}
+</style>
+</head>
+<body>
+
+<!-- IMPULSA SHELL -->
+<header class="impulsa-shell" role="navigation" aria-label="Navegación Impulsa">
+  <a href="/#ecosistema" class="impulsa-shell-back" aria-label="Volver al sitio Impulsa">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    <span>Volver al sitio</span>
+  </a>
+  <a href="/" class="impulsa-shell-logo" aria-label="Impulsa">impulsa<span class="impulsa-shell-dot" aria-hidden="true"></span></a>
+  <a href="/#cta" class="impulsa-shell-cta">
+    <span>Diagnóstico</span>
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+  </a>
+</header>
+
+<!-- ONBOARDING -->
+<div class="ob-ov" id="ob-ov">
+  <div class="ob-top">
+    <div class="ob-logo">impulsa<span class="ob-logo-dot"></span></div>
+    <div class="ob-prog">
+      <div class="ob-pd cur" id="opd0"></div>
+      <div class="ob-pd" id="opd1"></div>
+      <div class="ob-pd" id="opd2"></div>
+    </div>
+  </div>
+  <div class="ob-step active" id="ob-s1">
+    <div style="height:20px"></div>
+    <div class="ob-em">🩸</div>
+    <h2 class="ob-h">¿Cuándo empezó tu <em>última menstruación?</em></h2>
+    <p class="ob-sub">El primer día de sangrado activo. Lo usamos para calcular tu ciclo.</p>
+    <div class="ob-lbl">Primer día</div>
+    <input type="date" class="ob-date" id="ob-lp" max="">
+    <p class="ob-hint">Si no recordás la fecha exacta, elegí una aproximada — el ciclo se va ajustando.</p>
+    <button class="btn-pri" id="ob-s1-btn" disabled onclick="obNext(1)">Continuar →</button>
+  </div>
+  <div class="ob-step" id="ob-s2">
+    <div class="ob-em">🗓️</div>
+    <h2 class="ob-h">¿Cada cuántos días te <em>viene?</em></h2>
+    <p class="ob-sub">Días entre el inicio de un período y el siguiente.</p>
+    <div class="ob-lbl">Duración del ciclo</div>
+    <div class="ob-chips" id="ob-cc">
+      <div class="ob-chip" data-v="21" onclick="selChip(this,'ob-cc','ob-cv')">21 días</div>
+      <div class="ob-chip" data-v="24" onclick="selChip(this,'ob-cc','ob-cv')">24 días</div>
+      <div class="ob-chip sel" data-v="28" onclick="selChip(this,'ob-cc','ob-cv')">28 días</div>
+      <div class="ob-chip" data-v="30" onclick="selChip(this,'ob-cc','ob-cv')">30 días</div>
+      <div class="ob-chip" data-v="32" onclick="selChip(this,'ob-cc','ob-cv')">32 días</div>
+      <div class="ob-chip" data-v="35" onclick="selChip(this,'ob-cc','ob-cv')">35 días</div>
+    </div>
+    <input type="hidden" id="ob-cv" value="28">
+    <p class="ob-hint">El promedio es 28 días, pero entre 21 y 35 es totalmente normal.</p>
+    <button class="btn-pri" onclick="obNext(2)">Continuar →</button>
+  </div>
+  <div class="ob-step" id="ob-s3">
+    <div class="ob-em">📅</div>
+    <h2 class="ob-h">¿Cuántos días <em>dura</em> tu menstruación?</h2>
+    <p class="ob-sub">Días con sangrado activo en promedio.</p>
+    <div class="ob-lbl">Duración del período</div>
+    <div class="ob-chips" id="ob-dc">
+      <div class="ob-chip" data-v="2" onclick="selChip(this,'ob-dc','ob-dv')">2 días</div>
+      <div class="ob-chip" data-v="3" onclick="selChip(this,'ob-dc','ob-dv')">3 días</div>
+      <div class="ob-chip" data-v="4" onclick="selChip(this,'ob-dc','ob-dv')">4 días</div>
+      <div class="ob-chip sel" data-v="5" onclick="selChip(this,'ob-dc','ob-dv')">5 días</div>
+      <div class="ob-chip" data-v="6" onclick="selChip(this,'ob-dc','ob-dv')">6 días</div>
+      <div class="ob-chip" data-v="7" onclick="selChip(this,'ob-dc','ob-dv')">7 días</div>
+    </div>
+    <input type="hidden" id="ob-dv" value="5">
+    <p class="ob-hint">Entre 2 y 7 días es lo habitual.</p>
+    <button class="btn-pri" onclick="obFinish()">Empezar mi seguimiento ✨</button>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="app-hd">
+  <div class="logo">impulsa<span class="logo-dot"></span></div>
+  <span class="hd-title" id="hd-title">Tu ciclo actual</span>
+  <button class="ico-btn" onclick="resetApp()" title="Reiniciar">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+  </button>
+</header>
+
+<!-- APP BODY (2-col desktop, stacked mobile) -->
+<div class="app-body" id="app-body">
+
+  <!-- LEFT / CICLO PANEL -->
+  <div class="panel-ring" id="panel-ring">
+    <div class="ring-inner">
+
+      <!-- SVG RING -->
+      <div class="ring-wrap">
+        <svg class="ring-svg" id="ring-svg" viewBox="0 0 260 260"></svg>
+        <div class="ring-center">
+          <div class="ring-date-lbl" id="ring-date-lbl"></div>
+          <div class="ring-badge rb-lute" id="ring-badge"></div>
+          <div class="ring-main" id="ring-main"></div>
+          <div class="ring-day" id="ring-day"></div>
+        </div>
+      </div>
+
+      <!-- fertile callout -->
+      <div class="fert-call" id="fert-call" style="display:none">
+        <div class="fert-call-icon">✨</div>
+        <div class="fert-call-txt">
+          <h4 id="fert-call-h"></h4>
+          <p id="fert-call-p"></p>
+        </div>
+      </div>
+
+      <!-- register period -->
+      <button class="reg-btn" id="reg-btn" onclick="registerPeriod()" style="display:none">
+        🩸&nbsp; Registrar inicio de período
+      </button>
+
+      <!-- quick log -->
+      <button class="q-btn" onclick="gotoSeg()">
+        <span class="q-btn-icon">😊</span>
+        <div class="q-btn-body">
+          <div class="q-btn-title">¿Cómo te sentís hoy?</div>
+          <div class="q-btn-sub" id="q-btn-sub">Registrá síntomas, estado de ánimo y más</div>
+        </div>
+        <span class="q-btn-arr">›</span>
+      </button>
+
+      <!-- phase info -->
+      <div class="info-card">
+        <div class="info-card-h">Fases de este ciclo</div>
+        <div id="phase-list"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT / CONTENT PANEL -->
+  <div class="panel-content" id="panel-content">
+
+    <!-- Desktop tab bar -->
+    <div class="dtabs" id="dtabs">
+      <button class="dtb active" id="dtb-calendario" onclick="showRTab('calendario')">Calendario</button>
+      <button class="dtb" id="dtb-seguimiento" onclick="showRTab('seguimiento')">Seguimiento</button>
+    </div>
+
+    <div class="tab-scroll">
+
+      <!-- CALENDARIO -->
+      <div id="rtab-calendario" class="rtab active">
+        <div class="cal-wrap">
+          <div class="cal-hd">
+            <div class="cal-title" id="cal-title"></div>
+            <div class="cal-nav">
+              <button class="cal-nb" onclick="calPrev()">‹</button>
+              <button class="cal-nb" onclick="calNext()">›</button>
+            </div>
+          </div>
+          <div class="cal-dow">
+            <span>Lun</span><span>Mar</span><span>Mié</span><span>Jue</span><span>Vie</span><span>Sáb</span><span>Dom</span>
+          </div>
+          <div class="cal-grid" id="cal-grid"></div>
+          <div class="cal-legend">
+            <div class="cl-item"><div class="cl-dot" style="background:#FDA4AF"></div>Menstruación</div>
+            <div class="cl-item"><div class="cl-dot" style="background:var(--pur-pale)"></div>Folicular</div>
+            <div class="cl-item"><div class="cl-dot" style="background:#A78BFA"></div>Fértil</div>
+            <div class="cl-item"><div class="cl-dot" style="background:var(--pur)"></div>Ovulación</div>
+            <div class="cl-item"><div class="cl-dot" style="background:#F5F3FF"></div>Lútea</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SEGUIMIENTO -->
+      <div id="rtab-seguimiento" class="rtab" style="display:none">
+        <div class="seg-wrap">
+          <div class="seg-date-nav">
+            <button class="cal-nb" onclick="segShift(-1)">‹</button>
+            <div class="seg-date-center">
+              <div class="seg-lbl" id="seg-lbl">HOY</div>
+              <div class="seg-title" id="seg-title"></div>
+            </div>
+            <button class="cal-nb" id="seg-next" onclick="segShift(1)">›</button>
+          </div>
+          <!-- period -->
+          <div class="seg-sec">
+            <div class="seg-sec-h">Estado del período</div>
+            <div class="pt-row">
+              <div><div class="pt-lbl">Inicio de período hoy</div><div class="pt-sub">Recalcula tu ciclo automáticamente</div></div>
+              <label class="sw"><input type="checkbox" id="sw-period" onchange="onPerToggle()"><span class="sw-tk"></span></label>
+            </div>
+            <div id="flow-sec" style="display:none;margin-top:8px">
+              <div class="seg-sec-h" style="margin-bottom:8px">Intensidad del flujo</div>
+              <div class="flow-row">
+                <button class="flow-b" data-v="ligero" onclick="selFlow(this)">Ligero</button>
+                <button class="flow-b" data-v="moderado" onclick="selFlow(this)">Moderado</button>
+                <button class="flow-b" data-v="abundante" onclick="selFlow(this)">Abundante</button>
+                <button class="flow-b" data-v="mucho" onclick="selFlow(this)">Muy abund.</button>
+              </div>
+            </div>
+          </div>
+          <!-- mood -->
+          <div class="seg-sec">
+            <div class="seg-sec-h">Estado de ánimo</div>
+            <div class="chips" id="mood-chips">
+              <div class="chip" data-v="energica" onclick="selMood(this)">⚡ Enérgica</div>
+              <div class="chip" data-v="tranquila" onclick="selMood(this)">😌 Tranquila</div>
+              <div class="chip" data-v="ansiosa" onclick="selMood(this)">😰 Ansiosa</div>
+              <div class="chip" data-v="irritable" onclick="selMood(this)">😤 Irritable</div>
+              <div class="chip" data-v="triste" onclick="selMood(this)">😢 Triste</div>
+              <div class="chip" data-v="feliz" onclick="selMood(this)">🌟 Feliz</div>
+              <div class="chip" data-v="cansada" onclick="selMood(this)">😴 Cansada</div>
+              <div class="chip" data-v="sensible" onclick="selMood(this)">🥺 Sensible</div>
+            </div>
+          </div>
+          <!-- síntomas -->
+          <div class="seg-sec">
+            <div class="seg-sec-h">Síntomas físicos</div>
+            <div class="chips" id="symp-chips">
+              <div class="chip" data-v="colicos" onclick="togChip(this)">Cólicos</div>
+              <div class="chip" data-v="hinchazon" onclick="togChip(this)">Hinchazón</div>
+              <div class="chip" data-v="cefalea" onclick="togChip(this)">Dolor de cabeza</div>
+              <div class="chip" data-v="nauseas" onclick="togChip(this)">Náuseas</div>
+              <div class="chip" data-v="acne" onclick="togChip(this)">Acné</div>
+              <div class="chip" data-v="senos" onclick="togChip(this)">Senos sensibles</div>
+              <div class="chip" data-v="libido-alta" onclick="togChip(this)">Libido alta</div>
+              <div class="chip" data-v="libido-baja" onclick="togChip(this)">Libido baja</div>
+              <div class="chip" data-v="fatiga" onclick="togChip(this)">Fatiga</div>
+              <div class="chip" data-v="insomnio" onclick="togChip(this)">Insomnio</div>
+              <div class="chip" data-v="manchado" onclick="togChip(this)">Manchado</div>
+              <div class="chip" data-v="flujo-claro" onclick="togChip(this)">Flujo claro</div>
+            </div>
+          </div>
+          <!-- temp -->
+          <div class="seg-sec">
+            <div class="seg-sec-h">Temperatura basal (opcional)</div>
+            <div class="temp-row">
+              <input type="number" class="temp-inp" id="temp-inp" placeholder="36.5" min="35" max="38" step="0.1">
+              <span class="temp-lbl">°C · Tomada al despertar</span>
+            </div>
+          </div>
+          <!-- notas -->
+          <div class="seg-sec">
+            <div class="seg-sec-h">Notas</div>
+            <textarea class="notes-ta" id="notes-ta" placeholder="Algo más que quieras recordar…"></textarea>
+          </div>
+          <button class="save-btn" onclick="saveLog()">Guardar registro</button>
+          <div class="saved-msg" id="saved-msg">✓ Registro guardado</div>
+        </div>
+      </div>
+
+    </div><!-- /tab-scroll -->
+  </div><!-- /panel-content -->
+
+</div><!-- /app-body -->
+
+<!-- MOBILE BOTTOM TABS -->
+<nav class="btm-tabs" id="btm-tabs">
+  <button class="tb active" id="tbn-ciclo" onclick="showMTab('ciclo')">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3v4M12 17v4M3 12h4M17 12h4"/></svg>
+    Ciclo
+  </button>
+  <button class="tb" id="tbn-calendario" onclick="showMTab('calendario')">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+    Calendario
+  </button>
+  <button class="tb" id="tbn-seguimiento" onclick="showMTab('seguimiento')">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+    Seguimiento
+  </button>
+</nav>
+
+<style>
+.rtab{display:none}
+.rtab.active{display:block}
+</style>
+
+<script>
+/* ════════════════════════════════════
+   STORAGE
+════════════════════════════════════ */
+const SK='impulsa_cycle_v2';
+const load=()=>{try{const r=localStorage.getItem(SK);return r?JSON.parse(r):null}catch{return null}};
+const save=s=>{try{localStorage.setItem(SK,JSON.stringify(s))}catch{}};
+let APP=load();
+
+/* ════════════════════════════════════
+   DATE UTILS
+════════════════════════════════════ */
+const today=()=>{const d=new Date();return new Date(d.getFullYear(),d.getMonth(),d.getDate())};
+const parseDate=s=>{const[y,m,d]=s.split('-').map(Number);return new Date(y,m-1,d)};
+const fmtDate=d=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+const addDays=(d,n)=>{const r=new Date(d);r.setDate(r.getDate()+n);return r};
+const diffDays=(a,b)=>Math.round((b-a)/864e5);
+const MONTHS=['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+const MONTHS_S=['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
+const fmtShort=d=>`${d.getDate()} ${MONTHS_S[d.getMonth()]}`;
+
+/* ════════════════════════════════════
+   CYCLE ENGINE
+════════════════════════════════════ */
+function getCycleInfo(){
+  if(!APP)return null;
+  const t=today(), last=parseDate(APP.lastPeriodDate), cl=APP.cycleLength, pd=APP.periodDuration;
+  let cs=new Date(last);
+  while(true){const nx=addDays(cs,cl);if(nx>t)break;cs=nx;}
+  const day=diffDays(cs,t)+1;
+  const nextPeriod=addDays(cs,cl);
+  const ovulDay=cl-14;
+  const ovulDate=addDays(cs,ovulDay-1);
+  const fertStart=addDays(ovulDate,-5);
+  const fertEnd=addDays(ovulDate,1);
+  const daysToNext=diffDays(t,nextPeriod);
+  let phase;
+  if(day<=pd)phase='mens';
+  else if(day<ovulDay-4)phase='foll';
+  else if(day<ovulDay)phase='fert';
+  else if(day===ovulDay)phase='ovul';
+  else phase='lute';
+  return{cs,day,cl,pd,nextPeriod,ovulDay,ovulDate,fertStart,fertEnd,daysToNext,phase};
+}
+
+function getPhaseForDate(date){
+  if(!APP)return null;
+  const last=parseDate(APP.lastPeriodDate),cl=APP.cycleLength,pd=APP.periodDuration;
+  const ovulDay=cl-14;
+  let cs=new Date(last);
+  while(cs>date)cs=addDays(cs,-cl);
+  while(true){const nx=addDays(cs,cl);if(nx>date)break;cs=nx;}
+  const day=diffDays(cs,date)+1;
+  if(day<1||day>cl)return null;
+  if(day<=pd)return'mens';
+  if(day<ovulDay-4)return'foll';
+  if(day<ovulDay)return'fert';
+  if(day===ovulDay)return'ovul';
+  return'lute';
+}
+
+/* ════════════════════════════════════
+   SVG RING — only 3 colored arcs:
+   menstruation (pink), fertile (violet), ovulation (dot)
+   rest = base ring color
+════════════════════════════════════ */
+const CX=130,CY=130,R=105,SW=14; // viewBox 260x260
+
+function xy(deg){
+  const r=deg*Math.PI/180;
+  return[CX+R*Math.sin(r),CY-R*Math.cos(r)];
+}
+
+function arc(s,e){
+  if(e-s>=359.9){
+    const[ax,ay]=xy(0.01),[bx,by]=xy(180);
+    return`M${ax.toFixed(2)} ${ay.toFixed(2)} A${R} ${R} 0 1 1 ${bx.toFixed(2)} ${by.toFixed(2)} A${R} ${R} 0 1 1 ${ax.toFixed(2)} ${ay.toFixed(2)}`;
+  }
+  const[x1,y1]=xy(s),[x2,y2]=xy(e);
+  return`M${x1.toFixed(2)} ${y1.toFixed(2)} A${R} ${R} 0 ${e-s>180?1:0} 1 ${x2.toFixed(2)} ${y2.toFixed(2)}`;
+}
+
+function dayAngle(day,cl){return((day-0.5)/cl)*360}
+function dayS(day,cl){return((day-1)/cl)*360}
+function dayE(day,cl){return(day/cl)*360}
+
+function renderRing(){
+  const svg=document.getElementById('ring-svg');
+  if(!APP){svg.innerHTML='';return;}
+  const ci=getCycleInfo();
+  const{cl,pd,ovulDay,day}=ci;
+  const G=0.8; // gap degrees
+  let h='';
+
+  // Defs (shadow)
+  h+=`<defs><filter id="ps"><feDropShadow dx="0" dy="1" stdDeviation="3" flood-color="rgba(27,11,78,.18)"/></filter></defs>`;
+
+  // Base ring — full circle, neutral
+  h+=`<circle cx="${CX}" cy="${CY}" r="${R}" fill="none" stroke="#E8E3F5" stroke-width="${SW}"/>`;
+
+  // ① Menstruation arc (days 1 → pd)
+  h+=`<path d="${arc(dayS(1,cl)+G, dayE(pd,cl)-G)}" fill="none" stroke="#F9A8D4" stroke-width="${SW}" stroke-linecap="round"/>`;
+
+  // ② Fertile window arc (ovulDay-5 → ovulDay-1)
+  const fertS=ovulDay-5, fertE=ovulDay-1;
+  if(fertE>=fertS)
+    h+=`<path d="${arc(dayS(fertS,cl)+G, dayE(fertE,cl)-G)}" fill="none" stroke="#A78BFA" stroke-width="${SW}" stroke-linecap="round"/>`;
+
+  // ③ Ovulation — thicker dot on ring
+  const ovA=dayAngle(ovulDay,cl);
+  const[ox,oy]=xy(ovA);
+  h+=`<circle cx="${ox.toFixed(2)}" cy="${oy.toFixed(2)}" r="${SW/2+3}" fill="#5B2D8E" stroke="white" stroke-width="2"/>`;
+
+  // Period-start marker at 0° (top) — small pink dot
+  const[tx,ty]=xy(0);
+  h+=`<circle cx="${tx.toFixed(2)}" cy="${ty.toFixed(2)}" r="5" fill="#F9A8D4" stroke="white" stroke-width="1.5"/>`;
+
+  // Today pill — white circle, no text (day shown in center text)
+  const todA=dayAngle(day,cl);
+  const[tdx,tdy]=xy(todA);
+  h+=`<circle cx="${tdx.toFixed(2)}" cy="${tdy.toFixed(2)}" r="9" fill="white" stroke="#5B2D8E" stroke-width="2.5" filter="url(#ps)"/>`;
+  // Small dot inside today pill
+  h+=`<circle cx="${tdx.toFixed(2)}" cy="${tdy.toFixed(2)}" r="3" fill="#5B2D8E"/>`;
+
+  svg.innerHTML=h;
+}
+
+function renderRingText(){
+  if(!APP)return;
+  const ci=getCycleInfo();
+  const t=today();
+  const{phase,day,cl,pd,daysToNext,ovulDate,fertStart,ovulDay}=ci;
+
+  // Date label
+  document.getElementById('ring-date-lbl').textContent=`Hoy, ${t.getDate()} de ${MONTHS[t.getMonth()]}`;
+
+  // Phase badge
+  const badge=document.getElementById('ring-badge');
+  const phN={mens:'Menstruación',foll:'Fase folicular',fert:'Ventana fértil',ovul:'Ovulación',lute:'Fase lútea'};
+  const phC={mens:'rb-mens',foll:'rb-foll',fert:'rb-fert',ovul:'rb-ovul',lute:'rb-lute'};
+  badge.textContent=phN[phase];
+  badge.className='ring-badge '+phC[phase];
+
+  // Main text (concise, 2 lines max)
+  const main=document.getElementById('ring-main');
+  const sub=document.getElementById('ring-day');
+  if(phase==='mens'){
+    main.textContent=`Día ${day} de período`;
+    sub.textContent=`Termina en aprox. ${pd-day+1} día${pd-day+1===1?'':'s'}`;
+  } else if(phase==='ovul'){
+    main.textContent='Día de ovulación';
+    sub.textContent='Tu día más fértil';
+  } else if(phase==='fert'){
+    const d=diffDays(t,ovulDate);
+    main.textContent=d===0?'Ovulás hoy':`Ovulás en ${d} día${d===1?'':'s'}`;
+    sub.textContent='Ventana fértil activa';
+  } else if(phase==='foll'){
+    const d=diffDays(t,fertStart);
+    main.textContent=d<=1?'Pronto: fértil':`${d} días para fértil`;
+    sub.textContent=`Día ${day} de ${cl}`;
+  } else {
+    if(daysToNext===0)main.textContent='Período hoy';
+    else if(daysToNext===1)main.textContent='Período mañana';
+    else main.textContent=`${daysToNext} días para\ntu período`;
+    sub.textContent=`Día ${day} de ${cl}`;
+  }
+
+  // Fertile callout
+  const fc=document.getElementById('fert-call');
+  if(phase==='fert'||phase==='ovul'){
+    fc.style.display='flex';
+    const d=diffDays(t,ovulDate);
+    if(phase==='ovul'){
+      document.getElementById('fert-call-h').textContent='🌟 Hoy es tu día de ovulación';
+      document.getElementById('fert-call-p').textContent='Tu día de máxima fertilidad. Clave si estás pensando en concebir.';
+    } else {
+      document.getElementById('fert-call-h').textContent=`Ventana fértil · Ovulás en ${d} día${d===1?'':'s'}`;
+      document.getElementById('fert-call-p').textContent='Estos son tus días de mayor fertilidad del ciclo.';
+    }
+  } else fc.style.display='none';
+
+  // Reg period button
+  const rb=document.getElementById('reg-btn');
+  rb.style.display=(daysToNext<=3||phase==='mens')?'flex':'none';
+
+  // Phase list
+  renderPhaseList(ci);
+
+  // Quick log subtitle
+  const key=fmtDate(t);
+  const hasLog=APP.logs&&APP.logs[key];
+  document.getElementById('q-btn-sub').textContent=hasLog?'✓ Ya registraste hoy · Toca para editar':'Registrá síntomas, estado de ánimo y más';
+}
+
+function renderPhaseList(ci){
+  const{cs,cl,pd,ovulDay}=ci;
+  const names=['Menstruación','Fase folicular','Ventana fértil','Ovulación','Fase lútea'];
+  const colors=['#F9A8D4','#DDD4F3','#A78BFA','#5B2D8E','#C4B5FD'];
+  const ranges=[[1,pd],[pd+1,ovulDay-6],[ovulDay-5,ovulDay-1],[ovulDay,ovulDay],[ovulDay+1,cl]];
+  let h='';
+  ranges.forEach((r,i)=>{
+    if(r[0]>r[1])return;
+    const sd=addDays(cs,r[0]-1),ed=addDays(cs,r[1]-1);
+    const dt=r[0]===r[1]?fmtShort(sd):`${fmtShort(sd)} – ${fmtShort(ed)}`;
+    h+=`<div class="phase-row"><div class="pr-dot" style="background:${colors[i]}"></div><div class="pr-nm">${names[i]}</div><div class="pr-dt">${dt}</div></div>`;
+  });
+  document.getElementById('phase-list').innerHTML=h;
+}
+
+/* ════════════════════════════════════
+   CALENDAR
+════════════════════════════════════ */
+let calY,calM;
+const MONTHS_FULL=['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+
+function initCal(){const t=today();calY=t.getFullYear();calM=t.getMonth();}
+function calPrev(){calM--;if(calM<0){calM=11;calY--;}renderCal();}
+function calNext(){calM++;if(calM>11){calM=0;calY++;}renderCal();}
+
+function renderCal(){
+  document.getElementById('cal-title').textContent=`${MONTHS_FULL[calM]} ${calY}`;
+  const t=today();
+  const first=new Date(calY,calM,1);
+  let dow=first.getDay();dow=dow===0?6:dow-1;
+  const dim=new Date(calY,calM+1,0).getDate();
+  let h='';
+  for(let i=0;i<dow;i++)h+='<div class="cd empty"></div>';
+  for(let d=1;d<=dim;d++){
+    const date=new Date(calY,calM,d);
+    const ds=fmtDate(date);
+    const isTod=ds===fmtDate(t);
+    const isFut=date>t;
+    const phase=APP?getPhaseForDate(date):null;
+    const hasLog=APP&&APP.logs&&APP.logs[ds];
+    let cls='cd';
+    if(isTod)cls+=' tod';
+    if(isFut)cls+=' fut';
+    if(hasLog)cls+=' logged';
+    if(phase)cls+=` p-${phase}`;
+    h+=`<div class="${cls}" onclick="calClick('${ds}')">${d}</div>`;
+  }
+  document.getElementById('cal-grid').innerHTML=h;
+}
+
+function calClick(ds){
+  segDate=parseDate(ds);
+  showRTab('seguimiento');
+  if(window.innerWidth<640)showMTab('seguimiento');
+  renderSegForm();
+}
+
+/* ════════════════════════════════════
+   SEGUIMIENTO
+════════════════════════════════════ */
+let segDate=today();
+
+function segShift(n){
+  segDate=addDays(segDate,n);
+  if(segDate>today())segDate=today();
+  renderSegForm();
+}
+
+function renderSegForm(){
+  const t=today();
+  const isT=fmtDate(segDate)===fmtDate(t);
+  const days=['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'];
+  document.getElementById('seg-lbl').textContent=isT?'HOY':days[segDate.getDay()].toUpperCase();
+  document.getElementById('seg-title').textContent=`${segDate.getDate()} de ${MONTHS[segDate.getMonth()]}`;
+  const sn=document.getElementById('seg-next');
+  sn.style.opacity=isT?'.3':'1';sn.style.pointerEvents=isT?'none':'auto';
+  const key=fmtDate(segDate);
+  const log=(APP&&APP.logs&&APP.logs[key])||{};
+  document.getElementById('sw-period').checked=!!log.periodStart;
+  document.getElementById('flow-sec').style.display=log.periodStart?'block':'none';
+  document.querySelectorAll('.flow-b').forEach(b=>b.classList.toggle('on',b.dataset.v===log.flow));
+  document.querySelectorAll('#mood-chips .chip').forEach(c=>{c.className='chip'+(c.dataset.v===log.mood?' mood-on':'');});
+  const sy=log.symptoms||[];
+  document.querySelectorAll('#symp-chips .chip').forEach(c=>{c.className='chip'+(sy.includes(c.dataset.v)?' on':'');});
+  document.getElementById('temp-inp').value=log.temp||'';
+  document.getElementById('notes-ta').value=log.notes||'';
+  document.getElementById('saved-msg').style.display='none';
+}
+
+function onPerToggle(){
+  document.getElementById('flow-sec').style.display=document.getElementById('sw-period').checked?'block':'none';
+}
+function selMood(el){document.querySelectorAll('#mood-chips .chip').forEach(c=>c.className='chip');el.className='chip mood-on';}
+function togChip(el){el.classList.toggle('on');}
+function selFlow(el){document.querySelectorAll('.flow-b').forEach(b=>b.classList.remove('on'));el.classList.add('on');}
+
+function saveLog(){
+  if(!APP)return;
+  const key=fmtDate(segDate);
+  if(!APP.logs)APP.logs={};
+  const ps=document.getElementById('sw-period').checked;
+  const flow=document.querySelector('.flow-b.on')?.dataset.v||null;
+  const mood=document.querySelector('#mood-chips .chip.mood-on')?.dataset.v||null;
+  const symptoms=Array.from(document.querySelectorAll('#symp-chips .chip.on')).map(c=>c.dataset.v);
+  const temp=document.getElementById('temp-inp').value||null;
+  const notes=document.getElementById('notes-ta').value||null;
+  APP.logs[key]={periodStart:ps,flow,mood,symptoms,temp:temp?parseFloat(temp):null,notes};
+  if(ps){APP.lastPeriodDate=key;renderRing();renderRingText();renderCal();}
+  save(APP);
+  const sm=document.getElementById('saved-msg');sm.style.display='block';
+  setTimeout(()=>sm.style.display='none',2500);
+  renderRingText();
+}
+
+function registerPeriod(){
+  if(!APP)return;
+  const key=fmtDate(today());
+  if(!APP.logs)APP.logs={};
+  if(!APP.logs[key])APP.logs[key]={};
+  APP.logs[key].periodStart=true;
+  APP.lastPeriodDate=key;
+  save(APP);
+  renderRing();renderRingText();renderCal();
+  const b=document.getElementById('reg-btn'),orig=b.innerHTML;
+  b.innerHTML='✓ &nbsp;¡Registrado!';
+  setTimeout(()=>b.innerHTML=orig,2000);
+}
+
+function gotoSeg(){
+  if(window.innerWidth>=640)showRTab('seguimiento');
+  else showMTab('seguimiento');
+  segDate=today();renderSegForm();
+}
+
+/* ════════════════════════════════════
+   NAVIGATION
+════════════════════════════════════ */
+function showMTab(name){
+  const ring=document.getElementById('panel-ring');
+  const content=document.getElementById('panel-content');
+  if(name==='ciclo'){
+    ring.classList.remove('m-hidden');
+    content.classList.remove('m-shown');
+  } else {
+    ring.classList.add('m-hidden');
+    content.classList.add('m-shown');
+    showRTab(name);
+  }
+  ['ciclo','calendario','seguimiento'].forEach(t=>{
+    document.getElementById('tbn-'+t)?.classList.toggle('active',t===name);
+  });
+}
+
+function showRTab(name){
+  document.querySelectorAll('.rtab').forEach(el=>{el.style.display='none';el.classList.remove('active');});
+  const el=document.getElementById('rtab-'+name);
+  if(el){el.style.display='block';el.classList.add('active');}
+  document.querySelectorAll('.dtb').forEach(b=>b.classList.remove('active'));
+  const db=document.getElementById('dtb-'+name);
+  if(db)db.classList.add('active');
+  if(name==='calendario')renderCal();
+  if(name==='seguimiento'){segDate=today();renderSegForm();}
+}
+
+/* ════════════════════════════════════
+   ONBOARDING
+════════════════════════════════════ */
+function obProgress(s){
+  [0,1,2].forEach(i=>{const el=document.getElementById('opd'+i);el.className='ob-pd'+(i<s?' done':i===s?' cur':'');});
+  ['ob-s1','ob-s2','ob-s3'].forEach((id,i)=>{document.getElementById(id).classList.toggle('active',i===s);});
+}
+function selChip(el,gId,vId){
+  document.getElementById(gId).querySelectorAll('.ob-chip').forEach(c=>c.classList.remove('sel'));
+  el.classList.add('sel');document.getElementById(vId).value=el.dataset.v;
+}
+function obNext(s){obProgress(s);}
+function obFinish(){
+  const lp=document.getElementById('ob-lp').value;
+  const cl=parseInt(document.getElementById('ob-cv').value);
+  const pd=parseInt(document.getElementById('ob-dv').value);
+  APP={lastPeriodDate:lp,cycleLength:cl,periodDuration:pd,logs:{}};
+  save(APP);
+  document.getElementById('ob-ov').style.display='none';
+  initApp();
+}
+
+document.getElementById('ob-lp').max=fmtDate(today());
+document.getElementById('ob-lp').addEventListener('input',function(){
+  document.getElementById('ob-s1-btn').disabled=!this.value;
+});
+
+function resetApp(){
+  if(confirm('¿Reiniciar el tracker? Se borrarán todos los datos guardados.')){
+    localStorage.removeItem(SK);APP=null;
+    document.getElementById('ob-ov').style.display='flex';
+    obProgress(0);
+  }
+}
+
+/* ════════════════════════════════════
+   INIT
+════════════════════════════════════ */
+function initApp(){
+  if(!APP)return;
+  initCal();
+  renderRing();
+  renderRingText();
+  renderCal();
+  renderSegForm();
+  // On desktop: show content panel + init right tab
+  if(window.innerWidth>=640){
+    document.getElementById('panel-content').classList.add('m-shown');
+    showRTab('calendario');
+  }
+}
+
+if(APP){
+  document.getElementById('ob-ov').style.display='none';
+  initApp();
+} else {
+  obProgress(0);
+}
+</script>
+</body>
+</html>
