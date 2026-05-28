@@ -150,7 +150,7 @@
           "tipo": "app",
           "estado": "disponible",
           "cta": "Abrir simulador",
-          "url": "/simulador-impulsa.html"
+          "url": "simulador-impulsa.html"
         },
         {
           "id": "sesion_1a1_fin",
@@ -407,7 +407,7 @@
           "tipo": "app",
           "estado": "disponible",
           "cta": "Abrir app",
-          "url": "/ciclo-impulsa.html"
+          "url": "ciclo-impulsa.html"
         },
         {
           "id": "biblioteca_ciclo",
