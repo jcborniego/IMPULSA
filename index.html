@@ -1413,17 +1413,17 @@
       box-shadow: -12px 0 40px -8px rgba(26,17,48,.25);
       overflow-y: auto;
       display: flex; flex-direction: column;
-      animation: drawerSlideIn .42s var(--ease-spring);
+      animation: drawerSlideIn .42s var(--ease-spring) both;
       --accent: var(--purple-500);
       --accent-bg: var(--purple-100);
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
-      backface-visibility: hidden;
-      -webkit-backface-visibility: hidden;
+      transform: translateZ(0);
+      will-change: auto;
     }
     @keyframes drawerSlideIn {
       from { transform: translate3d(40px, 0, 0); opacity: .6; }
-      to   { transform: translate3d(0, 0, 0); opacity: 1; }
+      to   { transform: translateZ(0); opacity: 1; }
     }
     .eco-drawer-close {
       position: absolute; top: 16px; right: 16px;
