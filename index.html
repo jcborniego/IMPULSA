@@ -1400,15 +1400,12 @@
     }
     .eco-drawer.is-open { display: block; }
     .eco-drawer-backdrop {
-      position: fixed; inset: 0;
-      background: rgba(26,17,48,.45);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
+      position: absolute; inset: 0;
+      background: rgba(26,17,48,.55);
       animation: fadeIn .25s var(--ease-out);
-      z-index: 151;
     }
     .eco-drawer-panel {
-      position: fixed; top: 0; right: 0; bottom: 0;
+      position: absolute; top: 0; right: 0; bottom: 0;
       width: 100%; max-width: 540px;
       background: var(--white);
       box-shadow: -12px 0 40px -8px rgba(26,17,48,.25);
@@ -1417,7 +1414,6 @@
       animation: drawerSlideIn .42s var(--ease-spring);
       --accent: var(--purple-500);
       --accent-bg: var(--purple-100);
-      z-index: 152;
     }
     @keyframes drawerSlideIn {
       from { transform: translateX(40px); opacity: .6; }
