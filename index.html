@@ -1732,6 +1732,7 @@
       overflow: hidden;
       border: 1px solid rgba(91,45,142,.14);
       min-height: 130px;
+      width: 100%;
     }
     .eco-cal-head {
       background: var(--purple-500,#5B2D8E);
@@ -1769,8 +1770,9 @@
     }
     .eco-cal-pill:hover { opacity:.82; transform:translateY(-1px); }
     .eco-cal-pill-title {
-      font-size:.6rem; font-weight:700; color:white; line-height:1.25;
+      font-size:.58rem; font-weight:700; color:white; line-height:1.2;
       display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;
+      word-break:break-word;
     }
     .eco-cal-pill-time { font-size:.57rem; color:rgba(255,255,255,.8); margin-top:1px; }
     .eco-cal-pill.col-online    { background: var(--purple-500,#5B2D8E); }
@@ -1864,7 +1866,7 @@
     .eco-ev-rsvp:hover { background:#4a2275; transform:translateY(-1px); }
     .eco-ev-rsvp.is-confirmed { background:#2F7F66; }
     .eco-ev-rsvp.is-confirmed:hover { background:#236b54; }
-    .eco-ev-panel-wrap { position:relative; }
+
   </style>
 </head>
 <body>
@@ -2249,7 +2251,7 @@
   <!-- ============================== ECO DRAWER ============================== -->
   <aside class="eco-drawer" id="ecoDrawer" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="ecoDrawerTitle">
     <div class="eco-drawer-backdrop" data-close-drawer></div>
-    <div class="eco-drawer-panel eco-ev-panel-wrap" id="ecoDrawerPanel">
+    <div class="eco-drawer-panel" id="ecoDrawerPanel">
       <button type="button" class="eco-drawer-close" data-close-drawer aria-label="Cerrar">×</button>
       <header class="eco-drawer-head">
         <span class="eco-drawer-eyebrow">El ecosistema</span>
